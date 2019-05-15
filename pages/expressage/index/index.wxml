@@ -1,0 +1,24 @@
+<!--pages/expressage/index/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">菜鸟快递代取</view>
+</cu-custom>
+<video class="video" src="http://ykugc.cp31.ott.cibntv.net/6773EDA69B630713603A325CC/03000A02015C3156A1BA27E5304BCA6160D784-0434-4398-8565-F660080F9C75.mp4?ccode=050F&duration=266&expire=18000&psid=dce63b08994350a991217a5a7c6a042a&ups_client_netip=ddee872a&ups_ts=1556202729&ups_userid=&utid=O5YgFRUUyE8CAXuXAIyfS4ku&vid=XMzk5OTAzNDI3Mg%3D%3D&vkey=Ae73addbc7c3f8dc5d2cbaa69fe442cea&sp=" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}"  initial-time="0" objectFit="cover"></video>
+<view class="cu-bar solid-bottom" wx:for="{{notice}}" wx:key>
+  <view class="action">
+    <text class="icon-titles text-orange"></text>
+    <text>{{item}}</text>
+  </view>
+</view>
+<view class="nav-list margin-top-xl">
+    <navigator open-type="navigate" hover-class='none' url="/pages/expressage/placeorder/placeorder" class="nav-li bg-blue">
+      <view class="nav-title">代取下单</view>
+      <view class="nav-name">placeorder</view>
+      <text class='icon-write'></text>
+    </navigator>
+    <navigator open-type="navigate" hover-class='none' url="" class="nav-li bg-cyan">
+      <view class="nav-title">订单查询</view>
+      <view class="nav-name">inquireorder</view>
+      <text class='icon-text'></text>
+    </navigator>
+</view>

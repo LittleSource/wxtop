@@ -1,0 +1,8 @@
+/* components/school-select/school-select.wxss */
+.school-card{
+    padding: 20rpx 30rpx;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.padding-xxl {
+	padding: 60rpx;
+}

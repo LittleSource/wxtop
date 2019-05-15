@@ -1,0 +1,26 @@
+/* pages/common/login/login.wxss */
+page{
+    background-color: #fff;
+}
+.logo{
+    text-align:center;
+    margin-top:38%
+}
+.logo image{
+    border-radius: 25rpx;
+    overflow: hidden;
+    width:150rpx;
+    height:150rpx;
+    box-shadow: 10rpx 10rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+.logo .text{
+    color: #7a7a7a;
+    font-weight: bold;
+    font-size: 34rpx;
+}
+.margin-top-maxlg{
+    margin-top: 16%;
+}
+.cu-btn{
+    height: 85rpx
+}

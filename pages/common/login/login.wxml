@@ -1,0 +1,10 @@
+<!--pages/common/login/login.wxml-->
+<view style='width:100%;'>
+  <view class='logo'>
+    <image src='https://topschool-1258938920.cos.ap-beijing.myqcloud.com/logo200.png'></image>
+    <view class='text margin-top'>TOPS校园</view>
+    <view class="padding flex flex-direction margin-top-maxlg">
+      <button class='cu-btn bg-green' open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo'>微信登录</button> 
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "school-select": "/components/school-select/school-select"
+    }
+}

@@ -1,0 +1,33 @@
+<!--pages/confession/index/index.wxml-->
+<view>
+<view class="cu-card dynamic" wx:for="{{cardsList}}" wx:key="{{index}}">
+	<view class="cu-item shadow" data-cid='{{item.article_id}}' bindtap='goDetail'>
+		<view class="cu-list menu-avatar">
+			<view class="cu-item">
+				<view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+				<view class="content flex-sub">
+					<view>{{item.user_name}}</view>
+					<view class="text-gray text-sm flex justify-between">
+						{{item.release_time}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="text-content">
+			{{item.content}}
+		</view>
+		<view wx:if="{{item.images_list.length > 0}}" class="grid flex-sub padding-lr col-{{item.images_list.length < 2 ? 1 : 2}} grid-square">
+			<view wx:for="{{item.images_list}}" wx:for-item="img" wx:for-index="imgIndex" wx:key="{{imgIndex}}" class="bg-img" wx:if="{{imgIndex <= 1}}" style="background-image:url({{img}});">
+      <view wx:if="{{item.images_list.length > 2 && imgIndex == 1}}" class="bg-shadeTop padding padding-bottom-xl text-center text-sl">
+        +{{item.images_list.length-2}}
+      </view>
+      </view>
+		</view>
+		<view class="text-gray text-sm text-right padding {{item.images_list.length > 2 ? 'margin-top--xs' : 'margin-top-xs'}}">
+    	<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.thumbs_up}}
+			<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.reading_volume}}
+		</view>
+  </view>
+</view>
+<view wx:if="{{loadingShow}}" class="cu-load {{loadingStyle[loadingIndex]}}">{{loadingIndex == 0 ? '加载中...' : ''}}</view>
+</view>

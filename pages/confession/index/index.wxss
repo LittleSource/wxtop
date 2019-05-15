@@ -1,0 +1,13 @@
+/* pages/confession/index/index.wxss */
+.grid-square{
+  height: 380rpx;
+}
+.cu-card>.cu-item{
+  margin-bottom: 0;
+}
+.bg-shadeTop{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.01));
+}
+.margin-top--xs {
+	padding-top: -20rpx;
+}

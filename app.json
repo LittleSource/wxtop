@@ -1,0 +1,40 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/expressage/index/index",
+        "pages/expressage/placeorder/placeorder",
+        "pages/expressage/inquireorder/inquireorder",
+        "pages/confession/index/index",
+        "pages/mine/index/index",
+        "pages/confession/detail/detail",
+        "pages/common/login/login"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于定位您所在的学校"
+        }
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "TOPS校园",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabbar/basics.png",
+                "selectedIconPath": "images/tabbar/basics_cur.png"
+            },
+            {
+                "pagePath": "pages/mine/index/index",
+                "text": "我的",
+                "iconPath": "images/tabbar/plugin.png",
+                "selectedIconPath": "images/tabbar/plugin_cur.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

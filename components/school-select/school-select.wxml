@@ -1,0 +1,12 @@
+<!--components/school-select/school-select.wxml-->
+<view class="cu-modal drawer-modal justify-start {{isShow?'show':''}}" bindtap="_hideModal">
+    <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+        <scroll-view scroll-y style="height: {{scrollHeight}}px;">
+            <view class="school-card" wx:for="{{schoolData}}" wx:key>
+                <view class="padding-xxl radius shadow-blur bg-black margin-top bg-img" style="background-image:url({{item.image}});" bindtap="_setSchool" data-id="{{item.id}}">
+                    <view class="nav text-center text-df">{{item.title}}</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

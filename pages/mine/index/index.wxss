@@ -1,0 +1,15 @@
+/* pages/mine/index/index.wxss */
+.UCenter-bg {
+  background-image: url(http://icloud.9ykm.cn/app/user-bg.jpg);
+  background-size: cover;
+  height: 380rpx;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+.cu-list.menu-avatar>.cu-item {
+  background-color: transparent;
+}
+.cu-list.menu-avatar>.cu-item .content{
+  left: 180rpx;
+  line-height: 1.9em;
+}

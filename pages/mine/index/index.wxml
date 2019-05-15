@@ -1,0 +1,66 @@
+<!--pages/mine/index/index.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <view class="cu-list menu-avatar" bindtap='goUserSetting'>
+      <view class="cu-item" style='margin-top:{{StatusBar+30}}px'>
+        <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/common/notLoginAvatar.png'}});"></view>
+        <view class="content">
+          <view class="text-white">{{userInfo ? userInfo.nickName : '点此登录'}}</view>
+          <view class="text-white flex">
+            <text class="{{userInfo ? 'cuIcon-roundcheckfill text-green' : 'cuIcon-roundclosefill text-red'}} margin-right-xs"></text>
+            <text class="text-cut">{{userInfo ? '已登录' : '未登录'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx'>
+    <view class="cu-item" wx:for="{{4}}">
+      <view class="cuIcon-paint text-green">
+        <view class="cu-tag badge">
+          <block>99</block>
+        </view>
+        <text style='line-height:20rpx'>666</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">关于源梦科技</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">日志</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">Bug测试</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

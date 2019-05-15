@@ -1,0 +1,59 @@
+<!--pages/expressage/placeorder/placeorder.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">快递代取下单</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">基础信息</text>
+      <text class="bg-green" style="width:4rem"></text>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">姓名:</view>
+    <input value='{{name}}' name="name" placeholder="请输入姓名"></input>
+    <text class="icon-locationfill text-blue" bindtap='openAddress'></text>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">手机号:</view>
+    <input value='{{phone}}' name="phone" placeholder="请输入手机号"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">宿舍号:</view>
+    <input name="dorNo" placeholder="请按格式填写，例:8-322-1"></input>
+  </view>
+  <view class="cu-bar bg-white margin-top">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">快件信息</text>
+      <text class="bg-green" style="width:4rem"></text>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">取货码:</view>
+    <input name="code" placeholder="请输入取货码"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">快递规格:</view>
+      <picker bindchange="typeChange" name="type" value="{{type[index]}}" range="{{type}}">
+      <view class="picker">
+        {{type[index]}}
+      </view>
+    </picker>
+  </view>
+  <view class="bg-white solid-top padding-sm text-center text-xl">
+    <text class="text-price"> 订单金额 {{price}} 元</text>
+  </view>
+  <view class="cu-bar bg-white margin-top">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">备注信息</text>
+      <text class="bg-green" style="width:4rem"></text>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <textarea name="remark" placeholder="没有可留空" maxlength="200" auto-height></textarea>
+  </view>
+  <view class="padding flex flex-direction">
+    <button form-type="submit" class="cu-btn bg-green lg shadow">提交订单</button>
+  </view>
+</form>

@@ -1,0 +1,8 @@
+/* pages/expressage/index/index.wxss */
+page { 
+  background-color: #FFFFFF; 
+}
+.video{
+  width: 100%;
+  height: 200px;
+}

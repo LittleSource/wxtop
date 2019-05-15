@@ -5,9 +5,10 @@
         "pages/expressage/placeorder/placeorder",
         "pages/expressage/inquireorder/inquireorder",
         "pages/confession/index/index",
-        "pages/mine/index/index",
         "pages/confession/detail/detail",
-        "pages/common/login/login"
+        "pages/mine/index/index",
+        "pages/common/login/login",
+        "pages/market/index/index"
     ],
     "permission": {
         "scope.userLocation": {

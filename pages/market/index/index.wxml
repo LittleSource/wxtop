@@ -1,0 +1,23 @@
+<!--pages/market/index/index.wxml-->
+<view class="box">
+    <view class="cu-list menu-avatar margin-top">
+        <view class="cu-item">
+            <view class="cu-avatar radius xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
+            <view class="content">
+                <view>
+                    <text class="text-cut">瓦罗兰大陆</text>
+                    <view class="cu-tag round bg-orange sm">营业中</view>
+                </view>
+                <view class="text-gray text-df flex">
+                    <text class="cuIcon-sound text-cut"> 伊泽瑞尔：</text>
+                </view>
+                <view class="text-gray text-df flex">
+                    <text class="cuIcon-locationfill text-orange">电子 4号楼</text>
+                </view>
+            </view>
+            <view class="action">
+                <button class='cu-btn bg-gradual-market shadow-blur radius'>进店</button>
+            </view>
+        </view>
+    </view>
+</view>

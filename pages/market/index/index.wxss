@@ -1,0 +1,23 @@
+/* pages/market/index/index.wxss */
+.cu-list.menu-avatar>.cu-item .content {
+	left: 190rpx;
+	line-height: 2.0em;
+}
+.cu-list.menu-avatar>.cu-item .content>view:first-child {
+	font-size: 34rpx;
+}
+.cu-list.menu-avatar>.cu-item {
+	height: 180rpx;
+}
+.cu-avatar.xl {
+	width: 150rpx;
+	height: 150rpx;
+	font-size: 2.5em;
+}
+.cu-list.menu-avatar>.cu-item .action {
+	width: 130rpx;
+}
+.bg-gradual-market{
+    background-image:linear-gradient(45deg, #ff9700, #ed1c24);
+    color: #fff;
+}

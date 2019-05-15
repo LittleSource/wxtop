@@ -12,17 +12,18 @@ App({
                 this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
             }
         })
-        
+        //尝试获取登陆Storage
+        const userInfo = wx.getStorageSync('userInfo')
+        if (userInfo) {
+            this.globalData.userInfo = userInfo
+        }
     },
     globalData: {
         serviceSrc: 'https://apii.ym998.cn/',
-        hasLogin: false,
         userInfo: null,
         school: {
             id:0,
-            title:'定位中...',
-            name:'',
-            image:''
+            title:'定位中...'
         }
     },
     graceRequest: graceRequest

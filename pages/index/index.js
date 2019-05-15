@@ -36,7 +36,8 @@ Page({
         },{
             icon: 'cartfill',
             color: 'blue',
-            name: '逛超市'
+            name: '逛超市',
+            url: '/pages/market/index/index'
         }, {
             icon: 'deliver_fill',
             color: 'olive',

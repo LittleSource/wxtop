@@ -17,11 +17,16 @@ Page({
 
     bindGetUserInfo: function (e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
-            getApp().globalData.userInfo = e.detail.userInfo
             //请求后端
             console.log(e.detail.rawData)
             console.log(e.detail.signature)
             console.log(e.detail.iv)
+            
+            getApp().globalData.userInfo = e.detail.userInfo
+            wx.setStorage({
+                key: 'userInfo',
+                data: e.detail.userInfo
+            })
             wx.navigateBack()
         } else {
             wx.showToast({

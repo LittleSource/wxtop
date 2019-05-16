@@ -8,7 +8,8 @@
         "pages/confession/detail/detail",
         "pages/mine/index/index",
         "pages/common/login/login",
-        "pages/market/index/index"
+        "pages/market/index/index",
+        "pages/market/detail/detail"
     ],
     "permission": {
         "scope.userLocation": {

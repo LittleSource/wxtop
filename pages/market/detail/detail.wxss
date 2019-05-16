@@ -1,0 +1,74 @@
+/* pages/market/detail/detail.wxss */
+.market-card{
+    height: 150rpx;
+    color: white;
+}
+.toptext-margin{
+    margin-left: 8rpx;
+}
+.market-card>.cu-list.menu-avatar>.cu-item{
+    background-image: linear-gradient(45deg, #333333, #333333);
+}
+.market-card>.cu-list.menu-avatar>.cu-item .content {
+	left: 165rpx;
+}
+.market-card>.cu-list.menu-avatar>.cu-item>.cu-avatar {
+    top:5rpx;
+	left: 15rpx;
+}
+.market-card>.cu-list.menu-avatar>.cu-item .content>view:first-child {
+	font-size: 34rpx;
+}
+.market-card>.cu-list.menu-avatar>.cu-item .content>.text-df{
+    line-height: 1.5em;
+}
+.market-card>.cu-list.menu-avatar>.cu-item .content>view:second-child {
+	line-height: 1.5em;
+}
+.market-card>.cu-list.menu-avatar>.cu-item {
+	height: 150rpx;
+}
+.market-card>.cu-avatar.xl {
+	width: 120rpx;
+	height: 120rpx;
+	font-size: 2.5em;
+}
+.market-card>.cu-list.menu-avatar>.cu-item .action {
+	width: 130rpx;
+}
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}

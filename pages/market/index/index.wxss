@@ -1,13 +1,30 @@
 /* pages/market/index/index.wxss */
+.cu-list.menu-avatar>.cu-item{
+	border-bottom:1px solid rgba(0, 0, 0, .1);
+}
 .cu-list.menu-avatar>.cu-item .content {
 	left: 190rpx;
-	line-height: 2.0em;
+}
+.cu-list.menu-avatar>.cu-item>.cu-avatar {
+    top:18rpx;
+	left: 20rpx;
+}
+.cu-tag.xs {
+	font-size: 23rpx;
+	padding: 0rpx 10rpx;
+	height: 35rpx;
 }
 .cu-list.menu-avatar>.cu-item .content>view:first-child {
 	font-size: 34rpx;
 }
+.cu-list.menu-avatar>.cu-item .content>.text-df{
+    line-height: 1.8em;
+}
+.cu-list.menu-avatar>.cu-item .content>view:second-child {
+	line-height: 1.5em;
+}
 .cu-list.menu-avatar>.cu-item {
-	height: 180rpx;
+	height: 200rpx;
 }
 .cu-avatar.xl {
 	width: 150rpx;

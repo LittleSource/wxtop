@@ -1,4 +1,13 @@
 <!--pages/market/detail/detail.wxml-->
+<!--顶部状态条-->
+<view class='custom-bar' style='height:{{CustomBar}}px;'>
+    <text class='text-white text-xl' style='line-height:{{CustomBar + StatusBar}}px;'>瓦罗兰大陆</text>
+    <view class="canui-head-box" style="top:{{StatusBar+5}}px;">
+        <view class='cuIcon-back' bindtap='goBack'></view>
+        <view class='cuIcon-home' bindtap='goHome'></view>
+    </view>
+</view>
+<!--超市信息卡片-->
 <view class='market-card'>
     <view class="cu-list menu-avatar">
         <view class="cu-item">
@@ -19,14 +28,15 @@
         </view>
     </view>
 </view>
+<!--滚动商品选择-->
 <view class="VerticalBox">
-    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 250rpx)">
+    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:{{scrollHeight}}px">
         <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
             Tab-{{item.name}}
         </view>
     </scroll-view>
-    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 250rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-        <view class="padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:{{scrollHeight}}px" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+        <view class="padding-lr margin-bottom" wx:for="{{list}}" wx:key id="main-{{index}}">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
                     <text class='cuIcon-title text-green'></text> Tab-{{item.name}} </view>
@@ -42,9 +52,14 @@
                             </text>
                         </view>
                     </view>
+                    <view class="action" bindtap='addBtn'>
+                        <view class="cuIcon-roundadd"></view>
+                    </view>
                     <view class="action">
-                        <view class="text-grey text-xs">22:20</view>
-                        <view class="cu-tag round bg-grey sm">5</view>
+                        5
+                    </view>
+                    <view class="action" bindtap='addBtn'>
+                        <view class="cuIcon-roundadd"></view>
                     </view>
                 </view>
                 <view class="cu-item grayscale">
@@ -59,14 +74,11 @@
                         </view>
                     </view>
                     <view class="action">
-                        <view class="text-grey text-xs">22:20</view>
-                        <view class="cu-tag round bg-red sm">5</view>
+                        <view class="cuIcon-roundadd"></view>
                     </view>
                 </view>
                 <view class="cu-item cur">
-                    <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);">
-                        <view class="cu-tag badge"></view>
-                    </view>
+                    <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
                     <view class="content">
                         <view>
                             <text class="text-cut">瓦罗兰大陆-睡衣守护者-新手保护营</text>
@@ -77,25 +89,24 @@
                         </view>
                     </view>
                     <view class="action">
-                        <view class="text-grey text-xs">22:20</view>
-                        <view class="cuIcon-notice_forbid_fill text-gray"></view>
+                        <view class="cuIcon-roundadd"></view>
                     </view>
                 </view>
-                <view style='height:20rpx'></view>
             </view>
         </view>
     </scroll-view>
 </view>
+<!--底部功能菜单-->
 <view class="cu-bar bg-white tabbar border shop">
     <view class="action">
         <view class="cuIcon-notice text-grey"></view>举报
     </view>
-    <view class="action">
+    <view class="action" bindtap='callKefu'>
         <view class="cuIcon-service text-green"></view>客服
     </view>
     <view class="action">
         <view class="cuIcon-cart text-orange">
-            <view class="cu-tag badge">99</view>
+            <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>
         </view>
         购物车
     </view>

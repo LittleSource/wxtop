@@ -3,7 +3,11 @@
   <view slot="backText">返回</view>
   <view slot="content">菜鸟快递代取</view>
 </cu-custom>
-<video class="video" src="http://ykugc.cp31.ott.cibntv.net/6773EDA69B630713603A325CC/03000A02015C3156A1BA27E5304BCA6160D784-0434-4398-8565-F660080F9C75.mp4?ccode=050F&duration=266&expire=18000&psid=dce63b08994350a991217a5a7c6a042a&ups_client_netip=ddee872a&ups_ts=1556202729&ups_userid=&utid=O5YgFRUUyE8CAXuXAIyfS4ku&vid=XMzk5OTAzNDI3Mg%3D%3D&vkey=Ae73addbc7c3f8dc5d2cbaa69fe442cea&sp=" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}"  initial-time="0" objectFit="cover"></video>
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
 <view class="cu-bar solid-bottom" wx:for="{{notice}}" wx:key>
   <view class="action">
     <text class="icon-titles text-orange"></text>

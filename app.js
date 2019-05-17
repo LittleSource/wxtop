@@ -2,6 +2,7 @@
 var graceRequest = require("./utils/request.js");//引入封装好的请求
 App({
     onLaunch: function () {
+        console.log('onLaunch')
         var _self = this
         //获取系统信息
         wx.getSystemInfo({

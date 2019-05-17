@@ -31,8 +31,7 @@ Page({
         }, {
             icon: 'shopfill',
             color: 'cyan',
-            name: '订外卖',
-            url: '/pages/expressage/index/index'
+            name: '订外卖'
         },{
             icon: 'cartfill',
             color: 'blue',

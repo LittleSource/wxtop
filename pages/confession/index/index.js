@@ -88,9 +88,8 @@ Page({
    * 跳转到详情页面
    */
   goDetail: function (e) {
-    console.log(e.currentTarget.dataset.cid)
     wx.navigateTo({
-      url: '../detail/detail',
+        url: '../detail/detail?cid=' + e.currentTarget.dataset.cid,
     })
   },
   /**

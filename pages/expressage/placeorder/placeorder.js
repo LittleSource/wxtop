@@ -81,7 +81,7 @@ Page({
     var formData = e.detail.value
     var checkRes = graceChecker.check(formData, rule)
     if (checkRes) {
-      wx.showToast({ title: "验证通过!"})
+      wx.showToast({ title: "提交成功!"})
     } else {
       wx.showToast({ title: graceChecker.error, icon: "none" })
     }

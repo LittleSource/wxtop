@@ -24,7 +24,7 @@
                 <button class='cu-btn bg-gradual-market shadow-blur radius'>进店</button>
             </view>
         </view>
-        <view class="cu-item">
+        <view class="cu-item" bindtap='goDetail'>
             <view class="cu-avatar radius xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
             <view class="content">
                 <view>

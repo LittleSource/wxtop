@@ -1,74 +1,137 @@
 /* pages/market/detail/detail.wxss */
-.market-card{
-    height: 150rpx;
+
+.custom-bar {
+    background-color: #333;
+    text-align: center;
+}
+
+.custom-bar text {
+    margin-top: 30px;
+}
+
+.canui-head-box {
+    position: fixed;
+    top: 26px;
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.canui-head-box view {
+    padding: 8px;
+    font-size: 20px;
+    display: initial;
+}
+
+.canui-head-box view + view {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 3px;
+    padding: 0 5px;
+    padding-left: 15px;
+}
+
+.market-card {
     color: white;
 }
-.toptext-margin{
+
+.toptext-margin {
     margin-left: 8rpx;
 }
-.market-card>.cu-list.menu-avatar>.cu-item{
-    background-image: linear-gradient(45deg, #333333, #333333);
+
+.market-card>.cu-list.menu-avatar>.cu-item {
+    background-color: #333;
+    color: #fff;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item .content {
-	left: 165rpx;
+    left: 165rpx;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item>.cu-avatar {
-    top:5rpx;
-	left: 15rpx;
+    top: 5rpx;
+    left: 15rpx;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item .content>view:first-child {
-	font-size: 34rpx;
+    font-size: 34rpx;
 }
-.market-card>.cu-list.menu-avatar>.cu-item .content>.text-df{
+
+.market-card>.cu-list.menu-avatar>.cu-item .content>.text-df {
     line-height: 1.5em;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item .content>view:second-child {
-	line-height: 1.5em;
+    line-height: 1.5em;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item {
-	height: 150rpx;
+    height: 150rpx;
 }
+
 .market-card>.cu-avatar.xl {
-	width: 120rpx;
-	height: 120rpx;
-	font-size: 2.5em;
+    width: 120rpx;
+    height: 120rpx;
+    font-size: 2.5em;
 }
+
 .market-card>.cu-list.menu-avatar>.cu-item .action {
-	width: 130rpx;
+    width: 130rpx;
 }
+
 .VerticalNav.nav {
-  width: 200rpx;
-  white-space: initial;
+    width: 200rpx;
+    white-space: initial;
 }
 
 .VerticalNav.nav .cu-item {
-  width: 100%;
-  text-align: center;
-  background-color: #fff;
-  margin: 0;
-  border: none;
-  height: 50px;
-  position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    margin: 0;
+    border: none;
+    height: 50px;
+    position: relative;
 }
 
 .VerticalNav.nav .cu-item.cur {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
+
 .VerticalNav.nav .cu-item.cur::after {
-  content: "";
-  width: 8rpx;
-  height: 30rpx;
-  border-radius: 10rpx 0 0 10rpx;
-  position: absolute;
-  background-color: currentColor;
-  top: 0;
-  right: 0rpx;
-  bottom: 0;
-  margin: auto;
+    content: "";
+    width: 8rpx;
+    height: 30rpx;
+    border-radius: 10rpx 0 0 10rpx;
+    position: absolute;
+    background-color: currentColor;
+    top: 0;
+    right: 0rpx;
+    bottom: 0;
+    margin: auto;
 }
-.VerticalBox{
-  display: flex;
+
+.VerticalBox {
+    display: flex;
 }
-.VerticalMain{
-  background-color: #f1f1f1;
+
+.VerticalMain {
+    background-color: #f1f1f1;
+}
+
+.cu-list.menu-avatar>.cu-item .action {
+    width: 40rpx;
+    text-align: center;
+}
+
+.padding-lr {
+    padding-right: 0rpx;
+}
+
+.shop {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

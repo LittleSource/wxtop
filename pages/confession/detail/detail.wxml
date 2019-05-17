@@ -1,2 +1,52 @@
 <!--pages/confession/detail/detail.wxml-->
-<text>pages/confession/detail/detail.wxml</text>
+<view class="cu-card dynamic no-card">
+    <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+            <view class="cu-item">
+                <view class="cu-avatar round lg" style="background-image:url({{articleContent.avatar}});"></view>
+                <view class="content flex-sub">
+                    <view>{{articleContent.user_name}}</view>
+                    <view class="text-gray text-sm flex justify-between">
+                        {{articleContent.release_time}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="text-content">
+            {{articleContent.content}}
+        </view>
+        <view class="grid flex-sub padding-lr col-{{articleContent.images_list.length < 3 ? articleContent.images_list.length : 3}} grid-square">
+            <view class="bg-img" wx:for="{{articleContent.images_list}}" wx:key="{{index}}" style="background-image:url({{item}});">
+            </view>
+        </view>
+        <view class="text-gray text-sm text-right padding">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text> {{articleContent.reading_volume}}
+            <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{articleContent.thumbs_up}}
+            <text class="cuIcon-messagefill margin-lr-xs"></text> {{articleContent.comment_list.length}}
+        </view>
+        <view class="cu-list menu-avatar comment solids-top">
+            <view class="cu-item" wx:for="{{commentList}}" wx:key>
+                <view class="cu-avatar round" style="background-image:url({{item.avatar}});"></view>
+                <view class="content">
+                    <view class="text-grey">{{item.commentator_name}}</view>
+                    <view class="text-gray text-content text-df">
+                        {{item.comment_content}}
+                    </view>
+                    <view wx:for="{{item.reply_list}}" wx:for-item="replyItem" wx:key="{{replyIndex}}" class="bg-grey padding-sm radius margin-top-sm  text-sm">
+                        <view class="flex">
+                            <view>{{replyItem.replier_name}}：</view>
+                            <view class="flex-sub">{{replyItem.reply_content}}</view>
+                        </view>
+                    </view>
+                    <view class="margin-top-sm flex justify-between">
+                        <view class="text-gray text-df">{{item.comment_time}}</view>
+                        <view>
+                            <text class="cuIcon-appreciatefill text-red"></text>
+                            <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

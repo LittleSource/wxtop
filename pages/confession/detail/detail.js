@@ -18,19 +18,23 @@ Page({
     onLoad: function(options) {
         _self = this
         console.log(options.cid)
-        var reqData = {
-            article_id: options.cid
-        }
-        app.graceRequest.get('https://apii.ym998.cn/confession/article/getContent', reqData, 1, function(data){
-            _self.setData({
-                articleContent:data.ArticleContent,
-                commentList: data.comment_list,
-                other:data.other
-            })
-            console.log(data)
+        var reqData = 
+        app.topReq.get({
+            loadType:1,
+            url: app.globalData.serviceSrc + 'confession/article/getContent',
+            data: {
+                article_id: options.cid
+            },
+            success:function(data){
+                _self.setData({
+                    articleContent: data.ArticleContent,
+                    commentList: data.comment_list,
+                    other: data.other
+                })
+                console.log(data)
+            }
         })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -1,5 +1,6 @@
 // pages/market/detail/detail.js
 const app = getApp()
+var _self = null
 Page({
     data: {
         StatusBar: app.globalData.StatusBar,
@@ -10,11 +11,14 @@ Page({
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
+        mainCate:[],//商品分类
+        allProduct:{},//所有商品
         list: [],
         goodCount: 0, //购物车内商品计数
         shoppingCart: []
     },
     onLoad() {
+        _self = this
         this.setData({
             scrollHeight: wx.getSystemInfoSync().windowHeight - (app.globalData.CustomBar + app.globalData.StatusBar) - 95
         })
@@ -27,6 +31,20 @@ Page({
         this.setData({
             list: list,
             listCur: list[0]
+        })
+        app.topReq.get({
+            loadType:1,
+            url: app.globalData.serviceSrc + 'market/product/select',
+            data:{
+                market_id: 1
+            },
+            success:function(data){
+                _self.setData({
+                    allProduct: data.allProduct,
+                    mainCate: data.mainCate
+                })
+                console.log(data)
+            }
         })
     },
     goBack() {
@@ -83,11 +101,6 @@ Page({
     addBtn(e) {
         this.setData({
             goodCount: ++this.data.goodCount
-        })
-    },
-    callKefu(){
-        wx.makePhoneCall({
-            phoneNumber: '17320285191'
         })
     }
 })

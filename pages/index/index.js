@@ -31,8 +31,9 @@ Page({
         }, {
             icon: 'shopfill',
             color: 'cyan',
-            name: '订外卖'
-        },{
+            name: '订外卖',
+            url: '/pages/market/detail/detail'
+        }, {
             icon: 'cartfill',
             color: 'blue',
             name: '逛超市',
@@ -42,7 +43,7 @@ Page({
             color: 'olive',
             name: '代取快递',
             url: '/pages/expressage/index/index'
-        },  {
+        }, {
             icon: 'roundaddfill',
             color: 'purple',
             name: '商家入驻'
@@ -60,6 +61,10 @@ Page({
                 _self.setData({
                     school: school
                 })
+                wx.setStorage({ //缓存school列表
+                    key: 'school',
+                    data: school
+                })
             },
             fail: function (error) {
                 _self.setData({
@@ -67,7 +72,7 @@ Page({
                 })
                 wx.showToast({
                     title: '请选择您的学校',
-                    icon:'none'
+                    icon: 'none'
                 })
                 _self.setData({
                     modalShow: true
@@ -86,7 +91,7 @@ Page({
             }
         })
     },
-    onShow:function(){
+    onShow: function () {
         this.setData({
             userInfo: app.globalData.userInfo,
         })
@@ -96,7 +101,7 @@ Page({
             modalShow: true
         })
     },
-    updateSchool:function(){
+    updateSchool: function () {
         _self.setData({
             school: app.globalData.school
         })
@@ -107,18 +112,18 @@ Page({
                 title: '您还未登录哦',
                 icon: 'none'
             })
-            setTimeout(function(){
+            setTimeout(function () {
                 wx.navigateTo({
                     url: '/pages/common/login/login'
                 })
-            },1000)
+            }, 1000)
         } else {
             var index = e.currentTarget.dataset.index
-            if (this.data.iconList[index].url){
+            if (this.data.iconList[index].url) {
                 wx.navigateTo({
                     url: this.data.iconList[index].url
                 })
-            }else{
+            } else {
                 wx.showToast({
                     title: '暂未开放',
                     icon: 'none'

@@ -1,59 +1,75 @@
 <!--pages/mine/index/index.wxml-->
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg">
-    <view class="cu-list menu-avatar" bindtap='goUserSetting'>
-      <view class="cu-item" style='margin-top:{{StatusBar+30}}px'>
-        <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/common/notLoginAvatar.png'}});"></view>
-        <view class="content">
-          <view class="text-white">{{userInfo ? userInfo.nickName : '点此登录'}}</view>
-          <view class="text-white flex">
-            <text class="{{userInfo ? 'cuIcon-roundcheckfill text-green' : 'cuIcon-roundclosefill text-red'}} margin-right-xs"></text>
-            <text class="text-cut">{{userInfo ? '已登录' : '未登录'}}</text>
-          </view>
+    <view class="UCenter-bg">
+        <view class="cu-list menu-avatar" bindtap='goUserSetting'>
+            <view class="cu-item" style='margin-top:{{StatusBar+30}}px'>
+                <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/common/notLoginAvatar.png'}});"></view>
+                <view class="content">
+                    <view class="text-white">{{userInfo ? userInfo.nickName : '点此登录'}}</view>
+                    <view class="text-white flex">
+                        <text class="{{userInfo ? 'cuIcon-roundcheckfill text-green' : 'cuIcon-roundclosefill text-red'}} margin-right-xs"></text>
+                        <text class="text-cut">{{userInfo ? '已登录' : '未登录'}}</text>
+                    </view>
+                </view>
+            </view>
         </view>
-      </view>
     </view>
-  </view>
-  <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx'>
-    <view class="cu-item" wx:for="{{4}}" wx:key>
-      <view class="cuIcon-paint text-green">
-        <view class="cu-tag badge">
-          <block>99</block>
+    <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx'>
+        <view class="cu-item">
+            <view class="cuIcon-pay text-grey">
+                <!-- <view class="cu-tag badge">99</view> -->
+                <text style='line-height:20rpx'>待付款</text>
+            </view>
         </view>
-        <text style='line-height:20rpx'>666</text>
-      </view>
+        <view class="cu-item">
+            <view class="cuIcon-tag text-grey">
+                <!-- <view class="cu-tag badge">99</view> -->
+                <text style='line-height:20rpx'>待处理</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="cuIcon-deliver text-grey">
+                <!-- <view class="cu-tag badge">99</view> -->
+                <text style='line-height:20rpx'>待收货</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="cuIcon-refund text-grey">
+                <!-- <view class="cu-tag badge">99</view> -->
+                <text style='line-height:20rpx'>已退款</text>
+            </view>
+        </view>
     </view>
-  </view>
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
-      <view class="content">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">GitHub</text>
-      </view>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+            <view class="content">
+                <text class="cuIcon-github text-grey"></text>
+                <text class="text-grey">GitHub</text>
+            </view>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" url="" hover-class="none">
+                <text class="cuIcon-formfill text-green"></text>
+                <text class="text-grey">日志</text>
+            </navigator>
+        </view>
+        <view class="cu-item arrow">
+            <view class="content" bindtap="showQrcode">
+                <text class="cuIcon-appreciatefill text-red"></text>
+                <text class="text-grey">赞赏支持</text>
+            </view>
+        </view>
+        <view class="cu-item arrow">
+            <button class="cu-btn content" open-type="feedback">
+                <text class="cuIcon-writefill text-cyan"></text>
+                <text class="text-grey">意见反馈</text>
+            </button>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" url="/pages/common/about/about" hover-class="none">
+                <text class="cuIcon-infofill text-blue"></text>
+                <text class="text-grey">关于我们</text>
+            </navigator>
+        </view>
     </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">赞赏支持</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">意见反馈</text>
-      </button>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="" hover-class="none">
-        <text class="cuIcon-infofill text-blue"></text>
-        <text class="text-grey">关于我们</text>
-      </navigator>
-    </view>
-  </view>
 </scroll-view>

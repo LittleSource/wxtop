@@ -9,7 +9,8 @@
         "pages/mine/index/index",
         "pages/common/login/login",
         "pages/market/index/index",
-        "pages/market/detail/detail"
+        "pages/market/detail/detail",
+        "pages/common/about/about"
     ],
     "permission": {
         "scope.userLocation": {

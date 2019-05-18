@@ -15,7 +15,7 @@ Page({
 
     },
 
-    bindGetUserInfo: function (e) {
+    onGetUserInfo: function (e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
             //请求后端
             console.log(e.detail.rawData)
@@ -34,6 +34,11 @@ Page({
                 icon: 'none'
             })
         }
+    },
+    getPhoneNumber:function(e){
+        console.log(e.detail.errMsg)
+        console.log(e.detail.iv)
+        console.log(e.detail.encryptedData)
     },
     /**
      * 生命周期函数--监听页面显示

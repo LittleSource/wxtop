@@ -1,0 +1,10 @@
+<!--pages/common/about/about.wxml-->
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于TOPS校园</view>
+  <view class='text-content'>
+    <view>Hi！小哥哥、小姐姐~欢迎使用TOPS校园！</view>
+    <view class='margin-top-sm'>TOPS校园小程序是由天津源梦网络科技有限公司开发的一款大学生生活服务软件，本软件的意义在于给校内外经营生意的同学或商家提供可定制的小程序服务与云端服务能力,帮助海河教育园区域内商家的同时让大学生的生活更加便捷。</view>
+    <view class='margin-top-sm'>项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以扫描赞赏码支持一下！</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

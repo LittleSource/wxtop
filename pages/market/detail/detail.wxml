@@ -17,7 +17,7 @@
                     <text class="text-cut">瓦罗兰大陆</text>
                 </view>
                 <view class="text-df flex">
-                    <text class="cuIcon-sound text-orange"></text>
+                    <text class="iconfont icon-shequgonggao text-orange"></text>
                     <text class='toptext-margin'>伊泽瑞尔：</text>
                 </view>
                 <view class="text-df flex">
@@ -31,65 +31,35 @@
 <!--滚动商品选择-->
 <view class="VerticalBox">
     <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:{{scrollHeight}}px">
-        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
-            Tab-{{item.name}}
+        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" data-id="{{index}}" bindtap='tabSelect'>
+            {{cateItem.title}}
         </view>
     </scroll-view>
     <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:{{scrollHeight}}px" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-        <view class="padding-lr margin-bottom" wx:for="{{list}}" wx:key id="main-{{index}}">
+        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key id="main-{{index}}" wx:for-item="cateItem">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
-                    <text class='cuIcon-title text-green'></text> Tab-{{item.name}} </view>
+                    <text class='cuIcon-title text-green'></text> {{cateItem.title}} </view>
             </view>
             <view class="cu-list menu-avatar">
-                <view class="cu-item">
-                    <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+                <view class="cu-item" wx:for="{{allProduct['cateproducts'+(index+1)]}}" wx:key="{{productIndex}}" wx:for-item="product">
+                    <view class="cu-avatar radius lg" style="background-image:url({{product.img}});"></view>
                     <view class="content">
-                        <view class="text-grey">凯尔</view>
+                        <view class="text-grey">{{product.title}}</view>
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
-										<text class="cuIcon-infofill text-red  margin-right-xs"></text> 我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+								<text class="text-price text-red text-lg">{{product.price}}</text>
                             </text>
                         </view>
                     </view>
                     <view class="action" bindtap='addBtn'>
-                        <view class="cuIcon-roundadd"></view>
+                        <view class="iconfont icon-minus-circle"></view>
                     </view>
                     <view class="action">
                         5
                     </view>
                     <view class="action" bindtap='addBtn'>
-                        <view class="cuIcon-roundadd"></view>
-                    </view>
-                </view>
-                <view class="cu-item grayscale">
-                    <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
-                    <view class="content">
-                        <view>
-                            <text class="text-cut">伊泽瑞尔</text>
-                            <view class="cu-tag round bg-orange sm">断开连接...</view>
-                        </view>
-                        <view class="text-gray text-sm flex">
-                            <text class="text-cut"> 等我回来一个打十个</text>
-                        </view>
-                    </view>
-                    <view class="action">
-                        <view class="cuIcon-roundadd"></view>
-                    </view>
-                </view>
-                <view class="cu-item cur">
-                    <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
-                    <view class="content">
-                        <view>
-                            <text class="text-cut">瓦罗兰大陆-睡衣守护者-新手保护营</text>
-                            <view class="cu-tag round bg-orange sm">6人</view>
-                        </view>
-                        <view class="text-gray text-sm flex">
-                            <text class="text-cut"> 伊泽瑞尔：<text class="cuIcon-locationfill text-orange margin-right-xs"></text> 传送中...</text>
-                        </view>
-                    </view>
-                    <view class="action">
-                        <view class="cuIcon-roundadd"></view>
+                        <view class="iconfont icon-plus-circle"></view>
                     </view>
                 </view>
             </view>
@@ -99,16 +69,16 @@
 <!--底部功能菜单-->
 <view class="cu-bar bg-white tabbar border shop">
     <view class="action">
-        <view class="cuIcon-notice text-grey"></view>举报
-    </view>
-    <view class="action" bindtap='callKefu'>
-        <view class="cuIcon-service text-green"></view>客服
+        <view class="cuIcon-notice text-grey"></view>投诉
     </view>
     <view class="action">
         <view class="cuIcon-cart text-orange">
             <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>
         </view>
         购物车
+    </view>
+    <view class="action">
+        <view class="text-orange text-xl">18.88</view>
     </view>
     <view class="bg-red submit">立即付款</view>
 </view>

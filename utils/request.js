@@ -1,24 +1,28 @@
 /*
-graceUI-JS - 网络请求工具
-link : graceui.hcoder.net
-author : 5213606@qq.com 深海
+topReq网络请求工具
+link : www.ym998.cn
+author : 444168950@qq.com 源哥
+ReqData{
+   url:'',
+   loadType:1显示加载中并关闭 2会自动关闭下拉刷新
+   success:function(){},
+}
 */
 
 module.exports = {
-
-    get: function(url, data, loadType, callback) {
-        if (loadType === 1){
+    get: function(ReqData) {
+        if (ReqData.loadType === 1) {
             wx.showLoading({
                 title: '努力加载中...',
             })
         }
         wx.request({
-            url: url,
-            data: data,
+            url: ReqData.url,
+            data: ReqData.data,
             method: "GET",
             dataType: "json",
             success: (res) => {
-                callback(res.data);
+                ReqData.success(res.data);
             },
             fail: () => {
                 wx.showToast({
@@ -27,7 +31,7 @@ module.exports = {
                 });
             },
             complete: () => {
-                switch (loadType) {
+                switch (ReqData.loadType) {
                     case 1:
                         wx.hideLoading();
                         break;
@@ -41,34 +45,23 @@ module.exports = {
         });
     },
 
-    post: function(url, data, contentType, headers, loadType, callback) {
-        switch (contentType) {
-            case "form":
-                var headerObj = {
-                    'content-type': 'application/x-www-form-urlencoded'
-                };
-                break;
-            case "json":
-                var headerObj = {
-                    'content-type': 'application/json'
-                };
-                break;
-            default:
-                var headerObj = {
-                    'content-type': 'application/json'
-                };
+    post: function(ReqData) {
+        if (ReqData.loadType === 1) {
+            wx.showLoading({
+                title: '努力加载中...',
+            })
         }
-        for (let k in headers) {
-            headerObj[k] = headers[k];
-        }
+        var headerObj = {
+            'content-type': 'application/json'
+        };
         wx.request({
-            url: url,
-            data: data,
+            url: ReqData.url,
+            data: ReqData.data,
             method: "POST",
             dataType: "json",
             header: headerObj,
             success: (res) => {
-                callback(res.data);
+                ReqData.success(res.data);
             },
             fail: () => {
                 wx.showToast({
@@ -77,7 +70,7 @@ module.exports = {
                 });
             },
             complete: () => {
-                switch (loadType) {
+                switch (ReqData.loadType) {
                     case 1:
                         wx.hideLoading();
                         break;

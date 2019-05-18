@@ -1,5 +1,5 @@
 //app.js
-var graceRequest = require("./utils/request.js");//引入封装好的请求
+var requestUtils = require("./utils/request.js");//引入封装好的请求
 App({
     onLaunch: function () {
         console.log('onLaunch')
@@ -13,10 +13,14 @@ App({
                 this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
             }
         })
-        //尝试获取登陆Storage
+        //尝试获取Storage
         const userInfo = wx.getStorageSync('userInfo')
+        const school = wx.getStorageSync('school')
         if (userInfo) {
             this.globalData.userInfo = userInfo
+        }
+        if (school) {
+            this.globalData.school = school
         }
     },
     globalData: {
@@ -27,5 +31,5 @@ App({
             title:'定位中...'
         }
     },
-    graceRequest: graceRequest
+    topReq: requestUtils
 })

@@ -10,7 +10,7 @@
 </swiper>
 <view class="cu-bar solid-bottom" wx:for="{{notice}}" wx:key>
   <view class="action">
-    <text class="icon-titles text-orange"></text>
+    <text class="cuIcon-titles text-blue"></text>
     <text>{{item}}</text>
   </view>
 </view>

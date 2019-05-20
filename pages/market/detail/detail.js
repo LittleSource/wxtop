@@ -11,8 +11,8 @@ Page({
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
-        mainCate:[],//商品分类
-        allProduct:{},//所有商品
+        mainCate: [],//商品分类
+        allProduct: {},//所有商品
         list: [],
         goodCount: 0, //购物车内商品计数
         shoppingCart: []
@@ -33,12 +33,12 @@ Page({
             listCur: list[0]
         })
         app.topReq.get({
-            loadType:1,
-            url: app.globalData.serviceSrc + 'market/product/select',
-            data:{
-                market_id: 1
+            loadType: 1,
+            url: app.globalData.serviceSrc + 'market/market/getAllInfo',
+            data: {
+                marketId: 1
             },
-            success:function(data){
+            success: function (data) {
                 _self.setData({
                     allProduct: data.allProduct,
                     mainCate: data.mainCate
@@ -97,6 +97,11 @@ Page({
                 return false
             }
         }
+    },
+    reduceBtn(e) {
+        this.setData({
+            goodCount: --this.data.goodCount > 0 ? this.data.goodCount : 0
+        })
     },
     addBtn(e) {
         this.setData({

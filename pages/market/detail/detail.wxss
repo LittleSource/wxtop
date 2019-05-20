@@ -135,3 +135,7 @@
     width: 100%;
     bottom: 0;
 }
+.top-icon{
+    font-size: 38rpx;
+    color: grey;
+}

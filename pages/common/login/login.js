@@ -1,4 +1,5 @@
 // pages/common/login/login.js
+const app = getApp()
 Page({
 
     /**
@@ -17,17 +18,32 @@ Page({
 
     onGetUserInfo: function (e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
-            //请求后端
-            console.log(e.detail.rawData)
-            console.log(e.detail.signature)
-            console.log(e.detail.iv)
-            
-            getApp().globalData.userInfo = e.detail.userInfo
-            wx.setStorage({
-                key: 'userInfo',
-                data: e.detail.userInfo
+            var userData = {
+                rawData: e.detail.rawData,
+                signature: e.detail.signature,
+                iv: e.detail.iv
+            }
+            wx.login({
+                success(res) {
+                    app.topReq.post({
+                        loadType: 1,
+                        url: app.globalData.serviceSrc + 'common/login/login',
+                        data: {
+                            code: res.code,
+                            userData: userData
+                        },
+                        success: function (res) {
+                            e.detail.userInfo.token = res.data.token
+                            getApp().globalData.userInfo = e.detail.userInfo
+                            wx.setStorage({
+                                key: 'userInfo',
+                                data: e.detail.userInfo
+                            })
+                            wx.navigateBack()
+                        }
+                    })
+                }
             })
-            wx.navigateBack()
         } else {
             wx.showToast({
                 title: '您取消授权，登录失败！',
@@ -35,7 +51,7 @@ Page({
             })
         }
     },
-    getPhoneNumber:function(e){
+    getPhoneNumber: function (e) {
         console.log(e.detail.errMsg)
         console.log(e.detail.iv)
         console.log(e.detail.encryptedData)

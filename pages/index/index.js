@@ -41,12 +41,12 @@ Page({
         }, {
             icon: 'deliver_fill',
             color: 'olive',
-            name: '代取快递',
+            name: '快递服务',
             url: '/pages/expressage/index/index'
         }, {
-            icon: 'roundaddfill',
+            icon: 'choicenessfill',
             color: 'purple',
-            name: '商家入驻'
+            name: '免押租车'
         }, {
             icon: 'questionfill',
             color: 'mauve',

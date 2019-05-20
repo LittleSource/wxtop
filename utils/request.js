@@ -13,7 +13,7 @@ module.exports = {
     get: function(ReqData) {
         if (ReqData.loadType === 1) {
             wx.showLoading({
-                title: '努力加载中...',
+                title: '加载中...',
             })
         }
         wx.request({
@@ -22,7 +22,22 @@ module.exports = {
             method: "GET",
             dataType: "json",
             success: (res) => {
-                ReqData.success(res.data);
+                if(res.data.code == 200){
+                    ReqData.success(res.data);
+                } else if (res.data.code == 201){
+
+                }else{
+                    var msg = '';
+                    if (res.data.msg == undefined){
+                        msg = res.statusCode + res.errMsg
+                    }else{
+                        msg = res.data.msg
+                    }
+                    wx.showToast({
+                        title: msg,
+                        icon: "none"
+                    });
+                }
             },
             fail: () => {
                 wx.showToast({
@@ -48,18 +63,13 @@ module.exports = {
     post: function(ReqData) {
         if (ReqData.loadType === 1) {
             wx.showLoading({
-                title: '努力加载中...',
+                title: '加载中...',
             })
         }
-        var headerObj = {
-            'content-type': 'application/json'
-        };
         wx.request({
             url: ReqData.url,
             data: ReqData.data,
             method: "POST",
-            dataType: "json",
-            header: headerObj,
             success: (res) => {
                 ReqData.success(res.data);
             },

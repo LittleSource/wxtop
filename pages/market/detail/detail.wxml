@@ -1,7 +1,7 @@
 <!--pages/market/detail/detail.wxml-->
 <!--顶部状态条-->
 <view class='custom-bar' style='height:{{CustomBar}}px;'>
-    <text class='text-white text-xl' style='line-height:{{CustomBar + StatusBar}}px;'>瓦罗兰大陆</text>
+    <text class='text-white text-xl' style='line-height:{{CustomBar + StatusBar}}px;'>TOPS校园</text>
     <view class="canui-head-box" style="top:{{StatusBar+5}}px;">
         <view class='cuIcon-back' bindtap='goBack'></view>
         <view class='cuIcon-home' bindtap='goHome'></view>
@@ -14,15 +14,15 @@
             <view class="cu-avatar radius xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
             <view class="content">
                 <view>
-                    <text class="text-cut">瓦罗兰大陆</text>
+                    <text class="text-cut">津厨艺</text>
                 </view>
                 <view class="text-df flex">
                     <text class="iconfont icon-shequgonggao text-orange"></text>
-                    <text class='toptext-margin'>伊泽瑞尔：</text>
+                    <text class='toptext-margin'>这是公告哦</text>
                 </view>
                 <view class="text-df flex">
                     <text class="cuIcon-locationfill text-blue"></text>
-                    <text class='toptext-margin'>电子 4号楼</text>
+                    <text class='toptext-margin'>雅润路 158号</text>
                 </view>
             </view>
         </view>
@@ -31,7 +31,7 @@
 <!--滚动商品选择-->
 <view class="VerticalBox">
     <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:{{scrollHeight}}px">
-        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" data-id="{{index}}" bindtap='tabSelect'>
+        <view class="cu-item {{index==TabCur?'text-orange cur':''}}" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" data-id="{{index}}" bindtap='tabSelect'>
             {{cateItem.title}}
         </view>
     </scroll-view>
@@ -39,27 +39,27 @@
         <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key id="main-{{index}}" wx:for-item="cateItem">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
-                    <text class='cuIcon-title text-green'></text> {{cateItem.title}} </view>
+                    <text class='cuIcon-titles text-orange'></text> {{cateItem.title}} </view>
             </view>
             <view class="cu-list menu-avatar">
                 <view class="cu-item" wx:for="{{allProduct['cateproducts'+(index+1)]}}" wx:key="{{productIndex}}" wx:for-item="product">
                     <view class="cu-avatar radius lg" style="background-image:url({{product.img}});"></view>
                     <view class="content">
-                        <view class="text-grey">{{product.title}}</view>
+                        <view class="text-black">{{product.title}}</view>
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
 								<text class="text-price text-red text-lg">{{product.price}}</text>
                             </text>
                         </view>
                     </view>
-                    <view class="action" bindtap='addBtn'>
-                        <view class="iconfont icon-minus-circle"></view>
+                    <view class="action top-icon" bindtap='reduceBtn'>
+                        <text class="iconfont icon-minus-circle"></text>
                     </view>
                     <view class="action">
-                        5
+                        <text class="text-black">5</text>
                     </view>
-                    <view class="action" bindtap='addBtn'>
-                        <view class="iconfont icon-plus-circle"></view>
+                    <view class="action top-icon margin-right-sm" bindtap='addBtn'>
+                        <text class="iconfont icon-plus-circle"></text>
                     </view>
                 </view>
             </view>
@@ -67,18 +67,15 @@
     </scroll-view>
 </view>
 <!--底部功能菜单-->
-<view class="cu-bar bg-white tabbar border shop">
-    <view class="action">
-        <view class="cuIcon-notice text-grey"></view>投诉
-    </view>
-    <view class="action">
-        <view class="cuIcon-cart text-orange">
+<view class="cu-bar bg-white tabbar border shop" style='background:#333;color:#fff'>
+    <view class="action" style='width:25%'>
+        <view class="cuIcon-cart">
             <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>
         </view>
         购物车
     </view>
-    <view class="action">
-        <view class="text-orange text-xl">18.88</view>
+    <view class="action" style='width:30%'>
+        <view class="text-orange text-xl">18.88 元</view>
     </view>
     <view class="bg-red submit">立即付款</view>
 </view>

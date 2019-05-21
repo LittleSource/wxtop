@@ -1,0 +1,22 @@
+/* components/title-bar/title-bar.wxss */
+.head-box {
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.head-box view {
+    padding: 8px;
+    font-size: 20px;
+    display: initial;
+}
+
+.head-box view + view {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 3px;
+    padding: 0 5px;
+    padding-left: 15px;
+}

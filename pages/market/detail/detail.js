@@ -3,32 +3,31 @@ const app = getApp()
 var _self = null
 Page({
     data: {
-        StatusBar: app.globalData.StatusBar,
-        CustomBar: app.globalData.CustomBar,
-        Custom: app.globalData.Custom,
-        scrollHeight: 200,
+        scrollHeight: 200,//滚动区域高度
         TabCur: 0,
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
         marketInfo: {}, //商家信息
-        mainCate: [],   //商品分类
-        product: {},    //所有商品
-        goodCount: 0,   //购物车内商品计数
+        mainCate: [], //商品分类
+        product: {}, //所有商品
+        goodCount: 0, //购物车内商品计数
         shoppingCart: []
     },
     onLoad() {
         _self = this
-        this.setData({
-            scrollHeight: wx.getSystemInfoSync().windowHeight - (app.globalData.CustomBar + app.globalData.StatusBar) - 95
-        })
-        app.topReq.get({
+        app.topReq({
             loadType: 1,
             url: app.globalData.serviceSrc + 'market/market/getAllInfo',
+            method: 'GET',
             data: {
                 marketId: 1
             },
             success: function(res) {
+                //为了滚动事件给分类加入序列化的id_
+                for (let i = 0; i < res.data.cates.length; i++) {
+                    res.data.cates[i].id_ = i
+                }
                 _self.setData({
                     marketInfo: res.data.marketInfo,
                     product: res.data.product,
@@ -37,19 +36,40 @@ Page({
             }
         })
     },
-    goBack() {
-        let pages = getCurrentPages();
-        if (pages.length == 1) {
-            this.goHome()
-        } else {
-            wx.navigateBack()
-        }
-    },
-    goHome() {
-        wx.switchTab({
-            url: '/pages/index/index',
+    onReady() {
+        var bottomBarHeight = 0
+        this.queryNodeHeight({
+            node: 'bottomBar',
+            success: function(res) {
+                bottomBarHeight = res[0].height
+            }
+        })
+        var marketCardHeight = 0
+        this.queryNodeHeight({
+            node: 'marketCard',
+            success: function(res) {
+                marketCardHeight = res[0].height
+                //计算滚动区域高度
+                _self.setData({
+                    scrollHeight: wx.getSystemInfoSync().windowHeight - (app.globalData.CustomBar + bottomBarHeight + marketCardHeight)
+                })
+            }
         })
     },
+    /**
+     * 封装一个函数获取节点的信息
+     */
+    queryNodeHeight(nodeObj) {
+        var query = this.createSelectorQuery()
+        query.select('#' + nodeObj.node).boundingClientRect()
+        query.selectViewport().scrollOffset()
+        query.exec(function(res) {
+            nodeObj.success(res)
+        })
+    },
+    /**
+     * 左边分类点击事件
+     */
     tabSelect(e) {
         this.setData({
             TabCur: e.currentTarget.dataset.id,
@@ -57,6 +77,9 @@ Page({
             VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
         })
     },
+    /**
+     * 监听商品区域滚动事件
+     */
     VerticalMain(e) {
         let that = this;
         let mainCate = this.data.mainCate;
@@ -81,8 +104,8 @@ Page({
         for (let i = 0; i < mainCate.length; i++) {
             if (scrollTop > mainCate[i].top && scrollTop < mainCate[i].bottom) {
                 that.setData({
-                    VerticalNavTop: (mainCate[i].id - 1) * 50,
-                    TabCur: mainCate[i].id
+                    VerticalNavTop: (mainCate[i].id_ - 1) * 50,
+                    TabCur: mainCate[i].id_
                 })
                 return false
             }
@@ -94,8 +117,33 @@ Page({
         })
     },
     addBtn(e) {
-        this.setData({
+        let product = e.currentTarget.dataset.product
+        let shoppingCart_ = this.data.shoppingCart
+        var index = this.findProduct(product)
+        if (index == -1) {
+            product.count = 1
+            shoppingCart_[this.data.shoppingCart.length] = product
+        } else {
+            shoppingCart_[index].count++;
+        }
+        _self.setData({
+            shoppingCart: shoppingCart_,
             goodCount: ++this.data.goodCount
         })
+        console.log(this.data.shoppingCart)
+    },
+    /**
+     * 从购物车shoppingCart查找商品
+     * return 找到返回索引 未找到返回 -1
+     */
+    findProduct(product) {
+        var result = -1;
+        for (let i = 0; i < this.data.shoppingCart.length; i++) {
+            if (product.id == this.data.shoppingCart[i].id) {
+                result = i; 
+                break;
+            }
+        }
+        return result;
     }
 })

@@ -10,7 +10,7 @@ ReqData{
 */
 
 module.exports = {
-    get: function(ReqData) {
+    request: function(ReqData) {
         if (ReqData.loadType == 1) {
             wx.showLoading({
                 title: '加载中...',
@@ -19,7 +19,7 @@ module.exports = {
         wx.request({
             url: ReqData.url,
             data: ReqData.data,
-            method: "GET",
+            method: ReqData.method,
             dataType: "json",
             success: (res) => {
                 if (res.data.code == 200) {
@@ -39,41 +39,7 @@ module.exports = {
                     });
                 }
             },
-            fail: () => {
-                wx.showToast({
-                    title: "网络请求失败",
-                    icon: "none"
-                });
-            },
-            complete: () => {
-                switch (ReqData.loadType) {
-                    case 1:
-                        wx.hideLoading();
-                        break;
-                    case 2:
-                        wx.stopPullDownRefresh();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-    },
-
-    post: function(ReqData) {
-        if (ReqData.loadType == 1) {
-            wx.showLoading({
-                title: '加载中...',
-            })
-        }
-        wx.request({
-            url: ReqData.url,
-            data: ReqData.data,
-            method: "POST",
-            success: (res) => {
-                ReqData.success(res.data);
-            },
-            fail: () => {
+            fail: (e) => {
                 wx.showToast({
                     title: "网络请求失败",
                     icon: "none"

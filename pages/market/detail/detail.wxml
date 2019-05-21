@@ -1,14 +1,10 @@
 <!--pages/market/detail/detail.wxml-->
 <!--顶部状态条-->
-<view class='custom-bar' style='height:{{CustomBar}}px;'>
-    <text class='text-white text-xl' style='line-height:{{CustomBar + StatusBar}}px;'>TOPS校园</text>
-    <view class="canui-head-box" style="top:{{StatusBar+5}}px;">
-        <view class='cuIcon-back' bindtap='goBack'></view>
-        <view class='cuIcon-home' bindtap='goHome'></view>
-    </view>
-</view>
+<title-bar bgColor="bg-black">
+    <view slot="content">TOPS校园</view>
+</title-bar>
 <!--超市信息卡片-->
-<view class='market-card'>
+<view class='market-card' id='marketCard'>
     <view class="cu-list menu-avatar">
         <view class="cu-item">
             <view class="cu-avatar radius xl" style="background-image:url({{marketInfo.billboard}});"></view>
@@ -36,7 +32,7 @@
         </view>
     </scroll-view>
     <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:{{scrollHeight}}px" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" id="main-{{cateItem.id}}">
+        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" id="main-{{cateItem.id_}}">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
                     <text class='cuIcon-titles text-orange'></text> {{cateItem.title}} </view>
@@ -58,7 +54,7 @@
                     <view class="action">
                         <text class="text-black">5</text>
                     </view>
-                    <view class="action top-icon margin-right-sm" bindtap='addBtn'>
+                    <view class="action top-icon margin-right-sm" bindtap='addBtn' data-product='{{productItem}}'>
                         <text class="iconfont icon-plus-circle"></text>
                     </view>
                 </view>
@@ -67,7 +63,7 @@
     </scroll-view>
 </view>
 <!--底部功能菜单-->
-<view class="cu-bar bg-white tabbar border shop" style='background:#333;color:#fff'>
+<view id='bottomBar' class="cu-bar bg-white tabbar border shop" style='background:#333;color:#fff'>
     <view class="action" style='width:25%'>
         <view class="cuIcon-cart">
             <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>

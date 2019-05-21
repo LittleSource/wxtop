@@ -24,12 +24,12 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'http://localhost/',
+        serviceSrc: 'http://123.151.0.32/',
         userInfo: null,
         school: {
             id:0,
             title:'定位中...'
         }
     },
-    topReq: requestUtils
+    topReq: requestUtils.request
 })

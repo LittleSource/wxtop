@@ -2,5 +2,7 @@
     "navigationBarBackgroundColor": "#333333",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "title-bar": "/components/title-bar/title-bar"
+    }
 }

@@ -1,38 +1,5 @@
 /* pages/market/detail/detail.wxss */
 
-.custom-bar {
-    background-color: #333;
-    text-align: center;
-}
-
-.custom-bar text {
-    margin-top: 30px;
-}
-
-.canui-head-box {
-    position: fixed;
-    top: 26px;
-    margin-left: 10px;
-    background: rgba(0, 0, 0, 0.2);
-    color: #fff;
-    border-radius: 20px;
-    padding: 4px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.canui-head-box view {
-    padding: 8px;
-    font-size: 20px;
-    display: initial;
-}
-
-.canui-head-box view + view {
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 0 3px;
-    padding: 0 5px;
-    padding-left: 15px;
-}
-
 .market-card {
     color: white;
 }
@@ -48,21 +15,21 @@
 
 .market-card>.cu-list.menu-avatar>.cu-item .content {
     top:5rpx;
-    left: 165rpx;
+    left: 175rpx;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item>.cu-avatar {
     top: 5rpx;
-    left: 15rpx;
+    left: 10px;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item .content>view:first-child {
     font-size: 34rpx;
-    margin-bottom: 8rpx;
+    margin-bottom: 7rpx;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item .content>.text-df {
-    line-height: 1.8em;
+    line-height: 1.7em;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item {

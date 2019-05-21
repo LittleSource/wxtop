@@ -26,7 +26,7 @@ Component({
     bgImage: {
       type: String,
       default: ''
-    },
+    }
   },
   /**
    * 组件的初始数据

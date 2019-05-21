@@ -11,7 +11,7 @@ ReqData{
 
 module.exports = {
     get: function(ReqData) {
-        if (ReqData.loadType === 1) {
+        if (ReqData.loadType == 1) {
             wx.showLoading({
                 title: '加载中...',
             })
@@ -22,15 +22,15 @@ module.exports = {
             method: "GET",
             dataType: "json",
             success: (res) => {
-                if(res.data.code == 200){
+                if (res.data.code == 200) {
                     ReqData.success(res.data);
-                } else if (res.data.code == 201){
+                } else if (res.data.code == 301) {
 
-                }else{
+                } else {
                     var msg = '';
-                    if (res.data.msg == undefined){
+                    if (res.data.msg == undefined) {
                         msg = res.statusCode + res.errMsg
-                    }else{
+                    } else {
                         msg = res.data.msg
                     }
                     wx.showToast({
@@ -61,7 +61,7 @@ module.exports = {
     },
 
     post: function(ReqData) {
-        if (ReqData.loadType === 1) {
+        if (ReqData.loadType == 1) {
             wx.showLoading({
                 title: '加载中...',
             })

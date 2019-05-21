@@ -47,6 +47,7 @@
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item .content {
+    top:5rpx;
     left: 165rpx;
 }
 
@@ -57,14 +58,11 @@
 
 .market-card>.cu-list.menu-avatar>.cu-item .content>view:first-child {
     font-size: 34rpx;
+    margin-bottom: 8rpx;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item .content>.text-df {
-    line-height: 1.5em;
-}
-
-.market-card>.cu-list.menu-avatar>.cu-item .content>view:second-child {
-    line-height: 1.5em;
+    line-height: 1.8em;
 }
 
 .market-card>.cu-list.menu-avatar>.cu-item {

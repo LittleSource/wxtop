@@ -11,18 +11,18 @@
 <view class='market-card'>
     <view class="cu-list menu-avatar">
         <view class="cu-item">
-            <view class="cu-avatar radius xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);"></view>
+            <view class="cu-avatar radius xl" style="background-image:url({{marketInfo.billboard}});"></view>
             <view class="content">
                 <view>
-                    <text class="text-cut">津厨艺</text>
+                    <text class="text-cut">{{marketInfo.title}}</text>
                 </view>
                 <view class="text-df flex">
                     <text class="iconfont icon-shequgonggao text-orange"></text>
-                    <text class='toptext-margin'>这是公告哦</text>
+                    <text class='toptext-margin'>{{marketInfo.notice}}</text>
                 </view>
                 <view class="text-df flex">
                     <text class="cuIcon-locationfill text-blue"></text>
-                    <text class='toptext-margin'>雅润路 158号</text>
+                    <text class='toptext-margin'>{{marketInfo.address}}</text>
                 </view>
             </view>
         </view>
@@ -36,19 +36,19 @@
         </view>
     </scroll-view>
     <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:{{scrollHeight}}px" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key id="main-{{index}}" wx:for-item="cateItem">
+        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" id="main-{{cateItem.id}}">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
                     <text class='cuIcon-titles text-orange'></text> {{cateItem.title}} </view>
             </view>
             <view class="cu-list menu-avatar">
-                <view class="cu-item" wx:for="{{allProduct['cateproducts'+(index+1)]}}" wx:key="{{productIndex}}" wx:for-item="product">
-                    <view class="cu-avatar radius lg" style="background-image:url({{product.img}});"></view>
+                <view class="cu-item" wx:for="{{product['cate'+cateItem.id]}}" wx:key="{{productIndex}}" wx:for-item="productItem">
+                    <view class="cu-avatar radius lg" style="background-image:url({{productItem.img}});"></view>
                     <view class="content">
-                        <view class="text-black">{{product.title}}</view>
+                        <view class="text-black">{{productItem.title}}</view>
                         <view class="text-gray text-sm flex">
                             <text class="text-cut">
-								<text class="text-price text-red text-lg">{{product.price}}</text>
+								<text class="text-price text-red text-lg">{{productItem.price}}</text>
                             </text>
                         </view>
                     </view>

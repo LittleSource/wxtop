@@ -11,10 +11,10 @@ Page({
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
-        mainCate: [],//商品分类
-        allProduct: {},//所有商品
-        list: [],
-        goodCount: 0, //购物车内商品计数
+        marketInfo: {}, //商家信息
+        mainCate: [],   //商品分类
+        product: {},    //所有商品
+        goodCount: 0,   //购物车内商品计数
         shoppingCart: []
     },
     onLoad() {
@@ -22,28 +22,18 @@ Page({
         this.setData({
             scrollHeight: wx.getSystemInfoSync().windowHeight - (app.globalData.CustomBar + app.globalData.StatusBar) - 95
         })
-        let list = [{}];
-        for (let i = 0; i < 10; i++) {
-            list[i] = {};
-            list[i].name = String.fromCharCode(65 + i);
-            list[i].id = i;
-        }
-        this.setData({
-            list: list,
-            listCur: list[0]
-        })
         app.topReq.get({
             loadType: 1,
             url: app.globalData.serviceSrc + 'market/market/getAllInfo',
             data: {
                 marketId: 1
             },
-            success: function (data) {
+            success: function(res) {
                 _self.setData({
-                    allProduct: data.allProduct,
-                    mainCate: data.mainCate
+                    marketInfo: res.data.marketInfo,
+                    product: res.data.product,
+                    mainCate: res.data.cates
                 })
-                console.log(data)
             }
         })
     },
@@ -69,30 +59,30 @@ Page({
     },
     VerticalMain(e) {
         let that = this;
-        let list = this.data.list;
+        let mainCate = this.data.mainCate;
         let tabHeight = 0;
         if (this.data.load) {
-            for (let i = 0; i < list.length; i++) {
-                let view = wx.createSelectorQuery().select("#main-" + list[i].id);
+            for (let i = 0; i < mainCate.length; i++) {
+                let view = wx.createSelectorQuery().select("#main-" + mainCate[i].id);
                 view.fields({
                     size: true
                 }, data => {
-                    list[i].top = tabHeight;
+                    mainCate[i].top = tabHeight;
                     tabHeight = tabHeight + data.height;
-                    list[i].bottom = tabHeight;
+                    mainCate[i].bottom = tabHeight;
                 }).exec();
             }
             that.setData({
                 load: false,
-                list: list
+                mainCate: mainCate
             })
         }
         let scrollTop = e.detail.scrollTop + 20;
-        for (let i = 0; i < list.length; i++) {
-            if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
+        for (let i = 0; i < mainCate.length; i++) {
+            if (scrollTop > mainCate[i].top && scrollTop < mainCate[i].bottom) {
                 that.setData({
-                    VerticalNavTop: (list[i].id - 1) * 50,
-                    TabCur: list[i].id
+                    VerticalNavTop: (mainCate[i].id - 1) * 50,
+                    TabCur: mainCate[i].id
                 })
                 return false
             }

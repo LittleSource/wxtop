@@ -32,13 +32,13 @@
         </view>
     </scroll-view>
     <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:{{scrollHeight}}px" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key wx:for-item="cateItem" id="main-{{cateItem.id_}}">
+        <view class="padding-lr margin-bottom" wx:for="{{mainCate}}" wx:key="id" wx:for-item="cateItem" id="main-{{cateItem.id_}}">
             <view class='cu-bar solid-bottom bg-white'>
                 <view class='action'>
                     <text class='cuIcon-titles text-orange'></text> {{cateItem.title}} </view>
             </view>
             <view class="cu-list menu-avatar">
-                <view class="cu-item" wx:for="{{product['cate'+cateItem.id]}}" wx:key="{{productIndex}}" wx:for-item="productItem">
+                <view class="cu-item" wx:for="{{product['cate'+cateItem.id]}}" wx:key wx:for-item="productItem">
                     <view class="cu-avatar radius lg" style="background-image:url({{productItem.img}});"></view>
                     <view class="content">
                         <view class="text-black">{{productItem.title}}</view>
@@ -48,13 +48,15 @@
                             </text>
                         </view>
                     </view>
-                    <view class="action top-icon" bindtap='reduceBtn'>
-                        <text class="iconfont icon-minus-circle"></text>
+                    <block  wx:if="{{productItem.count > 0}}">
+                    <view class="action top-icon" bindtap='reduceBtn'  data-product='{{productItem}}' data-cateindex='{{cateItem.ord - 1}}' data-productindex='{{index}}'>
+                        <text class="iconfont icon-minus-circle text-orange"></text>
                     </view>
                     <view class="action">
-                        <text class="text-black">5</text>
+                        <text class="text-black">{{productItem.count}}</text>
                     </view>
-                    <view class="action top-icon margin-right-sm" bindtap='addBtn' data-product='{{productItem}}'>
+                    </block>
+                    <view class="action top-icon margin-right-sm" bindtap='addBtn' data-product='{{productItem}}' data-cateindex='{{cateItem.ord - 1}}' data-productindex='{{index}}'>
                         <text class="iconfont icon-plus-circle"></text>
                     </view>
                 </view>
@@ -71,7 +73,7 @@
         购物车
     </view>
     <view class="action" style='width:30%'>
-        <view class="text-orange text-xl">18.88 元</view>
+        <view class="text-orange text-xl">{{priceSum == 0?'0.00':priceSum}} 元</view>
     </view>
     <view class="bg-red submit">立即付款</view>
 </view>

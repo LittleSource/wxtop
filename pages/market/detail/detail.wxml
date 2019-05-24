@@ -68,8 +68,8 @@
 <!--底部功能菜单-->
 <view id='bottomBar' class="cu-bar bg-white tabbar border shop" style='background:#333;color:#fff'>
     <view class="action" style='width:20%' bindtap='switchModel' data-modelshow="{{1}}">
-        <view class="cuIcon-cart {{animation?'animation-':''}}">
-            <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>
+        <view class="cuIcon-cart">
+            <view wx:if="{{goodCount > 0}}" class="cu-tag badge {{animation?'animation-slide-top':''}}">{{goodCount}}</view>
         </view>
         购物车
     </view>
@@ -104,4 +104,5 @@
         </view>
     </view>
 </view>
+<!--商品详情Model弹出层-->
 <product-model product="{{productInfo}}" showModel="{{showProductModel}}"></product-model>

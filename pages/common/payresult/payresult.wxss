@@ -1,0 +1,4 @@
+/* pages/common/payresult/payresult.wxss */
+.result-text{
+    vertical-align: middle;
+}

@@ -1,5 +1,5 @@
 /* pages/market/detail/detail.wxss */
-
+@import "../../../colorui/animation.wxss";
 .market-card {
     color: white;
 }

@@ -8,13 +8,14 @@ Page({
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
-        showShoppingcartModel: 0,
+        animation: false, //是否展示购物车动画
         marketInfo: {}, //商家信息
         mainCate: [], //商品分类
         product: {}, //所有商品
         goodCount: 0, //购物车内商品计数
         priceSum: 0.00,
         shoppingCart: [],
+        showShoppingcartModel: 0, //是否展示购物车模态框
         productInfo: {}, //模态框展示的商品对象
         showProductModel: 0 //是否展示商品信息模态框
     },
@@ -160,6 +161,14 @@ Page({
         })
     },
     addBtn(e) {
+        _self.setData({
+            animation: true
+        })
+        setTimeout(function() {
+            _self.setData({
+                animation: false
+            })
+        }, 1000)
         //操作商品product的count + 1
         let product_ = this.data.product
         let key = Object.keys(product_)[e.currentTarget.dataset.cateindex]
@@ -205,18 +214,24 @@ Page({
      * 清空购物车
      */
     clearShoppingcart() {
-        if (this.data.shoppingCart.length > 0) {
-            this.setData({
-                shoppingCart: [],
-                goodCount: 0,
-                showShoppingcartModel: 0,
-                priceSum: 0.00
-            })
-            this.initCateProduct()
-            wx.showToast({
-                title: '购物车已清空'
-            })
-        }
+        wx.showModal({
+            title: '提示',
+            content: '确定清空购物车吗？',
+            success(res) {
+                if (res.confirm && _self.data.shoppingCart.length > 0) {
+                    _self.setData({
+                        shoppingCart: [],
+                        goodCount: 0,
+                        showShoppingcartModel: 0,
+                        priceSum: 0.00
+                    })
+                    _self.initCateProduct()
+                    wx.showToast({
+                        title: '购物车已清空'
+                    })
+                }
+            }
+        })
     },
     /**
      * 购物车模态框开关
@@ -259,18 +274,19 @@ Page({
     /**
      * 提交订单
      */
-    submitOrder(){
-        if(this.data.shoppingCart.length > 0){
-            
+    submitOrder() {
+        if (this.data.shoppingCart.length > 0) {
+
         }
     },
-    onShareAppMessage(option){
+    onShareAppMessage(option) {
         var message = {
             title: this.data.marketInfo.title,
-            path:'/pages/market/market'
+            path: '/pages/market/detail/detail'
         }
-        if (option.from == 'button'){
-            message.title = this.data.marketInfo.title + '的这个饭菜超级好吃，你也快来尝尝吧'
+        if (option.from == 'button') {
+            message.title = this.data.marketInfo.title + '的这个' + this.data.productInfo.title + '超级好吃，你也快来尝尝吧'
+            message.imageUrl = this.data.productInfo.img
         }
         return message
     }

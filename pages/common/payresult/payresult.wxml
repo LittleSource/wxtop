@@ -1,0 +1,14 @@
+<!--pages/common/payresult/payresult.wxml-->
+<cu-custom isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">支付结果</view>
+</cu-custom>
+<view class="padding-xs flex">
+    <view class="flex-sub text-center">
+        <view class="padding text-xsl solids-bottom">
+            <text class="cuIcon-roundcheckfill text-green"></text>
+            <text class='text-xxl text-green result-text'> 支付成功</text>
+        </view>
+        <view class="text-price text-lg">188.8元</view>
+    </view>
+</view>

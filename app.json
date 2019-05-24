@@ -1,8 +1,8 @@
 {
     "pages": [
+        "pages/expressage/index/index",
         "pages/market/detail/detail",
         "pages/index/index",
-        "pages/expressage/index/index",
         "pages/expressage/placeorder/placeorder",
         "pages/expressage/inquireorder/inquireorder",
         "pages/confession/index/index",
@@ -10,7 +10,8 @@
         "pages/mine/index/index",
         "pages/common/login/login",
         "pages/market/index/index",
-        "pages/common/about/about"
+        "pages/common/about/about",
+        "pages/common/payresult/payresult"
     ],
     "permission": {
         "scope.userLocation": {

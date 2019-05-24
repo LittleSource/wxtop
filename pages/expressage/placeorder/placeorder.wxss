@@ -1,1 +1,4 @@
 /* pages/expressage/placeorder/placeorder.wxss */
+.cu-form-group picker .picker {
+    text-align: left;
+}

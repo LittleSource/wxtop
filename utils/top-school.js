@@ -103,5 +103,10 @@ module.exports = {
                 palyLoad.fail(error)
             }
         })
+    },
+    //开通快递代取服务的学校
+    getExpressageSchool(){
+        var school = [this.schoolData[0].title, this.schoolData[1].title]
+        return school
     }
 }

@@ -20,7 +20,7 @@
       <view class="nav-name">placeorder</view>
       <text class='icon-write'></text>
     </navigator>
-    <navigator open-type="navigate" hover-class='none' url="" class="nav-li bg-cyan">
+    <navigator open-type="navigate" hover-class='none' url="/pages/common/payresult/payresult" class="nav-li bg-cyan">
       <view class="nav-title">订单查询</view>
       <view class="nav-name">inquireorder</view>
       <text class='icon-text'></text>

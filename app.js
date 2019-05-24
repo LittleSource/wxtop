@@ -24,7 +24,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'http://180.213.152.131/',
+        serviceSrc: 'https://apii.ym998.cn/',
         userInfo: null,
         school: {
             id:0,

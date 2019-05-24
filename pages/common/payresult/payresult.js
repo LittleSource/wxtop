@@ -1,28 +1,11 @@
-// pages/expressage/index/index.js
+// pages/common/payresult/payresult.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        swiperList: [{
-            id: 0,
-            type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport1.jpg'
-        }, {
-            id: 1,
-            type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport2.jpg',
-        }, {
-            id: 2,
-            type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport3.jpg'
-        }],
-        notice: [
-            "①早上8点开始下单，下午5点截止",
-            "②每天下午5点准时派送",
-            "③小件(2KG及以下)2元，大件(2KG以上)3元"
-        ],
+
     },
 
     /**

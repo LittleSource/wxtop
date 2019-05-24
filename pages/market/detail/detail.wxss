@@ -104,3 +104,13 @@
     font-size: 38rpx;
     color: grey;
 }
+.cu-list.menu>.cu-item .content {
+flex: none
+}
+.model-line{
+    line-height:1.6em;
+}
+.top-margin-tb-xs {
+	margin-top: -10rpx;
+	margin-bottom: -10rpx;
+}

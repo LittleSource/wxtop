@@ -3,17 +3,20 @@ const app = getApp()
 var _self = null
 Page({
     data: {
-        scrollHeight: 200, //滚动区域高度
+        scrollHeight: 500, //滚动区域高度
         TabCur: 0,
         MainCur: 0,
         VerticalNavTop: 0,
         load: true,
+        showShoppingcartModel: 0,
         marketInfo: {}, //商家信息
         mainCate: [], //商品分类
         product: {}, //所有商品
         goodCount: 0, //购物车内商品计数
         priceSum: 0.00,
-        shoppingCart: []
+        shoppingCart: [],
+        productInfo: {}, //模态框展示的商品对象
+        showProductModel: 0 //是否展示商品信息模态框
     },
     onLoad() {
         _self = this
@@ -25,23 +28,12 @@ Page({
                 marketId: 1
             },
             success: function(res) {
-                console.log(res.data)
-                //为了滚动事件给分类加入序列化的id_属性
-                for (let i = 0; i < res.data.cates.length; i++) {
-                    res.data.cates[i].id_ = i
-                }
-                //为了商品减号按钮给商品加入count属性
-                for (var c in res.data.product) {
-                    for (let i = 0; i < res.data.product[c].length; i++) {
-                        res.data.product[c][i].count = 0
-                    }
-                }
-
                 _self.setData({
                     marketInfo: res.data.marketInfo,
                     product: res.data.product,
                     mainCate: res.data.cates
                 })
+                _self.initCateProduct() //初始化商品数据
             }
         })
     },
@@ -66,7 +58,7 @@ Page({
         })
     },
     /**
-     * 封装一个函数获取节点的信息
+     * 封装一个函数获取dom节点的信息
      */
     queryNodeHeight(nodeObj) {
         var query = this.createSelectorQuery()
@@ -74,6 +66,27 @@ Page({
         query.selectViewport().scrollOffset()
         query.exec(function(res) {
             nodeObj.success(res)
+        })
+    },
+    /**
+     * 初始化商品和分类
+     */
+    initCateProduct() {
+        var cates_ = this.data.mainCate
+        var product_ = this.data.product
+        //为了滚动事件给分类加入序列化的id_属性
+        for (let i = 0; i < cates_.length; i++) {
+            cates_[i].id_ = i
+        }
+        //为了商品减号按钮给商品加入count属性
+        for (var c in product_) {
+            for (let i = 0; i < product_[c].length; i++) {
+                product_[c][i].count = 0
+            }
+        }
+        this.setData({
+            product: product_,
+            mainCate: cates_
         })
     },
     /**
@@ -160,6 +173,8 @@ Page({
         let shoppingCart_ = this.data.shoppingCart
         var index = this.findProduct(product)
         if (index == -1) {
+            product.cateindex = e.currentTarget.dataset.cateindex
+            product.productindex = productindex //储存索引用于model框的btn
             product.count = 1
             shoppingCart_[this.data.shoppingCart.length] = product
         } else {
@@ -185,5 +200,78 @@ Page({
             }
         }
         return result;
+    },
+    /**
+     * 清空购物车
+     */
+    clearShoppingcart() {
+        if (this.data.shoppingCart.length > 0) {
+            this.setData({
+                shoppingCart: [],
+                goodCount: 0,
+                showShoppingcartModel: 0,
+                priceSum: 0.00
+            })
+            this.initCateProduct()
+            wx.showToast({
+                title: '购物车已清空'
+            })
+        }
+    },
+    /**
+     * 购物车模态框开关
+     */
+    switchModel(e) {
+        if (this.data.shoppingCart.length > 0) {
+            this.setData({
+                showShoppingcartModel: e.currentTarget.dataset.modelshow
+            })
+        }
+    },
+    /**
+     * 模态框add按钮点击事件
+     */
+    modelBtn(e) {
+        var product = this.data.shoppingCart[e.currentTarget.dataset.index]
+        e.currentTarget.dataset.cateindex = product.cateindex
+        e.currentTarget.dataset.productindex = product.productindex
+        e.currentTarget.dataset.product = product
+        if (e.currentTarget.dataset.btntype) {
+            this.addBtn(e)
+        } else {
+            if (this.data.shoppingCart.length == 1 && this.data.shoppingCart[0].count == 1) {
+                this.setData({
+                    showShoppingcartModel: 0
+                })
+            }
+            this.reduceBtn(e)
+        }
+    },
+    /**
+     * 展示商品信息
+     */
+    showProductInfo(e) {
+        this.setData({
+            productInfo: e.currentTarget.dataset.product,
+            showProductModel: 1
+        })
+    },
+    /**
+     * 提交订单
+     */
+    submitOrder(){
+        if(this.data.shoppingCart.length > 0){
+            
+        }
+    },
+    onShareAppMessage(option){
+        var message = {
+            title: this.data.marketInfo.title,
+            path:'/pages/market/market'
+        }
+        if (option.from == 'button'){
+            message.title = this.data.marketInfo.title + '的这个饭菜超级好吃，你也快来尝尝吧'
+        }
+        return message
     }
 })

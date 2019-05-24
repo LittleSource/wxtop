@@ -24,7 +24,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'http://localhost/',
+        serviceSrc: 'http://180.213.152.131/',
         userInfo: null,
         school: {
             id:0,

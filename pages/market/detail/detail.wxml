@@ -39,22 +39,23 @@
             </view>
             <view class="cu-list menu-avatar">
                 <view class="cu-item" wx:for="{{product['cate'+cateItem.id]}}" wx:key wx:for-item="productItem">
-                    <view class="cu-avatar radius lg" style="background-image:url({{productItem.img}});"></view>
-                    <view class="content">
+                    <view class="cu-avatar radius lg" style="background-image:url({{productItem.img}});" bindtap='showProductInfo' data-product='{{productItem}}'></view>
+                    <view class="content" bindtap='showProductInfo' data-product='{{productItem}}'>
                         <view class="text-black">{{productItem.title}}</view>
-                        <view class="text-gray text-sm flex">
+                        <view class="text-gray text-xs top-margin-tb-xs" wx:if="{{productItem.describe.length > 1}}"> {{productItem.describe}}</view>
+                        <view class="text-gray flex">
                             <text class="text-cut">
 								<text class="text-price text-red text-lg">{{productItem.price}}</text>
                             </text>
                         </view>
                     </view>
-                    <block  wx:if="{{productItem.count > 0}}">
-                    <view class="action top-icon" bindtap='reduceBtn'  data-product='{{productItem}}' data-cateindex='{{cateItem.ord - 1}}' data-productindex='{{index}}'>
-                        <text class="iconfont icon-minus-circle text-orange"></text>
-                    </view>
-                    <view class="action">
-                        <text class="text-black">{{productItem.count}}</text>
-                    </view>
+                    <block wx:if="{{productItem.count > 0}}">
+                        <view class="action top-icon" bindtap='reduceBtn' data-product='{{productItem}}' data-cateindex='{{cateItem.ord - 1}}' data-productindex='{{index}}'>
+                            <text class="iconfont icon-minus-circle text-orange"></text>
+                        </view>
+                        <view class="action">
+                            <text class="text-black">{{productItem.count}}</text>
+                        </view>
                     </block>
                     <view class="action top-icon margin-right-sm" bindtap='addBtn' data-product='{{productItem}}' data-cateindex='{{cateItem.ord - 1}}' data-productindex='{{index}}'>
                         <text class="iconfont icon-plus-circle"></text>
@@ -66,14 +67,41 @@
 </view>
 <!--底部功能菜单-->
 <view id='bottomBar' class="cu-bar bg-white tabbar border shop" style='background:#333;color:#fff'>
-    <view class="action" style='width:25%'>
-        <view class="cuIcon-cart">
+    <view class="action" style='width:20%' bindtap='switchModel' data-modelshow="{{1}}">
+        <view class="cuIcon-cart {{animation?'animation-':''}}">
             <view wx:if="{{goodCount > 0}}" class="cu-tag badge">{{goodCount}}</view>
         </view>
         购物车
     </view>
-    <view class="action" style='width:30%'>
+    <view class="action" style='width:35%'>
         <view class="text-orange text-xl">{{priceSum == 0?'0.00':priceSum}} 元</view>
     </view>
-    <view class="bg-red submit">立即付款</view>
+    <view class="bg-black text-bold text-lg submit" wx:if="{{priceSum < marketInfo.minimum}}">{{marketInfo.minimum}} 元起送</view>
+    <view class="bg-orange text-bold text-lg submit" wx:else>提交订单</view>
 </view>
+<!--购物车Model弹出层-->
+<view class="cu-modal bottom-modal {{showShoppingcartModel?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view class="action text-gray cuIcon-delete" bindtap="clearShoppingcart">清空购物车</view>
+            <view class="action text-green" bindtap='switchModel' data-modelshow="{{0}}">确定</view>
+        </view>
+        <view class="cu-list menu sm-border">
+            <view class="cu-item" wx:for="{{shoppingCart}}" wx:key='id'>
+                <view class="content">
+                    <image src="{{item.img}}" class="png" mode="scaleToFill"></image>
+                    <text class="text-black">{{item.title}}</text>
+                </view>
+                <view class="action">
+                    <view class="text-price">{{item.price}}</view>
+                </view>
+                <view class="action top-icon model-line">
+                    <view class="iconfont icon-minus-circle text-orange fl" bindtap='modelBtn' data-index='{{index}}' data-btntype='{{0}}'></view>
+                    <view class="margin-lr-sm fl text-df">{{item.count}}</view>
+                    <view class="iconfont icon-plus-circle fl" bindtap='modelBtn' data-index='{{index}}' data-btntype='{{1}}'></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<product-model product="{{productInfo}}" showModel="{{showProductModel}}"></product-model>

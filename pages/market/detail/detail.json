@@ -3,6 +3,7 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
     "usingComponents": {
-        "title-bar": "/components/title-bar/title-bar"
+        "title-bar": "/components/title-bar/title-bar",
+        "product-model":"/components/product-model/product-model"
     }
 }

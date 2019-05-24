@@ -26,7 +26,7 @@ page {
 	--brown: #a5673f;
 	--grey: #8799a3;
 	--black: #333333;
-	--darkGray: #666666;
+	--cc: #666666;
 	--gray: #aaaaaa;
 	--ghostWhite: #f1f1f1;
 	--white: #ffffff;

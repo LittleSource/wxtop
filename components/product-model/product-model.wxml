@@ -1,0 +1,24 @@
+<!--components/product-model/product-model.wxml-->
+<view class="cu-modal {{showModel?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">{{product.title}}</view>
+            <view class="action" bindtap="_close">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <image class="top-images" src='{{product.img}}' bindtap='_showImage'></image>
+        <view class="padding-xl">
+            {{product.describe}}
+        </view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub text-red">
+                <text class="cuIcon-moneybag"></text>{{product.price}}
+            </view>
+            <button open-type="share" class="cu-btn bg-white action margin-0 flex-sub text-green solid-left">
+                <text class="cuIcon-share"></text>分享
+            </button>
+            <view class="action margin-0 flex-sub solid-left" bindtap="_close">关闭</view>
+        </view>
+    </view>
+</view>

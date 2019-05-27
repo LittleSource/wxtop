@@ -17,44 +17,44 @@ module.exports = {
         id: 1132276838459656005,
         title: '天津中德应用技术大学',
         name: '中德',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E4%B8%AD%E5%BE%B7.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E4%B8%AD%E5%BE%B7.jpg'
     },
     {
         id: 9064819481832757240,
         title: '天津轻工职业技术学院',
         name: '轻工',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E8%81%8C%E5%A4%A7.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E8%81%8C%E5%A4%A7.jpg'
     },
     {
         id: 5121864895957150075,
         title: '天津现代职业技术学院',
         name: '现代',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E7%8E%B0%E4%BB%A3.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E7%8E%B0%E4%BB%A3.jpg'
     },
     {
         id: 12964050169472583622,
         title: '天津机电职业技术学院',
         name: '机电',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E6%9C%BA%E7%94%B5.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E6%9C%BA%E7%94%B5.jpg'
     },
     {
 
         id: 6636179715655175228,
         title: '天津职业大学(海河园校区)',
         name: '职大',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E8%81%8C%E5%A4%A7.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E8%81%8C%E5%A4%A7.jpg'
     },
     {
         id: 17425798441035415081,
         title: '天津商务职业学院',
         name: '商务',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E5%95%86%E5%8A%A1.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E5%95%86%E5%8A%A1.jpg'
     },
     {
         id: 3859587972726810660,
         title: '天津海运职业学院',
         name: '海运',
-        image: 'https://topschool-1258938920.cos.ap-beijing.myqcloud.com/school/%E6%B5%B7%E8%BF%90.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E6%B5%B7%E8%BF%90.jpg'
     }
     ],
     findSchoolById:function(id){

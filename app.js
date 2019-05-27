@@ -24,12 +24,13 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'https://apii.ym998.cn/',
+        serviceSrc: 'http://localhost/',//https://wxtapi.ym-top.com/
         userInfo: null,
         school: {
             id:0,
             title:'定位中...'
-        }
+        },
+        shoppingCart:[]
     },
     topReq: requestUtils.request
 })

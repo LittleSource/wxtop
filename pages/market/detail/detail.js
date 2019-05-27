@@ -26,7 +26,7 @@ Page({
             url: app.globalData.serviceSrc + 'market/market/getAllInfo',
             method: 'GET',
             data: {
-                marketId: 1
+                marketid: 1
             },
             success: function(res) {
                 _self.setData({
@@ -109,7 +109,7 @@ Page({
         let tabHeight = 0;
         if (this.data.load) {
             for (let i = 0; i < mainCate.length; i++) {
-                let view = wx.createSelectorQuery().select("#main-" + mainCate[i].id);
+                let view = wx.createSelectorQuery().select("#main-" + mainCate[i].id_);
                 view.fields({
                     size: true
                 }, data => {
@@ -210,6 +210,7 @@ Page({
         }
         return result;
     },
+
     /**
      * 清空购物车
      */
@@ -233,6 +234,7 @@ Page({
             }
         })
     },
+
     /**
      * 购物车模态框开关
      */
@@ -243,6 +245,7 @@ Page({
             })
         }
     },
+
     /**
      * 模态框add按钮点击事件
      */
@@ -262,6 +265,7 @@ Page({
             this.reduceBtn(e)
         }
     },
+
     /**
      * 展示商品信息
      */
@@ -271,14 +275,22 @@ Page({
             showProductModel: 1
         })
     },
-    /**
-     * 提交订单
-     */
-    submitOrder() {
-        if (this.data.shoppingCart.length > 0) {
 
+    /**
+     * 提交订单到收银台界面
+     */
+    goCheckstand() {
+        if (this.data.shoppingCart.length > 0) {
+            getApp().globalData.shoppingCart = this.data.shoppingCart
+            wx.navigateTo({
+                url: '/pages/market/checkstand/checkstand'
+            })
         }
     },
+
+    /**
+     * 配置分享
+     */
     onShareAppMessage(option) {
         var message = {
             title: this.data.marketInfo.title,

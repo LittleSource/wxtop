@@ -1,4 +1,5 @@
 // pages/expressage/placeorder/placeorder.js
+const app = getApp()
 var graceChecker = require("../../../utils/graceChecker.js");
 var topSchool = require("../../../utils/top-school.js"); //引入封装topSchool
 var _self = null
@@ -27,7 +28,6 @@ Page({
         _self.setData({
             expressageSchool: topSchool.getExpressageSchool()
         })
-        console.log(this.data.expressageSchool)
     },
     /**
      * 用户点击右上角分享
@@ -116,9 +116,34 @@ Page({
         var formData = e.detail.value
         var checkRes = graceChecker.check(formData, rule)
         if (checkRes) {
-            console.log(e.detail.value)
-            wx.showToast({
-                title: "提交成功!"
+            app.topReq({
+                loadType: 1,
+                url: app.globalData.serviceSrc + 'payment/expressage/createReplaceOrder',
+                method: 'POST',
+                data: {
+                    openId: app.globalData.userInfo.openid,
+                    orderData: JSON.stringify(formData)
+                },
+                success: function (res) {
+                    wx.requestPayment({
+                        timeStamp: res.data.timeStamp,
+                        nonceStr: res.data.nonceStr,
+                        package: res.data.package,
+                        signType: res.data.signType,
+                        paySign: res.data.paySign,
+                        success(res) {
+                            wx.navigateTo({
+                                url: '/pages/common/payresult/payresult',
+                            })
+                        },
+                        fail(e) {
+                            wx.showToast({
+                                title: e.errorMsg,
+                                icon: "none"
+                            })
+                        }
+                    })
+                }
             })
         } else {
             wx.showToast({

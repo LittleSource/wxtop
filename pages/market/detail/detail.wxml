@@ -77,7 +77,7 @@
         <view class="text-orange text-xl">{{priceSum == 0?'0.00':priceSum}} 元</view>
     </view>
     <view class="bg-black text-bold text-lg submit" wx:if="{{priceSum < marketInfo.minimum}}">{{marketInfo.minimum}} 元起送</view>
-    <view class="bg-orange text-bold text-lg submit" wx:else>提交订单</view>
+    <view class="bg-gradual-market text-bold text-lg submit" wx:else bindtap='goCheckstand'>提交订单</view>
 </view>
 <!--购物车Model弹出层-->
 <view class="cu-modal bottom-modal {{showShoppingcartModel?'show':''}}">

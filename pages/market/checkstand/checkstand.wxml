@@ -1,0 +1,59 @@
+<!--pages/market/checkstand/checkstand.wxml-->
+<view>
+    <view style="margin-bottom: 90rpx;">
+        <view class="cu-bar bg-white">
+            <view class='action'>
+                <text class='cuIcon-titles text-orange'></text>
+                <text class='text-xl text-bold'>收货地址</text>
+            </view>
+        </view>
+        <view class="cu-list menu">
+            <view class="cu-item arrow">
+                <view wx:if="{{address}}" class='content padding-tb-arrow' bindtap='getAddress'>
+                    <view class='text-lg'>{{address.name + '  ' + address.phone}}</view>
+                    <view class='text-gray text-df'>{{address.detail}}</view>
+                </view>
+                <view wx:else class='content padding-tb-arrow' bindtap='getAddress'>
+                    <view class="iconfont icon-plus-circle text-lg">
+                        <text class='margin-left-xs'> 获取地址</text>
+                    </view>
+                    <view class='text-gray text-df'>点此选择您的收货地址</view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white margin-top">
+            <view class='action'>
+                <text class='cuIcon-titles text-orange'></text>
+                <text class='text-xl text-bold'>订单详情</text>
+            </view>
+        </view>
+        <view class="cu-list menu">
+            <view class="cu-item" wx:for="{{shoppingCart}}" wx:key>
+                <view class="content">
+                    <image src="{{item.img}}" class="png" mode="scaleToFill"></image>
+                    <text class="text-black">{{item.title}}</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">{{item.price + ' × ' +item.count}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="bg-white dashed-top padding text-bold text-xl flex justify-between">
+            <text class='text-black'>总计:</text>
+            <text class='text-red text-price'>{{totalPrice}}</text>
+        </view>
+        <view class="cu-bar bg-white margin-top">
+            <view class='action'>
+                <text class='cuIcon-titles text-orange'></text>
+                <text class='text-xl text-bold'>订单备注</text>
+            </view>
+        </view>
+        <view class="cu-form-group">
+            <textarea placeholder="请输入订单备注" maxlength="200" auto-height bindinput="getRemark"></textarea>
+        </view>
+    </view>
+    <view class="cu-bar bg-white tabbar border shop">
+        <view style='width:58%' class="text-lg text-bold padding">合计: <text  class='text-red text-price'>{{totalPrice}}</text></view>
+        <view class="bg-gradual-market text-bold text-lg submit" bindtap='submitOrder'>立即付款</view>
+    </view>
+</view>

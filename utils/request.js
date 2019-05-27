@@ -29,6 +29,7 @@ module.exports = {
                 } else {
                     var msg = '';
                     if (res.data.msg == undefined) {
+                        console.log(res.data)
                         msg = res.statusCode + res.errMsg
                     } else {
                         msg = res.data.msg

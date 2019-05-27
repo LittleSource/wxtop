@@ -1,0 +1,6 @@
+/* pages/market/checkstand/checkstand.wxss */
+.shop {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

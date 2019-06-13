@@ -1,1 +1,24 @@
 /* pages/expressage/inquireorder/inquireorder.wxss */
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30rpx;
+}
+
+.cu-list.menu>.cu-item {
+    min-height: 90rpx;
+}
+
+.cu-list.menu>.top-item {
+    position: relative;
+    display: flex;
+    padding: 0 30rpx;
+    min-height: 100rpx;
+    background-color: var(--white);
+    align-items: center;
+}
+.top-margin-left-xs{
+    margin-left: -5rpx;
+}

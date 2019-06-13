@@ -13,7 +13,7 @@
       <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
     </swiper-item>
   </swiper>
-  <view class="cu-list grid col-3">
+  <view class="cu-list grid col-2">
       <view class="cu-item" wx:for="{{iconList}}" wx:key bindtap='goSwitch' data-index='{{index}}'>
         <view class="cuIcon-{{item.icon}} text-{{item.color}}"></view>
         <text>{{item.name}}</text>

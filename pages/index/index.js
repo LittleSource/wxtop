@@ -23,12 +23,14 @@ Page({
             type: 'image',
             url: 'https://icloud.9ykm.cn/app/banner/mmexport3.jpg'
         }],
-        iconList: [{
-            icon: 'likefill',
-            color: 'orange',
-            name: '表白墙',
-            url: '/pages/confession/index/index'
-        }, {
+        iconList: [
+        // {
+        //     icon: 'likefill',
+        //     color: 'orange',
+        //     name: '表白墙',
+        //     url: '/pages/confession/index/index'
+        // }, 
+        {
             icon: 'shopfill',
             color: 'cyan',
             name: '订外卖',
@@ -47,11 +49,13 @@ Page({
             icon: 'choicenessfill',
             color: 'purple',
             name: '免押租车'
-        }, {
-            icon: 'questionfill',
-            color: 'mauve',
-            name: '帮助反馈'
-        }]
+        }
+        // , {
+        //     icon: 'questionfill',
+        //     color: 'mauve',
+        //     name: '帮助反馈'
+        // }
+        ]
     },
     onLoad: function () {
         _self = this

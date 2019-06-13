@@ -1,0 +1,14 @@
+<!--components/show-model/show-model.wxml-->
+<view class="cu-modal {{isShow?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">{{title}}</view>
+      <view class="action" bindtap="_close">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{content}}
+    </view>
+  </view>
+</view>

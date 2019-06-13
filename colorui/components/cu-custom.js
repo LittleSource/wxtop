@@ -41,9 +41,14 @@ Component({
    */
   methods: {
     BackPage() {
-      wx.navigateBack({
-        delta: 1
-      });
+        let pages = getCurrentPages();
+        if (pages.length == 1) {
+            wx.switchTab({
+                url: '/pages/index/index',
+            })
+        } else {
+            wx.navigateBack()
+        }
     },
     toHome(){
       wx.reLaunch({

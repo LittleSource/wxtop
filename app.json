@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/market/detail/detail",
         "pages/index/index",
+        "pages/expressage/index/index",
         "pages/expressage/placeorder/placeorder",
         "pages/expressage/inquireorder/inquireorder",
         "pages/confession/index/index",
@@ -11,9 +11,13 @@
         "pages/market/index/index",
         "pages/common/about/about",
         "pages/common/payresult/payresult",
-        "pages/expressage/index/index",
-        "pages/market/checkstand/checkstand"
+        "pages/market/detail/detail",
+        "pages/market/checkstand/checkstand",
+        "pages/manage/index/index"
     ],
+    "usingComponents": {
+        "show-model": "/components/show-model/show-model"
+    },
     "permission": {
         "scope.userLocation": {
             "desc": "你的位置信息将用于定位您所在的学校"

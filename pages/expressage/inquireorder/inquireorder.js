@@ -30,34 +30,6 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
@@ -67,15 +39,23 @@ Page({
             method: 'POST',
             data: {
                 openid: app.globalData.userInfo.openid,
+                token: app.globalData.userInfo.token,
                 page: 1
             },
             success: function (res) {
                 for (let i = 0; i < res.data.data.length; i++) {
                     res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data)
                 }
+                //如果只有一页
+                if (res.data.last_page == 1){
+                    _self.setData({
+                        loadingShow: true,
+                        loadingIndex:1
+                    })
+                }
                 _self.setData({
                     orderList: res.data.data,
-                    currentPage: _self.data.currentPage++,
+                    currentPage: res.data.current_page,
                     lastPage: res.data.last_page
                 })
                 wx.setStorage({ //缓存列表数据
@@ -90,7 +70,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-        if (this.data.lastPage != this.data.currentPage && this.data.loadType != 0) {
+        if (this.data.loadingIndex != 1 && this.data.loadingIndex != 0) {
             _self.setData({
                 loadingShow: true,
                 loadingIndex: 0
@@ -101,17 +81,22 @@ Page({
                 method: 'POST',
                 data: {
                     openid: app.globalData.userInfo.openid,
+                    token: app.globalData.userInfo.token,
                     page: this.data.lastPage
                 },
                 success: function(res) {
                     for (let i = 0; i < res.data.data.length; i++) {
                         res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data)
                     }
+                    let loadingIndex_ = -1
+                    if (res.data.last_page == res.data.last_page){//如果到最后一页
+                        loadingIndex_ = 1
+                    }
                     _self.setData({
                         orderList: _self.data.orderList.concat(res.data.data),
                         lastPage: res.data.last_page,
                         currentPage: res.data.current_page,
-                        loadingIndex: 1
+                        loadingIndex: loadingIndex_
                     })
                 }
             })

@@ -13,7 +13,7 @@
 .cu-list.menu>.top-item {
     position: relative;
     display: flex;
-    padding: 0 30rpx;
+    padding: 0 15rpx;
     min-height: 100rpx;
     background-color: var(--white);
     align-items: center;

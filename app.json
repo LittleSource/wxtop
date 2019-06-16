@@ -1,9 +1,10 @@
 {
     "pages": [
-        "pages/expressage/inquireorder/inquireorder",
         "pages/index/index",
+        "pages/manage/expressage/expressage",
         "pages/expressage/index/index",
         "pages/expressage/placeorder/placeorder",
+        "pages/expressage/inquireorder/inquireorder",
         "pages/confession/index/index",
         "pages/confession/detail/detail",
         "pages/mine/index/index",
@@ -13,11 +14,11 @@
         "pages/common/payresult/payresult",
         "pages/market/detail/detail",
         "pages/market/checkstand/checkstand",
-        "pages/manage/index/index",
-        "pages/manage/expressage/expressage"
+        "pages/manage/index/index"
     ],
     "usingComponents": {
-        "show-model": "/components/show-model/show-model"
+        "show-model": "/components/show-model/show-model",
+        "show-dialog": "/components/show-dialog/show-dialog"
     },
     "permission": {
         "scope.userLocation": {

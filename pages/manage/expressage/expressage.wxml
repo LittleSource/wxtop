@@ -1,2 +1,3 @@
 <!--pages/manage/expressage/expressage.wxml-->
-<text>快递管理</text>
+<expressage-card manage="{{true}}" wx:for="{{orderList}}" wx:key order="{{item}}"></expressage-card>
+<view wx:if="{{loadingShow}}" class="cu-load {{loadingStyle[loadingIndex]}}">{{loadingIndex == 0 ? '加载中...' : ''}}</view>

@@ -7,8 +7,6 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <view class="padding-xl">
-      {{content}}
-    </view>
+    <slot name="content"></slot>
   </view>
 </view>

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "expressage-card": "/components/expressage-card/expressage-card"
+    }
 }

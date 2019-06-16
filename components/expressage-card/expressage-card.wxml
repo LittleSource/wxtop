@@ -2,7 +2,7 @@
 <view class="cu-list menu margin-top card-menu shadow-lg radius">
     <view class='title solid-bottom'>
         <text class='text-bold text-xl'>快递{{order.serve_type}}</text>
-        <view class="cu-tag light {{order.status==0?'bg-red':order.status==1?'bg-green':order.status==2?'bg-yellow':order.status==3?'bg-blue':'bg-grey'}}">{{order.status==0?'未支付':order.status==1?'待处理':order.status==2?'处理中':order.status==3?'已完成':'已退款'}}</view>
+        <view class="cu-tag light {{order.status==0?'bg-red':order.status==1?'bg-green':order.status==2?'bg-yellow':order.status==3?'bg-blue':'bg-grey'}}" bindtap='_showStatusDialog'>{{order.status==0?'未支付':order.status==1?'待处理':order.status==2?'处理中':order.status==3?'已完成':'已退款'}}</view>
     </view>
     <view class="cu-item">
         <view class="content">
@@ -44,4 +44,16 @@
         </view>
     </view>
 </view>
-<show-model isShow="{{model.show}}" title="短信内容" content="{{model.content}}"></show-model>
+<show-model isShow="{{model.show}}" title="短信内容">
+    <view slot="content" class="padding-xl">{{model.content}}</view>
+</show-model>
+<show-dialog isShow="{{statusDialog?'show':''}}" title="处理订单" bind:confirm="_changeOrderStatus">
+    <view slot="content">
+        <view class="grid col-3 padding-sm">
+            <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+                <button class="cu-btn orange lg block {{item.checked?'bg-'+item.color:'line-'+item.color}}" bindtap="_chooseStatusDialog" data-index="{{index}}"> {{item.name}}
+                </button>
+            </view>
+        </view>
+    </view>
+</show-dialog>

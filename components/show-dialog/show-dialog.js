@@ -1,4 +1,4 @@
-// components/show-model/show-model.js
+// components/show-dialog/show-dialog.js
 Component({
     /**
     * 组件的一些选项
@@ -15,9 +15,9 @@ Component({
             type: Boolean,
             default: false
         },
-        title:{
-            type:String,
-            default:'提示'
+        title: {
+            type: String,
+            default: '提示'
         }
     },
 
@@ -32,10 +32,14 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        _close(){
+        _close() {
             this.setData({
                 isShow: false
             })
+        },
+        _confirm(){
+            this.triggerEvent('confirm')
+            this._close()
         }
     }
 })

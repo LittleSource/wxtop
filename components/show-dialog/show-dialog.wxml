@@ -1,0 +1,18 @@
+<!--components/show-dialog/show-dialog.wxml-->
+<view class="cu-modal {{isShow?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">{{title}}</view>
+            <view class="action" bindtap="_close">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <slot name="content"></slot>
+        <view class="cu-bar bg-white justify-end">
+            <view class="action">
+                <button class="cu-btn line-green text-green" bindtap="_close">取消</button>
+                <button class="cu-btn bg-green margin-left" bindtap="_confirm">确定</button>
+            </view>
+        </view>
+    </view>
+</view>

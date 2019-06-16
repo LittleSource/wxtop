@@ -1,4 +1,5 @@
 // pages/manage/index/index.js
+const app = getApp()
 Page({
 
     /**
@@ -12,51 +13,47 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        if (app.globalData.userInfo == null){
+            wx.showToast({
+                title: '请先登录!',
+                icon:'none'
+            })
+            setTimeout(function(){
+                wx.navigateBack()
+            },1000)
+        }
     },
-
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 快递服务鉴权
      */
-    onReady: function () {
-
+    kdserve:function(){
+        //获取缓存
+        const serveid = wx.getStorageSync('serveid')
+        if (serveid) {
+            wx.navigateTo({
+                url: '/pages/manage/expressage/expressage',
+            })
+        }else{
+            app.topReq({
+                loadType: 1,
+                url: app.globalData.serviceSrc + 'manage/auth/expressage',
+                method: 'POST',
+                data: {
+                    openid: app.globalData.userInfo.openid,
+                    token: app.globalData.userInfo.token
+                },
+                success: function (res) {
+                    wx.setStorage({ //缓存列表数据
+                        key: 'serveid',
+                        data: res.data.serveid
+                    })
+                    wx.navigateTo({
+                        url: '/pages/manage/expressage/expressage',
+                    })
+                }
+            })
+        }
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
     /**
      * 用户点击右上角分享
      */

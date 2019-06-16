@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/expressage/inquireorder/inquireorder",
         "pages/index/index",
         "pages/expressage/index/index",
         "pages/expressage/placeorder/placeorder",
-        "pages/expressage/inquireorder/inquireorder",
         "pages/confession/index/index",
         "pages/confession/detail/detail",
         "pages/mine/index/index",
@@ -13,7 +13,8 @@
         "pages/common/payresult/payresult",
         "pages/market/detail/detail",
         "pages/market/checkstand/checkstand",
-        "pages/manage/index/index"
+        "pages/manage/index/index",
+        "pages/manage/expressage/expressage"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model"

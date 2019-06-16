@@ -1,0 +1,47 @@
+<!--components/expressage-card/expressage-card.wxml-->
+<view class="cu-list menu margin-top card-menu shadow-lg radius">
+    <view class='title solid-bottom'>
+        <text class='text-bold text-xl'>快递{{order.serve_type}}</text>
+        <view class="cu-tag light {{order.status==0?'bg-red':order.status==1?'bg-green':order.status==2?'bg-yellow':order.status==3?'bg-blue':'bg-grey'}}">{{order.status==0?'未支付':order.status==1?'待处理':order.status==2?'处理中':order.status==3?'已完成':'已退款'}}</view>
+    </view>
+    <view class="cu-item">
+        <view class="content">
+            <text class="text-black">下单时间</text>
+        </view>
+        <view class='action'>
+            <view class='text-black'>{{order.create_time}}</view>
+        </view>
+    </view>
+    <view class="cu-item">
+        <view class="content">
+            <text class="text-black">订单编号</text>
+        </view>
+        <view class='action'>
+            <view class='text-black'>{{order.out_trade_no}}</view>
+        </view>
+    </view>
+    <view class="cu-item arrow" bindtap='_showMessage'>
+        <view class="content">
+            <text class="text-black">取件短信</text>
+        </view>
+        <view class='action'>
+            <text class='text-grey text-sm'>点击查看</text>
+        </view>
+    </view>
+    <view class="top-item solid-bottom">
+        <view class="cu-tag bg-green light">{{order.order_data.name}}</view>
+        <view class="cu-tag bg-orange light">{{order.order_data.phone}}</view>
+        <view class="cu-tag bg-pink light">{{order.order_data.dorNo}}</view>
+        <view class="cu-tag bg-cyan light">{{order.order_data.school}}</view>
+    </view>
+    <view class="cu-item">
+        <view class="content text-blue" bindtap='_customerService'>
+            <text class='cuIcon-phone'></text>
+            <text class="top-margin-left-xs">联系客服</text>
+        </view>
+        <view class='action'>
+            <view class='text-red text-lg text-price'>{{order.pay_price}}</view>
+        </view>
+    </view>
+</view>
+<show-model isShow="{{model.show}}" title="短信内容" content="{{model.content}}"></show-model>

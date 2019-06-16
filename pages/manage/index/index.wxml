@@ -1,2 +1,11 @@
 <!--pages/manage/index/index.wxml-->
-<text>pages/manage/index/index.wxml</text>
+<view class="cu-list grid col-2">
+    <view class="cu-item" bindtap='goSwitch'>
+        <view class="cuIcon-shopfill text-cyan"></view>
+        <text>店铺管理</text>
+    </view>
+    <view class="cu-item" bindtap='kdserve'>
+        <view class="cuIcon-deliver_fill text-olive"></view>
+        <text>快递服务</text>
+    </view>
+</view>

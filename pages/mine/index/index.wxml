@@ -48,10 +48,10 @@
             </view>
         </view>
         <view class="cu-item arrow">
-            <view class="content">
+            <navigator class="content" url="/pages/manage/index/index" hover-class="none">
                 <text class="cuIcon-shopfill text-red"></text>
                 <text class="text-grey">管理中心</text>
-            </view>
+            </navigator>
         </view>
         <view class="cu-item arrow">
             <navigator class="content" url="" hover-class="none">

@@ -33,7 +33,7 @@ App({
         shoppingCart:[]
     },
     configData:{
-        expressagedqphone:'17320285191'   //快递代取客服手机号
+        
     },
     topReq: requestUtils.request
 })

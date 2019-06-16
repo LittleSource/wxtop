@@ -25,12 +25,18 @@ module.exports = {
                 if (res.data.code == 200) {
                     ReqData.success(res.data);
                 } else if (res.data.code == 301) {
-
+                    wx.showToast({
+                        title: '身份过期，请重新登录',
+                        icon: "none"
+                    });
                 } else {
                     var msg = '';
                     if (res.data.msg == undefined) {
-                        console.log(res.data)
-                        msg = res.statusCode + res.errMsg
+                        if (res.statusCode == 200){
+                            msg = '服务器错误，请稍后重试' + res.errMsg
+                        }else{
+                            msg = res.statusCode + res.errMsg
+                        }
                     } else {
                         msg = res.data.msg
                     }

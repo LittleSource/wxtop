@@ -2,16 +2,11 @@
 const app = getApp()
 var _self = null
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         orderList: [],
-        model:{
-            show:false,
-            content:''
-        },
         currentPage: 1,
         lastPage: 2,
         loadingShow: false,
@@ -121,23 +116,6 @@ Page({
                 }
             })
         }
-    },
-    /**
-     * 点击取件短信model展示短信
-     */
-    showMessage: function (e) {
-        var index = e.currentTarget.dataset.index;
-        this.setData({
-            model:{
-                show:true,
-                content: this.data.orderList[index].order_data.shortmessage
-            }
-        })
-    },
-    customerService: function () {
-        wx.makePhoneCall({
-            phoneNumber: app.configData.expressagedqphone
-        })
     },
     /**
      * 用户点击右上角分享

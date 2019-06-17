@@ -2,3 +2,6 @@
 .result-text{
     vertical-align: middle;
 }
+.result-margin-top{
+    margin-top: 120rpx;
+}

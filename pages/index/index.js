@@ -13,11 +13,11 @@ Page({
         swiperList: [{
             id: 0,
             type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport1.jpg'
+            url: 'https://icloud.9ykm.cn/app/banner/mmexport2.jpg'
         }, {
             id: 1,
             type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport2.jpg',
+            url: 'https://icloud.9ykm.cn/app/banner/mmexport1.jpg',
         }, {
             id: 2,
             type: 'image',
@@ -83,17 +83,6 @@ Page({
                 })
             }
         })
-        //登录
-        wx.login({
-            success(res) {
-                // app.graceRequest.post(
-                //     app.globalData.serviceSrc + 'wxapi/login/login', { code: res.code }, 'json', 3, {},
-                //     function (res) {
-                //         console.log(res)
-                //     }
-                // )
-            }
-        })
     },
     onShow: function () {
         this.setData({
@@ -112,15 +101,7 @@ Page({
     },
     goSwitch: function (e) {
         if (!this.data.userInfo) {
-            wx.showToast({
-                title: '您还未登录哦',
-                icon: 'none'
-            })
-            setTimeout(function () {
-                wx.navigateTo({
-                    url: '/pages/common/login/login'
-                })
-            }, 1000)
+            app.checkLogin('/pages/index/index', 1)
         } else {
             var index = e.currentTarget.dataset.index
             if (this.data.iconList[index].url) {

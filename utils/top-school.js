@@ -11,7 +11,7 @@ module.exports = {
         id: 15310156724975630292,
         title: '天津电子信息技术学院',
         name: '电子',
-        image: 'https://icloud.9ykm.cn/app/banner/mmexport1.jpg'
+        image: 'http://tcdn.ym-top.com/school/%E7%94%B5%E5%AD%90.jpg'
     },
     {
         id: 1132276838459656005,

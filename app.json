@@ -10,10 +10,10 @@
         "pages/common/login/login",
         "pages/market/index/index",
         "pages/common/about/about",
-        "pages/common/payresult/payresult",
         "pages/market/detail/detail",
         "pages/market/checkstand/checkstand",
         "pages/manage/expressage/expressage",
+        "pages/common/payresult/payresult",
         "pages/manage/index/index"
     ],
     "usingComponents": {

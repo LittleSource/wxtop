@@ -2,6 +2,7 @@
 const app = getApp()
 var graceChecker = require("../../../utils/graceChecker.js");
 var topSchool = require("../../../utils/top-school.js"); //引入封装topSchool
+var topPay = require("../../../utils/top-pay.js"); //引入封装topPay
 var _self = null
 Page({
     /**
@@ -125,24 +126,7 @@ Page({
                     orderData: JSON.stringify(formData)
                 },
                 success: function (res) {
-                    wx.requestPayment({
-                        timeStamp: res.data.timeStamp,
-                        nonceStr: res.data.nonceStr,
-                        package: res.data.package,
-                        signType: res.data.signType,
-                        paySign: res.data.paySign,
-                        success(res) {
-                            wx.navigateTo({
-                                url: '/pages/common/payresult/payresult',
-                            })
-                        },
-                        fail(e) {
-                            wx.showToast({
-                                title: e.errorMsg,
-                                icon: "none"
-                            })
-                        }
-                    })
+                    topPay.startPay(res.data, '/pages/expressage/inquireorder/inquireorder', _self.data.price)
                 }
             })
         } else {

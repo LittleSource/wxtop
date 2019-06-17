@@ -1,4 +1,5 @@
 // pages/expressage/index/index.js
+const app = getApp()
 Page({
 
     /**
@@ -19,8 +20,8 @@ Page({
             url: 'https://icloud.9ykm.cn/app/banner/mmexport3.jpg'
         }],
         notice: [
-            "①早上8点开始下单，下午5点截止",
-            "②每天下午5点准时派送",
+            "①学校门口和菜鸟驿站都可以代取哦",
+            "②无论是小姐姐还是小哥哥都可以送到宿舍",
             "③小件(2KG及以下)2元，大件(2KG以上)3元"
         ],
     },
@@ -33,24 +34,10 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
+        app.checkLogin('/pages/expressage/index/index',0)
     },
 
     /**

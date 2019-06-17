@@ -1,4 +1,5 @@
 // pages/expressage/inquireorder/inquireorder.js
+var topDate = require("../../../utils/date.js"); //引入封装date.js
 const app = getApp()
 var _self = null
 Page({
@@ -44,7 +45,8 @@ Page({
             },
             success: function (res) {
                 for (let i = 0; i < res.data.data.length; i++) {
-                    res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data)
+                    res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data);
+                    res.data.data[i].create_time = topDate.fromTimer(res.data.data[i].create_time);
                 }
                 //如果只有一页
                 if (res.data.last_page == 1){

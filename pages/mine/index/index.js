@@ -35,6 +35,13 @@ Page({
             })
         }
     },
+    //临时函数
+    tempfun:function(){
+        wx.showToast({
+            title: '即将上线，敬请期待',
+            icon:'none'
+        })
+    },
     /**
      * 用户点击右上角分享
      */

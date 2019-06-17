@@ -24,7 +24,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'http://localhost/',//https://wxtapi.ym-top.com/
+        serviceSrc: 'https://wxtapi.ym-top.com/',//https://wxtapi.ym-top.com/
         userInfo: null,
         school: {
             id:0,
@@ -34,6 +34,19 @@ App({
     },
     configData:{
         
+    },
+    checkLogin:function(url,istab){
+        if (this.globalData.userInfo == null) {
+            wx.showToast({
+                title: '您还未登录哦',
+                icon: 'none'
+            })
+            setTimeout(function () {
+                wx.navigateTo({
+                    url: '/pages/common/login/login?url='+url+'&istab'+istab
+                })
+            }, 1000)
+        }
     },
     topReq: requestUtils.request
 })

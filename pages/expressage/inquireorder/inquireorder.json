@@ -1,7 +1,7 @@
 {
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
-    "navigationBarTitleText": "我的快递订单",
+    "navigationBarTitleText": "快递订单",
     "usingComponents": {
         "expressage-card": "/components/expressage-card/expressage-card"
     }

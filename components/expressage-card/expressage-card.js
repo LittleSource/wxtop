@@ -180,8 +180,13 @@ Component({
                             signType: res.data.signType,
                             paySign: res.data.paySign,
                             success(res) {
-                                wx.navigateTo({
-                                    url: '/pages/common/payresult/payresult',
+                                wx.showToast({
+                                    title: '支付成功'
+                                })
+                                let order_ = _self.data.order
+                                order_.status = 1//设置订单为已支付状态
+                                _self.setData({
+                                    order: order_
                                 })
                             },
                             fail(e) {

@@ -3,12 +3,26 @@
     <view slot="backText">返回</view>
     <view slot="content">支付结果</view>
 </cu-custom>
-<view class="padding-xs flex">
+<view class="padding-xs flex result-margin-top">
     <view class="flex-sub text-center">
-        <view class="padding text-xsl solids-bottom">
-            <text class="cuIcon-roundcheckfill text-green"></text>
-            <text class='text-xxl text-green result-text'> 支付成功</text>
-        </view>
-        <view class="text-price text-lg">188.8元</view>
+        <block wx:if="{{result}}">
+            <view class="padding text-xsl text-green">
+                <text class="cuIcon-roundcheckfill"></text>
+                <text class='text-xxl result-text'> 支付成功</text>
+            </view>
+            <view class="text-price text-lg">{{price}}</view>
+        </block>
+        <block wx:else>
+            <view class="padding text-xsl text-yellow">
+                <text class="cuIcon-info"></text>
+                <text class='text-xxl result-text'> 等待支付</text>
+            </view>
+            <view class="text-lg text-grey">请在15分钟之内完成付款，</view>
+            <view class="text-lg text-grey">否则系统会自动取消订单！</view>
+        </block>
     </view>
+</view>
+<view class='text-center result-margin-top'>
+    <button class='cu-btn line-green' bindtap='goOrder'>查看订单</button>
+    <button class='cu-btn line-grey margin-left-lg' bindtap='goHome'>返回首页</button>
 </view>

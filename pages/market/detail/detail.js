@@ -58,6 +58,9 @@ Page({
             }
         })
     },
+    onShow() {
+        //app.checkLogin('/pages/index/index', 1)
+    },
     /**
      * 封装一个函数获取dom节点的信息
      */

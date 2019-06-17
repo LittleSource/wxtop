@@ -94,7 +94,7 @@ Page({
             })
         }else{
             wx.showToast({
-                title: '预计近期上线，敬请期待...',
+                title: '即将上线，敬请期待',
                 icon: 'none'
             })
             //发起订单

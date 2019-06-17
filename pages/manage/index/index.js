@@ -39,7 +39,6 @@ Page({
                 url: app.globalData.serviceSrc + 'manage/auth/expressage',
                 method: 'POST',
                 data: {
-                    openid: app.globalData.userInfo.openid,
                     token: app.globalData.userInfo.token
                 },
                 success: function (res) {

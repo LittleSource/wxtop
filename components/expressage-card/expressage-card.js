@@ -32,17 +32,17 @@ Component({
         checkbox: [{
             value: 2,
             name: '处理中',
-            color:'yellow',
+            color: 'yellow',
             checked: false,
         }, {
             value: 3,
             name: '已完成',
-            color:'blue',
+            color: 'blue',
             checked: false,
         }, {
             value: 4,
             name: '已退款',
-            color:'grey',
+            color: 'grey',
             checked: false,
         }],
     },
@@ -61,31 +61,36 @@ Component({
                 checkbox: _checkbox
             });
         },
-        
+
         //展示订单处理对话框
         _showStatusDialog() {
-            if (this.data.manage && this.data.order.status != 4) {
-                this.__initCheckbox()//初始化
+            if (this.data.manage && this.data.order.status != 4 && this.data.order.status != 0) {
+                this.__initCheckbox() //初始化
                 this.setData({
                     statusDialog: true,
                 })
                 let _checkbox = this.data.checkbox
-                for (let i = 0; i < _checkbox.length; i++){
-                    if (_checkbox[i].value == this.data.order.status){
+                for (let i = 0; i < _checkbox.length; i++) {
+                    if (_checkbox[i].value == this.data.order.status) {
                         _checkbox[i].checked = true;
                         break;
                     }
                 }
                 this.setData({
                     checkbox: _checkbox
-                });
+                })
+            }else{
+                wx.showToast({
+                    title: '该订单未支付或已退款，无权操作',
+                    icon:'none'
+                })
             }
         },
 
         //订单状态对话框选择事件
-        _chooseStatusDialog(e){
+        _chooseStatusDialog(e) {
             let index = e.currentTarget.dataset.index
-            this.__initCheckbox()//初始化
+            this.__initCheckbox() //初始化
             let _checkbox = this.data.checkbox
             _checkbox[index].checked = true
             this.setData({
@@ -94,31 +99,38 @@ Component({
         },
 
         //确定修改订单状态
-        _changeOrderStatus(){
+        _changeOrderStatus() {
+            var _self = this
             let index = -1
-            for(let i = 0;i < this.data.checkbox.length; i++){
-                if (this.data.checkbox[i].checked){
+            for (let i = 0; i < this.data.checkbox.length; i++) {
+                if (this.data.checkbox[i].checked) {
                     index = i;
                     break;
                 }
             }
             //判断是否有选择且选择的与当前订单状态不一致
-            if (index != -1 && this.data.checkbox[index].value != this.data.order.status){
+            if (index != -1 && this.data.checkbox[index].value != this.data.order.status) {
                 app.topReq({
                     loadType: 1,
-                    url: app.globalData.serviceSrc + '',
+                    url: app.globalData.serviceSrc + 'manage/expressage/changestatus',
                     method: 'POST',
                     data: {
-                        openid:'',
-                        token:'',
-                        orderid:'',
+                        token: app.globalData.userInfo.token,
+                        outTradeNo: _self.data.order.out_trade_no,
+                        status: _self.data.checkbox[index].value,
                     },
-                    success: function (res) {
-                        
+                    success: function(res) {
+                        wx.showToast({
+                            title:'操作成功'
+                        })
+                        let order_ = _self.data.order
+                        order_.status = res.data.status
+                        _self.setData({
+                            order: order_
+                        })
                     }
                 })
             }
-            console.log('dsadsad')
         },
 
         //点击取件短信model展示短信
@@ -147,6 +159,47 @@ Component({
                     })
                 }
             })
+        },
+
+        //支付按钮发起支付
+        _continuePay(){
+            var _self = this
+            if(this.data.order.status == 0){
+                app.topReq({
+                    loadType: 1,
+                    url: app.globalData.serviceSrc + 'payment/expressage/continuePay',
+                    method: 'POST',
+                    data: {
+                        outTradeNo:_self.data.order.out_trade_no
+                    },
+                    success: function (res) {
+                        wx.requestPayment({
+                            timeStamp: res.data.timeStamp,
+                            nonceStr: res.data.nonceStr,
+                            package: res.data.package,
+                            signType: res.data.signType,
+                            paySign: res.data.paySign,
+                            success(res) {
+                                wx.navigateTo({
+                                    url: '/pages/common/payresult/payresult',
+                                })
+                            },
+                            fail(e) {
+                                var msg = '';
+                                if (e.errMsg == "requestPayment:fail cancel"){
+                                    msg = '您已取消支付'
+                                }else{
+                                    msg = '呀，发生未知错误啦!请稍后再试'
+                                }
+                                wx.showToast({
+                                    title: msg,
+                                    icon: "none"
+                                })
+                            }
+                        })
+                    }
+                })
+            }
         }
     }
 })

@@ -7,7 +7,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        serveid: [],
         orderList: [],
         currentPage: 1,
         lastPage: 2,
@@ -24,9 +23,6 @@ Page({
         //获取缓存
         const serveid = wx.getStorageSync('serveid')
         if (serveid) {
-            this.setData({
-                serveid: serveid
-            })
             wx.startPullDownRefresh()
         }else{
             wx.showToast({
@@ -45,9 +41,7 @@ Page({
             url: app.globalData.serviceSrc + 'manage/expressage/selectorder',
             method: 'POST',
             data: {
-                openid: app.globalData.userInfo.openid,
                 token: app.globalData.userInfo.token,
-                serveid:_self.data.serveid,
                 page: 1
             },
             success: function (res) {
@@ -84,9 +78,7 @@ Page({
                 url: app.globalData.serviceSrc+'manage/expressage/selectorder',
                 method: 'POST',
                 data: {
-                    openid: app.globalData.userInfo.openid,
                     token: app.globalData.userInfo.token,
-                    serveid: _self.data.serveid,
                     page: this.data.lastPage
                 },
                 success: function (res) {

@@ -121,7 +121,7 @@ Page({
                 url: app.globalData.serviceSrc + 'payment/expressage/createReplaceOrder',
                 method: 'POST',
                 data: {
-                    openId: app.globalData.userInfo.openid,
+                    token: app.globalData.userInfo.token,
                     orderData: JSON.stringify(formData)
                 },
                 success: function (res) {

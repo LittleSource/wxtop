@@ -2,7 +2,7 @@
 <view class="cu-list menu margin-top card-menu shadow-lg radius">
     <view class='title solid-bottom'>
         <text class='text-bold text-xl'>快递{{order.serve_type}}</text>
-        <view class="cu-tag light {{order.status==0?'bg-red':order.status==1?'bg-green':order.status==2?'bg-yellow':order.status==3?'bg-blue':'bg-grey'}}" bindtap='_showStatusDialog'>{{order.status==0?'未支付':order.status==1?'待处理':order.status==2?'处理中':order.status==3?'已完成':'已退款'}}</view>
+        <view class="cu-tag light {{order.status==0?'bg-red':order.status==1?'bg-green':order.status==2?'bg-yellow':order.status==3?'bg-blue':'bg-grey'}}">{{order.status==0?'未支付':order.status==1?'待处理':order.status==2?'处理中':order.status==3?'已完成':'已退款'}}</view>
     </view>
     <view class="cu-item">
         <view class="content">
@@ -35,19 +35,24 @@
         <view class="cu-tag bg-cyan light">{{order.order_data.school}}</view>
     </view>
     <view class="cu-item">
-        <view class="content text-blue" bindtap='_customerService'>
+        <view wx:if="{{manage}}" class="content text-black" bindtap='_showStatusDialog'>
+            <text class='cuIcon-settings'></text>
+            <text class="top-margin-left-xs">更新订单</text>
+        </view>
+        <view wx:else class="content text-blue" bindtap='_customerService'>
             <text class='cuIcon-phone'></text>
             <text class="top-margin-left-xs">联系客服</text>
         </view>
         <view class='action'>
-            <view class='text-red text-lg text-price'>{{order.pay_price}}</view>
+            <button wx:if="{{order.status == 0}}" class='cu-btn line-red' bindtap='_continuePay'>立即付款</button>
+            <view wx:else class='text-red text-lg text-price'>{{order.pay_price}}</view>
         </view>
     </view>
 </view>
 <show-model isShow="{{model.show}}" title="短信内容">
     <view slot="content" class="padding-xl">{{model.content}}</view>
 </show-model>
-<show-dialog isShow="{{statusDialog?'show':''}}" title="处理订单" bind:confirm="_changeOrderStatus">
+<show-dialog isShow="{{statusDialog?'show':''}}" title="更新订单" bind:confirm="_changeOrderStatus">
     <view slot="content">
         <view class="grid col-3 padding-sm">
             <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">

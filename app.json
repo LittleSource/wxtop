@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/manage/index/index",
         "pages/expressage/index/index",
         "pages/expressage/placeorder/placeorder",
         "pages/expressage/inquireorder/inquireorder",
@@ -14,7 +15,7 @@
         "pages/market/checkstand/checkstand",
         "pages/manage/expressage/expressage",
         "pages/common/payresult/payresult",
-        "pages/manage/index/index"
+        "pages/common/consociation/consociation"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",

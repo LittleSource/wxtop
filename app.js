@@ -24,7 +24,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'https://wxtapi.ym-top.com/',//https://wxtapi.ym-top.com/
+        serviceSrc: 'http://221.238.78.29/',//https://wxtapi.ym-top.com/
         userInfo: null,
         school: {
             id:0,

@@ -48,16 +48,16 @@
             </view>
         </view>
         <view class="cu-item arrow">
-            <navigator class="content" url="/pages/manage/index/index" hover-class="none">
+            <view class="content" bindtap='goMenu' data-url="/pages/manage/index/index">
                 <text class="cuIcon-shopfill text-red"></text>
                 <text class="text-grey">管理中心</text>
-            </navigator>
+            </view>
         </view>
         <view class="cu-item arrow" bindtap='tempfun'>
-            <navigator class="content" url="" hover-class="none">
+            <view class="content" data-url="">
                 <text class="cuIcon-roundaddfill text-green"></text>
                 <text class="text-grey">商务合作</text>
-            </navigator>
+            </view>
         </view>
         <view class="cu-item arrow">
             <button class="cu-btn content" open-type="feedback">

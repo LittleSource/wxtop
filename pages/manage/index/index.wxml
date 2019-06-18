@@ -1,4 +1,31 @@
 <!--pages/manage/index/index.wxml-->
+<cu-custom bgColor="bg-orange" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">管理中心</view>
+</cu-custom>
+<view class='bg-orange' style='margin-top:-1rpx'>
+    <view class='padding-top-lg text-center'>
+        <view class='text-lg'>今日收入</view>
+        <view class='margin-top-xs text-xxxl text-bold'>{{today}} 元</view>
+    </view>
+    <view class="ym-padding flex text-center">
+        <view class="flex flex-sub flex-direction solid-right">
+            <view class="text-xl">{{todayOrder}}</view>
+            <view class="margin-top-xs">
+                <text class="cuIcon-recharge"></text> 今日订单</view>
+        </view>
+        <view class="flex flex-sub flex-direction solid-right">
+            <view class="text-xl">{{yesterday}}</view>
+            <view class="margin-top-xs">
+                <text class="cuIcon-time"></text> 昨日收入</view>
+        </view>
+        <view class="flex flex-sub flex-direction">
+            <view class="text-xl">{{balance}}</view>
+            <view class="margin-top-xs">
+                <text class="cuIcon-recharge"></text> 账户余额</view>
+        </view>
+    </view>
+</view>
 <view class="cu-list grid col-2">
     <view class="cu-item" bindtap='goSwitch'>
         <view class="cuIcon-shopfill text-cyan"></view>

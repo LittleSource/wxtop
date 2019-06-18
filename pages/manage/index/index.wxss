@@ -1,1 +1,7 @@
 /* pages/manage/index/index.wxss */
+.ym-padding{
+    padding: 70rpx 30rpx 30rpx 30rpx;
+}
+.text-xxxl{
+    font-size: 60rpx;
+}

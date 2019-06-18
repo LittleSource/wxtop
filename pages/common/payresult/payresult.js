@@ -18,7 +18,7 @@ Page({
         if (result){//支付成功
             this.setData({
                 result:true,
-                price: options.price,
+                price: parseFloat(options.price).toFixed(2),
                 url:options.url
             })
         }else{

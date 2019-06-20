@@ -1,0 +1,14 @@
+<!--components/address-model/address-model.wxml-->
+<view class="cu-modal {{isShow?'show':''}}">
+    <view class="cu-dialog">
+        <view class='padding-xl'>
+            TOPS校园需要您的{{type}}信息
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view class="action">
+                <button class="cu-btn line-green text-green" bindtap="_close">取消</button>
+                <button class="cu-btn bg-green margin-left" open-type="openSetting" bindopensetting="_settingAfter">去开启</button>
+            </view>
+        </view>
+    </view>
+</view>

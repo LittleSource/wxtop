@@ -3,7 +3,7 @@
     <view slot="backText">返回</view>
     <view slot="content">管理中心</view>
 </cu-custom>
-<view class='bg-orange' style='margin-top:-1rpx'>
+<navigator class='bg-orange' style='margin-top:-1rpx' url='../moneyrecord/moneyrecord' hover-class='none'>
     <view class='padding-top-lg text-center'>
         <view class='text-lg'>今日收入</view>
         <view class='margin-top-xs text-xxxl text-bold'>{{today}} 元</view>
@@ -25,7 +25,7 @@
                 <text class="cuIcon-recharge"></text> 账户余额</view>
         </view>
     </view>
-</view>
+</navigator>
 <view class="cu-list grid col-2">
     <view class="cu-item" bindtap='goSwitch'>
         <view class="cuIcon-shopfill text-cyan"></view>
@@ -33,6 +33,6 @@
     </view>
     <view class="cu-item" bindtap='kdserve'>
         <view class="cuIcon-deliver_fill text-olive"></view>
-        <text>快递服务</text>
+        <text>快递管理</text>
     </view>
 </view>

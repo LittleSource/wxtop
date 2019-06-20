@@ -1,6 +1,7 @@
 {
     "navigationStyle": "custom",
     "usingComponents": {
-        "school-select": "/components/school-select/school-select"
+        "school-select": "/components/school-select/school-select",
+        "address-model": "/components/address-model/address-model"
     }
 }

@@ -72,7 +72,7 @@ module.exports = {
         return Date.parse(new Date(year, month - 1, day, h, i, s)) / 1000;
     },
 
-    // 过去时间计算
+    // 过去时间计算1
     fromTimer: function(dateTime) {
         var time = this.dateTimeToTimeStamp(dateTime);
         var timer = (new Date()).getTime() - (time * 1000);
@@ -83,7 +83,20 @@ module.exports = {
             return parseInt(timer / 60) + '分钟前';
         } else if (timer >= 3600 && timer < 86400) {
             return parseInt(timer / 3600) + '小时前';
-        } else if (timer >= 86400 && timer < 2592000) {
+        } else if (timer >= 86400 && timer < 259199) {
+            return parseInt(timer / 86400) + '天前';
+        } else {
+            return this.formatDateTime(time, 'str');
+        }
+    },
+    // 过去时间计算2
+    fromTimer2: function (dateTime) {
+        var time = this.dateTimeToTimeStamp(dateTime);
+        var timer = (new Date()).getTime() - (time * 1000);
+        timer = parseInt(timer / 1000);
+        if (timer < 86400) {
+            return '今天';
+        } else if (timer >= 86400 && timer < 259199) {
             return parseInt(timer / 86400) + '天前';
         } else {
             return this.formatDateTime(time, 'str');

@@ -40,7 +40,7 @@ Page({
      */
     goDetail:function(){
         wx.navigateTo({
-            url: '/pages/market/detail/detail'
+            url: '/pages/market/detail/detail?marketid=2'
         })
     },
     /**

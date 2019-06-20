@@ -19,7 +19,9 @@ Page({
         code: "", //取货码
         type: ['小件 (2kg以下)', '大件 (2kg及以上)'], //类型(大件小件)
         index: 0,
-        remark: "" //备注
+        remark: "", //备注
+        addressShow:false,
+        textareaShow:true
     },
     /**
      * 生命周期函数--监听页面加载
@@ -48,11 +50,16 @@ Page({
                 })
             },
             fail() {
-                wx.showToast({
-                    title: '自动获取地址信息失败！',
-                    icon: 'none'
+                _self.setData({
+                    addressShow:true,
+                    textareaShow: false
                 })
             }
+        })
+    },
+    addressModelClose:function(){
+        _self.setData({
+            textareaShow: true
         })
     },
     /*

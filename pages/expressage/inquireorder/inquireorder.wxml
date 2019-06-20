@@ -1,3 +1,8 @@
 <!--pages/expressage/inquireorder/inquireorder.wxml-->
-<expressage-card wx:for="{{orderList}}" wx:key order="{{item}}"></expressage-card>
+<block wx:if="{{orderList.length == 0}}">
+    <page-info info="您还没有订单记录哦"></page-info>
+</block>
+<block wx:else>
+    <expressage-card wx:for="{{orderList}}" wx:key order="{{item}}"></expressage-card>
+</block>
 <view wx:if="{{loadingShow}}" class="cu-load {{loadingStyle[loadingIndex]}}">{{loadingIndex == 0 ? '加载中...' : ''}}</view>

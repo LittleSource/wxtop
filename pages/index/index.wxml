@@ -20,4 +20,5 @@
       </view>
   </view>
   <school-select isShow="{{modalShow}}" bind:updateSchool="updateSchool"></school-select>
+  <address-model isShow="{{addressShow}}" type="位置" bind:settingSuccess="getSchoolInfo"></address-model>
 </view>

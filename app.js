@@ -1,7 +1,7 @@
 //app.js
-var requestUtils = require("./utils/request.js");//引入封装好的请求
+var requestUtils = require("./utils/request.js"); //引入封装好的请求
 App({
-    onLaunch: function () {
+    onLaunch: function() {
         console.log('onLaunch')
         var _self = this
         //获取系统信息
@@ -23,30 +23,32 @@ App({
             this.globalData.school = school
         }
     },
-    globalData: {
-        serviceSrc: 'http://221.238.78.29/',//https://wxtapi.ym-top.com/
-        userInfo: null,
-        school: {
-            id:0,
-            title:'定位中...'
-        },
-        shoppingCart:[]
-    },
-    configData:{
-        
-    },
-    checkLogin:function(url,istab){
+    checkLogin: function(url, istab, callback) {
         if (this.globalData.userInfo == null) {
             wx.showToast({
                 title: '您还未登录哦',
                 icon: 'none'
             })
-            setTimeout(function () {
+            setTimeout(function() {
                 wx.navigateTo({
-                    url: '/pages/common/login/login?url='+url+'&istab'+istab
+                    url: '/pages/common/login/login?url=' + url + '&istab' + istab
                 })
             }, 1000)
+        }else{
+            callback()
         }
+    },
+    globalData: {
+        serviceSrc: 'https://wxtapi.ym-top.com/', //https://wxtapi.ym-top.com/
+        userInfo: null,
+        school: {
+            id: 0,
+            title: '定位中...'
+        },
+        shoppingCart: []
+    },
+    configData: {
+
     },
     topReq: requestUtils.request
 })

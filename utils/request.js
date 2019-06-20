@@ -8,12 +8,12 @@ ReqData{
    success:function(){},
 }
 */
-
 module.exports = {
     request: function(ReqData) {
         if (ReqData.loadType == 1) {
             wx.showLoading({
                 title: '加载中',
+                mask:true
             })
         }
         wx.request({
@@ -25,9 +25,15 @@ module.exports = {
                 if (res.data.code == 200) {
                     ReqData.success(res.data);
                 } else if (res.data.code == 301) {
+                    getApp().globalData.userInfo = null
                     wx.showToast({
                         title: '身份过期，请重新登录',
-                        icon: "none"
+                        icon: "none",
+                        success:function(){
+                            wx.navigateTo({
+                                url: '/pages/common/login/login?url=/pages/index/index&istab=1'
+                            })
+                        }
                     });
                 } else {
                     var msg = '';

@@ -36,10 +36,9 @@ Page({
     onPullDownRefresh: function() {
         app.topReq({
             loadType: 2,
-            url: app.globalData.serviceSrc + '/expressage/Select/order',
+            url: app.globalData.serviceSrc + 'expressage/Select/order',
             method: 'POST',
             data: {
-                openid: app.globalData.userInfo.openid,
                 token: app.globalData.userInfo.token,
                 page: 1
             },
@@ -79,16 +78,16 @@ Page({
             })
             app.topReq({
                 loadType: -1,
-                url: app.globalData.serviceSrc + '/expressage/Select/order',
+                url: app.globalData.serviceSrc + 'expressage/Select/order',
                 method: 'POST',
                 data: {
-                    openid: app.globalData.userInfo.openid,
                     token: app.globalData.userInfo.token,
                     page: this.data.lastPage
                 },
                 success: function(res) {
                     for (let i = 0; i < res.data.data.length; i++) {
-                        res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data)
+                        res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data);
+                        res.data.data[i].create_time = topDate.fromTimer(res.data.data[i].create_time);
                     }
                     let loadingIndex_ = -1
                     if (res.data.last_page == res.data.last_page){//如果到最后一页

@@ -57,7 +57,7 @@ module.exports = {
         image: 'http://tcdn.ym-top.com/school/%E6%B5%B7%E8%BF%90.jpg'
     }
     ],
-    findSchoolById:function(id){
+    findSchoolById: function (id) {
         for (let school of this.schoolData) {
             if (school.id == id) {
                 return school;
@@ -65,39 +65,28 @@ module.exports = {
         }
         return false;
     },
-    getLocationSchool:function(palyLoad){
+    getLocationSchool: function (palyLoad) {
         var _self = this
         var error = new Object
         error.title = '未搜索到学校,请点击选择'//准备错误信息
-        wx.getLocation({
-            type: 'gcj02',
-            success(res) {
-                qqmapsdk.reverseGeocoder({
-                    get_poi: 1,
-                    poi_options: 'address_format=short;radius=500;category=大学',
-                    success: function (data) {
-                        if (data.result.pois.length <= 0){  //没有查询到附近pois直接返回失败
-                            palyLoad.fail(error)
-                            return
-                        }
-                        var school = _self.findSchoolById(data.result.pois[0].id)//根据pois的id在数据中查找
-                        if (school){
-                            palyLoad.success(school)
-                        }else{
-                            palyLoad.fail(error)
-                        }
-                    },
-                    fail: function (failObj) {
-                        wx.showToast({
-                            title: failObj.message,
-                            icon: 'none'
-                        })
-                        palyLoad.fail(error)
-                    }
-                })
-            }, fail(failObj){
+        qqmapsdk.reverseGeocoder({
+            get_poi: 1,
+            poi_options: 'address_format=short;radius=500;category=大学',
+            success: function (data) {
+                if (data.result.pois.length <= 0) {  //没有查询到附近pois直接返回失败
+                    palyLoad.fail(error)
+                    return
+                }
+                var school = _self.findSchoolById(data.result.pois[0].id)//根据pois的id在数据中查找
+                if (school) {
+                    palyLoad.success(school)
+                } else {
+                    palyLoad.fail(error)
+                }
+            },
+            fail: function (failObj) {
                 wx.showToast({
-                    title: '自动获取学校需要您的授权哦',
+                    title: failObj.message,
                     icon: 'none'
                 })
                 palyLoad.fail(error)

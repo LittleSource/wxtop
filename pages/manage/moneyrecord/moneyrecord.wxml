@@ -1,0 +1,22 @@
+<!--pages/manage/moneyrecord/moneyrecord.wxml-->
+<block wx:if="{{recordList.length == 0}}">
+    <page-info info="您还没有资金记录哦"></page-info>
+</block>
+<block wx:else>
+<view class="cu-list menu border margin-top">
+    <view class="cu-item" wx:for="{{recordList}}" wx:key>
+        <view class="content padding-tb-sm">
+            <view>
+                <text class="{{item.type == 1 ? 'cuIcon-moneybagfill text-green':'cuIcon-sponsorfill text-red'}} margin-right-xs"></text> {{item.remark}}
+            </view>
+            <view class="text-gray text-sm">
+                <text class="cuIcon-time margin-right-xs"></text>{{item.add_date}}
+            </view>
+        </view>
+        <view class="action">
+            <text class="text-grey text-lg">{{item.type == 1 ? '+':'-'}}{{item.amount}}</text>
+        </view>
+    </view>
+</view>
+</block>
+<view wx:if="{{loadingShow}}" class="cu-load {{loadingStyle[loadingIndex]}}">{{loadingIndex == 0 ? '加载中...' : ''}}</view>

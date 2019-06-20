@@ -39,13 +39,13 @@ Page({
                     }else{
                         wx.showToast({
                             title: '您还不是合作用户哦',
-                            icon:'none'
+                            icon:'none',
+                            success:function(){
+                                wx.redirectTo({
+                                    url: '/pages/common/consociation/consociation'
+                                })
+                            }
                         })
-                        setTimeout(function(){
-                            wx.redirectTo({
-                                url: '/pages/common/consociation/consociation'
-                            })
-                        },2000)
                     }
                 }
             })

@@ -39,7 +39,7 @@
     </view>
     <view class="cu-form-group">
         <view class="title">取件短信:</view>
-        <textarea name="shortmessage" placeholder="在此粘贴您的取件短信" maxlength="200" auto-height></textarea>
+        <textarea wx:if="{{textareaShow}}" name="shortmessage" placeholder="在此粘贴您的取件短信" maxlength="200" auto-height></textarea>
     </view>
     <view class="cu-form-group">
         <view class="title">快递规格:</view>
@@ -59,9 +59,10 @@
         </view>
     </view>
     <view class="cu-form-group">
-        <textarea name="remark" placeholder="没有可留空" maxlength="200" auto-height></textarea>
+        <textarea wx:if="{{textareaShow}}" name="remark" placeholder="没有可留空" maxlength="200" auto-height></textarea>
     </view>
     <view class="padding flex flex-direction">
         <button form-type="submit" class="cu-btn bg-green lg shadow">提交订单</button>
     </view>
 </form>
+<address-model isShow="{{addressShow}}" type="地址" bind:settingSuccess="openAddress" bind:close="addressModelClose"></address-model>

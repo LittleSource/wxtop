@@ -1,13 +1,14 @@
-// pages/manage/expressage/expressage.js
+// pages/manage/moneyrecord/moneyrecord.js
 var topDate = require("../../../utils/date.js"); //引入封装date.js
 const app = getApp()
 var _self = null
 Page({
+
     /**
      * 页面的初始数据
      */
     data: {
-        orderList: [],
+        recordList: [],
         currentPage: 1,
         lastPage: 2,
         loadingShow: false,
@@ -18,45 +19,33 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         _self = this
         //获取缓存
-        const serveid = wx.getStorageSync('serveid')
-        if (serveid) {
-            const expressageManageOrder = wx.getStorageSync('expressageManageOrder')//获取缓存
-            if (expressageManageOrder) {
-                _self.setData({
-                    orderList: expressageManageOrder
-                })
-            }
-            wx.startPullDownRefresh()
-        } else {
-            wx.showToast({
-                title: '您无权限进入此页!',
-                icon: 'none',
-                success:function(){
-                    wx.navigateBack()
-                }
+        const recordList_ = wx.getStorageSync('recordList')
+        if (recordList_) {
+            _self.setData({
+                recordList: recordList_
             })
         }
+        wx.startPullDownRefresh()
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         app.topReq({
             loadType: 2,
-            url: app.globalData.serviceSrc + 'manage/expressage/selectorder',
+            url: app.globalData.serviceSrc + 'manage/common/moneyRecord',
             method: 'POST',
             data: {
                 token: app.globalData.userInfo.token,
                 page: 1
             },
-            success: function(res) {
+            success: function (res) {
                 for (let i = 0; i < res.data.data.length; i++) {
-                    res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data);
-                    res.data.data[i].create_time = topDate.fromTimer(res.data.data[i].create_time);
+                    res.data.data[i].add_date = topDate.fromTimer2(res.data.data[i].add_date);
                 }
                 //如果只有一页
                 if (res.data.last_page == 1) {
@@ -66,12 +55,12 @@ Page({
                     })
                 }
                 _self.setData({
-                    orderList: res.data.data,
+                    recordList: res.data.data,
                     currentPage: res.data.current_page,
                     lastPage: res.data.last_page
                 })
                 wx.setStorage({ //缓存列表数据
-                    key: 'expressageManageOrder',
+                    key: 'recordList',
                     data: res.data.data
                 })
             }
@@ -81,7 +70,7 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
         if (this.data.loadingIndex != 1 && this.data.loadingIndex != 0) {
             _self.setData({
                 loadingShow: true,
@@ -89,22 +78,22 @@ Page({
             })
             app.topReq({
                 loadType: -1,
-                url: app.globalData.serviceSrc + 'manage/expressage/selectorder',
+                url: app.globalData.serviceSrc + 'manage/common/moneyRecord',
                 method: 'POST',
                 data: {
                     token: app.globalData.userInfo.token,
                     page: this.data.lastPage
                 },
-                success: function(res) {
+                success: function (res) {
                     for (let i = 0; i < res.data.data.length; i++) {
-                        res.data.data[i].order_data = JSON.parse(res.data.data[i].order_data)
+                        res.data.data[i].add_date = topDate.fromTimer(res.data.data[i].add_date);
                     }
                     let loadingIndex_ = -1
-                    if (res.data.last_page == res.data.last_page) { //如果到最后一页
+                    if (res.data.last_page == res.data.last_page) {//如果到最后一页
                         loadingIndex_ = 1
                     }
                     _self.setData({
-                        orderList: _self.data.orderList.concat(res.data.data),
+                        recordList: _self.data.recordList.concat(res.data.data),
                         lastPage: res.data.last_page,
                         currentPage: res.data.current_page,
                         loadingIndex: loadingIndex_

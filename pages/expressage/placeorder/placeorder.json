@@ -1,7 +1,8 @@
 {
-  "navigationStyle": "custom",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
-  }
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom",
+        "address-model": "/components/address-model/address-model"
+    }
 }

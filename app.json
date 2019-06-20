@@ -15,11 +15,13 @@
         "pages/market/checkstand/checkstand",
         "pages/manage/expressage/expressage",
         "pages/common/payresult/payresult",
-        "pages/common/consociation/consociation"
+        "pages/common/consociation/consociation",
+        "pages/manage/moneyrecord/moneyrecord"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",
-        "show-dialog": "/components/show-dialog/show-dialog"
+        "show-dialog": "/components/show-dialog/show-dialog",
+        "page-info": "/components/page-info/page-info"
     },
     "permission": {
         "scope.userLocation": {

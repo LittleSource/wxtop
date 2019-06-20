@@ -19,24 +19,37 @@ Page({
         productInfo: {}, //模态框展示的商品对象
         showProductModel: 0 //是否展示商品信息模态框
     },
-    onLoad() {
+    onLoad(options) {
         _self = this
-        app.topReq({
-            loadType: 1,
-            url: app.globalData.serviceSrc + 'market/market/getAllInfo',
-            method: 'GET',
-            data: {
-                marketid: 1
-            },
-            success: function(res) {
-                _self.setData({
-                    marketInfo: res.data.marketInfo,
-                    product: res.data.product,
-                    mainCate: res.data.cates
-                })
-                _self.initCateProduct() //初始化商品数据
-            }
-        })
+        var marketid = parseInt(options.marketid);
+        if (!marketid){
+            wx.showModal({
+                title: '提示',
+                content: '该商家不存在',
+                success:function(){
+                    wx.switchTab({
+                        url: '/pages/index/index',
+                    })
+                }
+            })
+        }else{
+            app.topReq({
+                loadType: 1,
+                url: app.globalData.serviceSrc + 'market/market/getAllInfo',
+                method: 'GET',
+                data: {
+                    marketid: marketid
+                },
+                success: function (res) {
+                    _self.setData({
+                        marketInfo: res.data.marketInfo,
+                        product: res.data.product,
+                        mainCate: res.data.cates
+                    })
+                    _self.initCateProduct() //初始化商品数据
+                }
+            })
+        }
     },
     onReady() {
         var bottomBarHeight = 0

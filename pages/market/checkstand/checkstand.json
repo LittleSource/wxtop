@@ -1,4 +1,6 @@
 {
     "navigationBarTitleText": "收银台",
-    "usingComponents": {}
+    "usingComponents": {
+        "address-model": "/components/address-model/address-model"
+    }
 }

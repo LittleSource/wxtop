@@ -49,7 +49,7 @@
             </view>
         </view>
         <view class="cu-form-group">
-            <textarea placeholder="请输入订单备注" maxlength="200" auto-height bindinput="getRemark"></textarea>
+            <textarea wx:if="{{textareaShow}}" placeholder="请输入订单备注" maxlength="200" auto-height bindinput="getRemark"></textarea>
         </view>
     </view>
     <view class="cu-bar bg-white tabbar border shop">
@@ -57,3 +57,4 @@
         <view class="bg-gradual-market text-bold text-lg submit" bindtap='submitOrder'>立即付款</view>
     </view>
 </view>
+<address-model isShow="{{addressShow}}" type="地址" bind:settingSuccess="getAddress" bind:close="addressModelClose"></address-model>

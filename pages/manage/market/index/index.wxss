@@ -1,0 +1,15 @@
+/* pages/manage/market/index/index.wxss */
+.cu-list.menu-avatar>.cu-item {
+	background-color: var(--orange);
+}
+.top-arrow{
+	display: block;
+	width: 30rpx;
+	height: 30rpx;
+	color: #000;
+	content: "\e6a3";
+	font-size: 34rpx;
+	font-family: "cuIcon";
+	line-height: 30rpx;
+    z-index: 999
+}

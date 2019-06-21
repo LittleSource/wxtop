@@ -16,7 +16,8 @@
         "pages/manage/expressage/expressage",
         "pages/common/payresult/payresult",
         "pages/common/consociation/consociation",
-        "pages/manage/moneyrecord/moneyrecord"
+        "pages/manage/moneyrecord/moneyrecord",
+        "pages/manage/market/index/index"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",

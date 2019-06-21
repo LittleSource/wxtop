@@ -27,7 +27,7 @@
     </view>
 </navigator>
 <view class="cu-list grid col-2">
-    <view class="cu-item" bindtap='goSwitch'>
+    <view class="cu-item" bindtap='marketSever'>
         <view class="cuIcon-shopfill text-cyan"></view>
         <text>店铺管理</text>
     </view>

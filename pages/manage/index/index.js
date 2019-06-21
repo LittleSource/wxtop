@@ -70,6 +70,14 @@ Page({
         })
     },
     /**
+     * 超市服务鉴权
+     */
+    marketSever:function(){
+        wx.navigateTo({
+            url: '/pages/manage/market/index/index',
+        })
+    },
+    /**
      * 快递服务鉴权
      */
     kdserve: function() {

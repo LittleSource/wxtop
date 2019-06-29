@@ -130,7 +130,8 @@ Page({
                 method: 'POST',
                 data: {
                     token: app.globalData.userInfo.token,
-                    orderData: JSON.stringify(formData)
+                    orderData: JSON.stringify(formData),
+                    reqType:1
                 },
                 success: function (res) {
                     topPay.startPay(res.data, '/pages/expressage/inquireorder/inquireorder', _self.data.price)

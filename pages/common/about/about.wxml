@@ -4,7 +4,7 @@
   <view class='text-content'>
     <view>Hi！小哥哥、小姐姐~</view>
     <view class='margin-top-sm'>欢迎使用TOPS校园！</view>
-    <view class='margin-top-sm'>TOPS校园是由<text class='text-blue'>天津源梦网络科技有限公司</text>开发的一款大学生生活服务小程序，意义在于给校内外经营生意的学生或商家提供可定制的小程序服务与云端服务能力,帮助海河教育园区域内商家的同时让大学生的生活更加便捷。</view>
+    <view class='margin-top-sm'>TOPS校园是由<text class='text-blue'>天津源梦网络科技有限公司</text>开发的一款大学生生活服务小程序，让大学生的生活更加便捷。</view>
     <view class='margin-top-sm'>如果这个小程序有帮到你，或者你觉得很赞，可以点赞支持一下！如果你想在校园圈子做生意且需要定制程序功能，欢迎联系我们！</view>
     <view class='margin-top-sm'>更多功能敬请期待！</view>
     <view class='margin-top-sm'>源梦科技：ym-top.com</view>

@@ -107,7 +107,8 @@ Page({
                     token: app.globalData.userInfo.token,
                     shoppingCart: _self.data.shoppingCart,
                     address: _self.data.address,
-                    remark: _self.data.remark
+                    remark: _self.data.remark,
+                    reqType: 1
                 },
                 success: function(res) {
                     topPay.startPay(res.data, '/pages/', _self.data.totalPrice)

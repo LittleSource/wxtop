@@ -33,6 +33,7 @@ Page({
     onGetUserInfo: function(e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
             var userData = {
+                encryptedData: e.detail.encryptedData,
                 rawData: e.detail.rawData,
                 signature: e.detail.signature,
                 iv: e.detail.iv
@@ -68,7 +69,7 @@ Page({
                                         url: _self.data.url
                                     })
                                 }
-                            }, 1000)
+                            }, 1500)
                         }
                     })
                 },

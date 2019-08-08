@@ -26,6 +26,11 @@ Page({
         }],
         iconList: [
             {
+                icon: 'creativefill',
+                color: 'orange',
+                name: '新生指南',
+                url: '/pages/guide/index/index'
+            },{
                 icon: 'cartfill',
                 color: 'blue',
                 name: '逛超市',
@@ -50,9 +55,9 @@ Page({
             method: 'GET',
             data: {},
             success: function (res) {
-                _self.setData({
-                    iconList: res.data.iconList
-                })
+                // _self.setData({
+                //     iconList: res.data.iconList
+                // })
                 _self.getSchoolInfo()
             }
         })
@@ -68,12 +73,16 @@ Page({
         })
     },
     getSchoolInfo:function(){
+        if (getApp().globalData.school.id){
+            return
+        }
         //获取学校位置信息
         wx.getLocation({
             type: 'gcj02',
             success(res) {
                 topSchool.getLocationSchool({
                     success: function (school) {
+                        getApp().globalData.school = school
                         _self.setData({
                             school: school
                         })

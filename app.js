@@ -13,6 +13,7 @@ App({
                 this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
             }
         })
+        
         //尝试获取Storage
         const userInfo = wx.getStorageSync('userInfo')
         const school = wx.getStorageSync('school')

@@ -7,8 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isTabBar:false,
-        url:''
+        isTabBar: false,
+        url: ''
     },
 
     /**
@@ -16,12 +16,12 @@ Page({
      */
     onLoad: function(options) {
         _self = this
-        if(options.url){
+        if (options.url) {
             this.setData({
                 url: options.url
             })
         }
-        if (options.isbar && parseInt(options.isbar)){
+        if (options.isbar && parseInt(options.isbar)) {
             this.setData({
                 isTabBar: true
             })
@@ -32,46 +32,45 @@ Page({
      */
     onGetUserInfo: function(e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
-            var userData = {
-                encryptedData: e.detail.encryptedData,
-                rawData: e.detail.rawData,
-                signature: e.detail.signature,
-                iv: e.detail.iv
-            }
             wx.login({
                 success(res) {
-                    app.topReq({
-                        loadType: 1,
-                        url: app.globalData.serviceSrc + 'common/login/login',
-                        method: 'POST',
-                        data: {
-                            code: res.code,
-                            userData: userData
-                        },
-                        success: function(res) {
-                            e.detail.userInfo.token = res.data.token
-                            e.detail.userInfo.openid = res.data.openid
-                            getApp().globalData.userInfo = e.detail.userInfo
-                            wx.setStorage({
-                                key: 'userInfo',
-                                data: e.detail.userInfo
-                            })
-                            wx.showToast({
-                                title: '登录成功'
-                            })
-                            setTimeout(function() {
-                                if(_self.data.isbar){
-                                    wx.switchTab({
-                                        url: _self.data.url
+                    wx.getUserInfo({
+                        withCredentials: true,
+                        success: function (userData) {
+                            app.topReq({
+                                loadType: 1,
+                                url: app.globalData.serviceSrc + 'common/login/login',
+                                method: 'POST',
+                                data: {
+                                    code: res.code,
+                                    userData: userData
+                                },
+                                success: function (res) {
+                                    e.detail.userInfo.token = res.data.token
+                                    e.detail.userInfo.openid = res.data.openid
+                                    getApp().globalData.userInfo = e.detail.userInfo
+                                    wx.setStorage({
+                                        key: 'userInfo',
+                                        data: e.detail.userInfo
                                     })
-                                }else{
-                                    wx.reLaunch({
-                                        url: _self.data.url
+                                    wx.showToast({
+                                        title: '登录成功'
                                     })
+                                    setTimeout(function () {
+                                        if (_self.data.isbar) {
+                                            wx.switchTab({
+                                                url: _self.data.url
+                                            })
+                                        } else {
+                                            wx.reLaunch({
+                                                url: _self.data.url
+                                            })
+                                        }
+                                    }, 2000)
                                 }
-                            }, 1500)
+                            })
                         }
-                    })
+                    });
                 },
                 fail(e) {
                     wx.showToast({

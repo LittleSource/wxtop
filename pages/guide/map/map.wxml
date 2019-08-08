@@ -1,0 +1,2 @@
+<!--pages/guide/map/map.wxml-->
+<map id="map" subkey="HSKBZ-VFUH3-LSU3V-3GNMV-OF4V2-VHBFI" layer-style="2" scale="15" show-compass enable-3D show-scale longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" markers="{{markers}}" circles="{{circle}}" bindregionchange="regionchange" style="width: 100%; height: {{windowHeight}}px;"></map>

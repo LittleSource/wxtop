@@ -1,0 +1,11 @@
+<!--pages/guide/entrance/entrance.wxml-->
+<!--pages/guide/introduced/introduced.wxml-->
+<view class='margin bg-white padding-lg radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg text-yellow text-bold'>{{title}}</view>
+  <view class='text-content' wx:for="{{entrance}}" wx:key>
+    <view class="text-bold text-df margin-tb-xs">{{item.title}}</view>
+    <block wx:for="{{item.content}}" wx:for-item="content" wx:key="*this">
+        <view>{{content}}</view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/common/getphone/getphone.wxml-->
+<scroll-view scroll-y class="scrollPage">
+    <view class='UCenter-bg'>
+        <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+    </view>
+    <view class='nav-list'>
+        <view hover-class='none' class="nav-li bg-orange" bindtap='isNew'>
+            <view class="nav-titles">我是19级新生</view>
+            <view class="nav-name">freshman</view>
+            <text class="cuIcon-{{type ? 'roundcheck' : 'round'}}"></text>
+        </view>
+        <view hover-class='none' class="nav-li bg-cyan" bindtap='isOld'>
+            <view class="nav-titles">我是学长</view>
+            <view class="nav-name">upperman</view>
+            <text class="cuIcon-{{type ? 'round' : 'roundcheck'}}"></text>
+        </view>
+    </view>
+    <view class="margin-xl flex flex-direction margin-top-maxlg">
+        <button class='cu-btn bg-green' open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">完成注册</button>
+    </view>
+</scroll-view>

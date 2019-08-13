@@ -1,13 +1,12 @@
-// pages/guide/introduced/introduced.js
-var SchoolIntroduced = require('../../../data/school-introduced.js')
+// pages/guide/environmental/environmental.js
+var SchoolEnvironmental = require('../../../data/school-environmental.js')
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         title:'',
-        introduced:[]
+        environmental:[]
     },
 
     /**
@@ -15,12 +14,11 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-            title: getApp().globalData.school.title,
-            introduced: SchoolIntroduced.findById(getApp().globalData.school.id)
+            title: getApp().globalData.school.name + '校园环境',
+            environmental: SchoolEnvironmental.findById(getApp().globalData.school.id)
         })
     },
-
-    showimage: function (e) {
+    showimage:function(e){
         wx.previewImage({
             current: e.target.dataset.url, // 当前显示图片的http链接
             urls: [e.target.dataset.url] // 需要预览的图片http链接列表

@@ -27,7 +27,7 @@ module.exports = {
         id: 9064819481832757240,
         title: '天津轻工职业技术学院',
         name: '轻工',
-        image: 'http://tcdn.ym-top.com/school/%E8%81%8C%E5%A4%A7.jpg',
+        image: 'http://tcdn.ym-top.com/school/轻工.jpg',
         latitude: 39.021300,
         longitude: 117.374210
     },

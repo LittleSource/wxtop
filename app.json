@@ -21,7 +21,11 @@
         "pages/guide/index/index",
         "pages/guide/map/map",
         "pages/guide/introduced/introduced",
-        "pages/guide/entrance/entrance"
+        "pages/guide/entrance/entrance",
+        "pages/guide/environmental/environmental",
+        "pages/common/getphone/getphone",
+        "pages/guide/busline/busline",
+        "pages/guide/threed/threed"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",

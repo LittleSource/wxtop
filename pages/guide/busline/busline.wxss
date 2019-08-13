@@ -1,0 +1,11 @@
+/* pages/guide/busline/busline.wxss */
+.text-shadow{
+    margin: -15rpx 0rpx 15rpx 0rpx;
+}
+.cu-bar{
+    min-height: 70rpx;
+}
+.cu-bar .action:first-child {
+	margin-left: 0rpx;
+	font-size: 30rpx;
+}

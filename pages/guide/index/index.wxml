@@ -1,10 +1,14 @@
 <scroll-view scroll-y class="scrollPage">
-  <image src='/images/guideBg.png' mode='widthFix' class='response'></image>
-  <view class='nav-list'>
-    <navigator hover-class='none' wx:for="{{menuList}}" wx:key url="{{item.url}}" class="nav-li bg-{{item.color}}">
-      <view class="nav-titles">{{item.title}}</view>
-      <view class="nav-name">{{item.name}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
-    </navigator>
-  </view>
+    <image src='/images/guideBg.png' mode='widthFix' class='response'></image>
+    <view class='nav-list'>
+        <navigator hover-class='none' wx:for="{{menuList}}" wx:key url="{{item.url}}" class="nav-li bg-{{item.color}}">
+            <view class="nav-titles">{{item.title}}</view>
+            <view class="nav-name">{{item.name}}</view>
+            <text class='cuIcon-{{item.icon}}'></text>
+        </navigator>
+    </view>
+    <view class="top-map" bindtap='showimage'>
+        <view class="radius shadow-blur bg-grey bg-img" style="background-image:url({{mapUrl}});">
+        </view>
+    </view>
 </scroll-view>

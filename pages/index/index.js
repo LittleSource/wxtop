@@ -24,28 +24,28 @@ Page({
             type: 'image',
             url: 'https://icloud.9ykm.cn/app/banner/mmexport3.jpg'
         }],
-        iconList: [
-            {
-                icon: 'creativefill',
-                color: 'orange',
-                name: '新生指南',
-                url: '/pages/guide/index/index'
-            },{
-                icon: 'cartfill',
-                color: 'blue',
-                name: '逛超市',
-                url: '/pages/market/index/index'
-            }, {
-                icon: 'deliver_fill',
-                color: 'olive',
-                name: '快递服务',
-                url: '/pages/expressage/index/index'
-            }, {
-                icon: 'choicenessfill',
-                color: 'purple',
-                name: '免押租车'
-            }
-        ]
+        iconList: []
+            // {
+            //     icon: 'creativefill',
+            //     color: 'orange',
+            //     name: '新生指南',
+            //     url: '/pages/guide/index/index'
+            // },{
+            //     icon: 'cartfill',
+            //     color: 'blue',
+            //     name: '逛超市',
+            //     url: '/pages/market/index/index'
+            // }, {
+            //     icon: 'deliver_fill',
+            //     color: 'olive',
+            //     name: '快递服务',
+            //     url: '/pages/expressage/index/index'
+            // }, {
+            //     icon: 'choicenessfill',
+            //     color: 'purple',
+            //     name: '免押租车',
+            //     url:''
+            // }
     },
     onLoad: function() {
         _self = this
@@ -55,9 +55,9 @@ Page({
             method: 'GET',
             data: {},
             success: function (res) {
-                // _self.setData({
-                //     iconList: res.data.iconList
-                // })
+                _self.setData({
+                    iconList: res.data.iconList
+                })
                 _self.getSchoolInfo()
             }
         })

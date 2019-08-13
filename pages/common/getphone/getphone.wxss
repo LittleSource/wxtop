@@ -1,0 +1,39 @@
+/* pages/common/getphone/getphone.wxss */
+
+page {
+    background-color: #fff;
+}
+
+.UCenter-bg {
+    background-image: url(http://tcdn.ym-top.com/common/getphoneBg.png);
+    background-size: cover;
+    height: 400rpx;
+    display: flex;
+    justify-content: center;
+    padding-top: 40rpx;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+.UCenter-bg .gif-wave {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    mix-blend-mode: screen;
+    height: 150rpx;
+}
+.nav-list{
+    margin-top: 18%;
+}
+.margin-top-maxlg {
+    margin-top: 20%;
+}
+.shadow-warp{
+    margin-top: -1rpx;
+}
+.cu-btn {
+    height: 85rpx;
+}

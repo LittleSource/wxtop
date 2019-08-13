@@ -5,50 +5,78 @@ Page({
      * 页面的初始数据
      */
     data: {
+        mapUrl:'',
         menuList: [{
             title: '学院简介',
             name: 'introduced',
             url: '../introduced/introduced',
-            icon: 'vipcard',
+            icon: 'upstage',
             color: 'blue'
+        }, {
+            title: '3D校园',
+            name: 'Dimensions',
+            url: '../threed/threed',
+            icon: 'discover',
+            color: 'pink'
         }, {
             title: '校园环境',
             name: 'environment',
-            url: '',
-            icon: 'list',
+            url: '../environmental/environmental',
+            icon: 'evaluate',
             color: 'orange'
         }, {
             title: '入学须知',
             name: 'Dormitory',
             url: '../entrance/entrance',
-            icon: 'newsfill',
+            icon: 'notification',
             color: 'yellow'
         }, {
             title: '乘车路线',
             name: 'bus line',
-            url: '',
-            icon: 'newsfill',
+            url: '../busline/busline',
+            icon: 'deliver',
             color: 'brown'
         }, {
             title: '海河园地图',
             name: 'HaiheRiverPark',
             url: '../map/map',
-            icon: 'newsfill',
+            icon: 'global',
             color: 'green'
+        }],
+        mapImages: [{
+            id: 15310156724975630292,
+            url: 'http://tcdn.ym-top.com/school_map/电子.jpg'
         }, {
-            title: '军训宝典',
-            name: 'Military',
-            url: '',
-            icon: 'album',
-            color: 'pink'
+            id: 1132276838459656005,
+            url: 'http://tcdn.ym-top.com/school_map/中德.jpg'
+        }, {
+            id: 9064819481832757240,
+            url: 'http://tcdn.ym-top.com/school_map/轻工.jpg'
+        }, {
+            id: 5121864895957150075,
+            url: 'http://tcdn.ym-top.com/school_map/现代.jpg'
+        }, {
+            id: 12964050169472583622,
+            url: 'http://tcdn.ym-top.com/school_map/机电.jpg'
+        }, {
+            id: 6636179715655175228,
+            url: ''
+        }, {
+            id: 17425798441035415081,
+            url: 'http://tcdn.ym-top.com/school_map/商务.jpg'
+        }, {
+            id: 3859587972726810660,
+            url: 'http://tcdn.ym-top.com/school_map/海运.jpg'
         }]
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        if (!getApp().globalData.school.id) {
+    onLoad: function(options) {
+        var schoolId = getApp().globalData.school.id;
+        if (!schoolId) {
             wx.showModal({
                 title: '提示',
                 content: '请等待定位完成或选择您的学校！',
@@ -56,55 +84,30 @@ Page({
                     wx.navigateBack()
                 }
             })
+        }else{
+            this.setData({
+                mapUrl: this.findById(schoolId)
+            })
         }
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    showimage: function (e) {
+        wx.previewImage({
+            current: this.data.mapUrl, // 当前显示图片的http链接
+            urls: [this.data.mapUrl] // 需要预览的图片http链接列表
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    findById: function (id) {
+        for (let school of this.data.mapImages) {
+            if (school.id == id) {
+                return school.url;
+            }
+        }
+        return false;
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-        
+    onShareAppMessage: function() {
+
     }
 })

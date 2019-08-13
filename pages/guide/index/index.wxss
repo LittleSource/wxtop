@@ -1,1 +1,16 @@
 /* pages/guide/index/index.wxss */
+.scrollPage{
+    height: 100vh;
+}
+.top-map {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 40rpx 0px;
+    justify-content: center;
+    height: 420rpx;
+}
+.top-map view{
+    margin: 0 2.5% 40rpx;
+    height: 420rpx;
+    width: 100%;
+}

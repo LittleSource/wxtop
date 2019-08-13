@@ -1,12 +1,12 @@
 <!--pages/guide/introduced/introduced.wxml-->
 <view class='margin bg-white padding-lg radius shadow-lg'>
-  <view class='text-center margin-bottom text-lg text-grey text-bold'>{{title}}</view>
+  <view class='text-center text-shadow text-xl margin-bottom text-bold'>{{title}}</view>
   <view class='text-content' wx:for="{{introduced}}" wx:key>
     <block wx:if="{{item.type == 'text'}}">
         <view>{{item.content}}</view>
     </block>
     <block wx:else>
-        <image src="{{item.content}}" mode='widthFix'></image>
+        <image bindtap='showimage' data-url="{{item.content}}" src="{{item.content}}" mode='widthFix'></image>
     </block>
   </view>
 </view>

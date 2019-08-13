@@ -1,0 +1,9 @@
+/* pages/guide/environmental/environmental.wxss */
+.cu-bar .action:first-child {
+	margin-left: 0rpx;
+	font-size: 30rpx;
+}
+.text-shadow{
+    margin-top:-30rpx;
+    margin-bottom:10rpx; 
+}

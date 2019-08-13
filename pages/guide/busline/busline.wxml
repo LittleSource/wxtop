@@ -1,0 +1,23 @@
+<!--pages/guide/busline/busline.wxml-->
+<!--pages/guide/environmental/environmental.wxml-->
+<view class='bg-white padding-lg'>
+    <view class="text-center text-shadow text-xl text-bold">{{title}}</view>
+    <view class='text-content' wx:for="{{environmental}}" wx:key>
+        <view wx:if="{{item.type == 'title'}}" class="text-center">
+                <text class="cuIcon-titles text-green"></text>
+                <text class="text-lg text-bold">{{item.content}}</text>
+            </view>
+        <view wx:if="{{item.type == 'title2'}}" class="cu-bar bg-white">
+            <view class="action">
+                <text class="cuIcon-title text-cyan"></text>
+                <text class="text-df text-bold">{{item.content}}</text>
+            </view>
+        </view>
+        <block wx:if="{{item.type == 'text'}}" wx:for="{{item.content}}" wx:for-item="value" wx:key="*this">
+            <view>{{value}}</view>
+        </block>
+        <view wx:if="{{item.type == 'img'}}" class="grid flex-sub col-{{item.content.length>2?2:item.content.length}} grid-square margin-top-xs">
+            <view class="bg-img" wx:for="{{item.content}}" wx:for-item="img" wx:key="*this" style="background-image:url({{img}});" bindtap="showimage" data-url="{{img}}"></view>
+        </view>
+    </view>
+</view>

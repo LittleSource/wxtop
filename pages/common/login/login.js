@@ -36,7 +36,7 @@ Page({
                 success(res) {
                     wx.getUserInfo({
                         withCredentials: true,
-                        success: function (userData) {
+                        success: function(userData) {
                             app.topReq({
                                 loadType: 1,
                                 url: app.globalData.serviceSrc + 'common/login/login',
@@ -45,7 +45,7 @@ Page({
                                     code: res.code,
                                     userData: userData
                                 },
-                                success: function (res) {
+                                success: function(res) {
                                     e.detail.userInfo.token = res.data.token
                                     e.detail.userInfo.openid = res.data.openid
                                     getApp().globalData.userInfo = e.detail.userInfo
@@ -53,20 +53,30 @@ Page({
                                         key: 'userInfo',
                                         data: e.detail.userInfo
                                     })
-                                    wx.showToast({
-                                        title: '登录成功'
-                                    })
-                                    setTimeout(function () {
-                                        if (_self.data.isbar) {
-                                            wx.switchTab({
-                                                url: _self.data.url
-                                            })
-                                        } else {
-                                            wx.reLaunch({
-                                                url: _self.data.url
-                                            })
+                                    if (res.data.isReg) {
+                                        var url_ = '../getphone/getphone?url=' + _self.data.url;
+                                        if (_self.data.isTabBar){
+                                            url_ = '../getphone/getphone?isbar=' + _self.data.isbar + 'url=' + _self.data.url;
                                         }
-                                    }, 2000)
+                                        wx.reLaunch({
+                                            url: url_
+                                        })
+                                    } else {
+                                        wx.showToast({
+                                            title: '登录成功'
+                                        })
+                                        setTimeout(function() {
+                                            if (_self.data.isbar) {
+                                                wx.switchTab({
+                                                    url: _self.data.url
+                                                })
+                                            } else {
+                                                wx.reLaunch({
+                                                    url: _self.data.url
+                                                })
+                                            }
+                                        }, 1500)
+                                    }
                                 }
                             })
                         }

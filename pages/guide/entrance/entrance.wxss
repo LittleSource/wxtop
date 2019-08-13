@@ -1,1 +1,5 @@
 /* pages/guide/entrance/entrance.wxss */
+.cu-bar .action:first-child {
+	margin-left: 0rpx;
+	font-size: 30rpx;
+}

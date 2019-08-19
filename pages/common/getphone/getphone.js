@@ -50,6 +50,7 @@ Page({
                 iv: e.detail.iv
             },
             success: function (res) {
+                getApp().globalData.userInfo.phone = res.data.phone
                 wx.showToast({
                     title: '注册成功'
                 })

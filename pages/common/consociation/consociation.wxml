@@ -1,2 +1,6 @@
 <!--pages/common/consociation/consociation.wxml-->
-商务合作
+<cu-custom bgColor="top-bg-yellow" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">TOP校园</view>
+</cu-custom>
+<view class='top-image' style="width:100%;height:{{height}}px"></view>

@@ -40,7 +40,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'https://wxtapi.ym-top.com/', //https://wxtapi.ym-top.com/
+        serviceSrc: 'http://192.168.1.5/', //https://wxtapi.ym-top.com/
         userInfo: null,
         school: {
             id: 0,

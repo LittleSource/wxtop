@@ -17,7 +17,6 @@
         "pages/common/payresult/payresult",
         "pages/common/consociation/consociation",
         "pages/manage/moneyrecord/moneyrecord",
-        "pages/manage/market/index/index",
         "pages/guide/index/index",
         "pages/guide/map/map",
         "pages/guide/introduced/introduced",
@@ -25,7 +24,8 @@
         "pages/guide/environmental/environmental",
         "pages/common/getphone/getphone",
         "pages/guide/busline/busline",
-        "pages/guide/threed/threed"
+        "pages/guide/threed/threed",
+        "pages/campusnet/index/index"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",

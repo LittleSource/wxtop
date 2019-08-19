@@ -40,12 +40,12 @@ Page({
                         wx.showToast({
                             title: '您还不是合作用户哦',
                             icon:'none',
-                            success:function(){
-                                wx.redirectTo({
-                                    url: '/pages/common/consociation/consociation'
-                                })
-                            }
                         })
+                        setTimeout(function(){
+                            wx.redirectTo({
+                                url: '/pages/common/consociation/consociation'
+                            })
+                        },1500)
                     }
                 }
             })
@@ -73,9 +73,13 @@ Page({
      * 超市服务鉴权
      */
     marketSever:function(){
-        wx.navigateTo({
-            url: '/pages/manage/market/index/index',
+        wx.showToast({
+            title: '请前往TOP校园商家版APP管理店铺',
+            icon: 'none',
         })
+        // wx.navigateTo({
+        //     url: '/pages/manage/market/index/index',
+        // })
     },
     /**
      * 快递服务鉴权
@@ -90,7 +94,7 @@ Page({
         } else {
             app.topReq({
                 loadType: 1,
-                url: app.globalData.serviceSrc + 'manage/auth/expressage',
+                url: app.globalData.serviceSrc + 'manage/expressage/getServeId',
                 method: 'POST',
                 data: {
                     token: app.globalData.userInfo.token

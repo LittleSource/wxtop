@@ -1,0 +1,4 @@
+/* pages/campusnet/index/index.wxss */
+.screen-swiper {
+	min-height: 430rpx;
+}

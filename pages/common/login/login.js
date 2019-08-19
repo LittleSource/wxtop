@@ -48,6 +48,7 @@ Page({
                                 success: function(res) {
                                     e.detail.userInfo.token = res.data.token
                                     e.detail.userInfo.openid = res.data.openid
+                                    e.detail.userInfo.phone = res.data.phone
                                     getApp().globalData.userInfo = e.detail.userInfo
                                     wx.setStorage({
                                         key: 'userInfo',

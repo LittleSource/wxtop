@@ -1,1 +1,10 @@
 /* pages/common/consociation/consociation.wxss */
+
+.top-image {
+    background-image: url(http://tcdn.ym-top.com/common/consociation.png);
+    background-size:100% 100%;
+}
+.top-bg-yellow{
+    background-color: #f3c925;
+    color: white;
+}

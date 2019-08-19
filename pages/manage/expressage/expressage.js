@@ -33,11 +33,11 @@ Page({
         } else {
             wx.showToast({
                 title: '您无权限进入此页!',
-                icon: 'none',
-                success:function(){
-                    wx.navigateBack()
-                }
+                icon: 'none'
             })
+            setTimeout(function(){
+                wx.navigateBack()
+            },1500)
         }
     },
 

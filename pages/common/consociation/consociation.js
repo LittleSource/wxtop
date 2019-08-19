@@ -5,14 +5,23 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        width:1080,
+        height:4592
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var bi = this.data.height / this.data.width
+        try {
+            const res = wx.getSystemInfoSync()
+            this.setData({
+                height: res.screenWidth * bi
+            })
+        } catch (e) {
+            // Do something when catch error
+        }
     },
 
     /**

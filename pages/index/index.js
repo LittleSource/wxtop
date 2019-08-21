@@ -11,6 +11,10 @@ Page({
         CustomBar: app.globalData.CustomBar,
         userInfo: null,
         school: app.globalData.school,
+        footImg:{
+            width:592,
+            height:333
+        },
         swiperList: [{
             id: 0,
             type: 'image',
@@ -41,6 +45,18 @@ Page({
     onLoad: function () {
         _self = this
         _self.getSchoolInfo()
+        var bi = this.data.footImg.height / this.data.footImg.width
+        try {
+            const res = wx.getSystemInfoSync()
+            this.setData({
+                footImg: {
+                    width: res.screenWidth,
+                    height: res.screenWidth * bi
+                }
+            })
+        } catch (e) {
+            // Do something when catch error
+        }
         app.topReq({
             loadType: 1,
             url: app.globalData.serviceSrc + 'common/index/iconList',

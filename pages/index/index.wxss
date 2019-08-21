@@ -1,27 +1,16 @@
 /**index.wxss**/
+page{
+    background-color: #fff;
+}
 .school-title{
   font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.footer{
+    width:100%;
+    margin-top:-1rpx;
+    background-image: url(http://tcdn.ym-top.com/common/footer.jpg);
+    background-size:100% 100%;
 }

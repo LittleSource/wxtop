@@ -2,7 +2,16 @@ var _self = null
 Page({
     data: {
         windowHeight: 500, //可使用窗口高度
+        modalShow:false,
+        marker:{},
         markers: [],
+        detail:[
+            {
+                id:1,
+                title:'沙县小吃',
+                imgs: ['https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2326509728,1684856776&fm=15&gp=0.jpg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566403452706&di=8aad77284767746ae24844da154cc191&imgtype=0&src=http%3A%2F%2Fqcloud.dpfile.com%2Fpc%2FdSJ9w0vgaH4ys17Ml15odGmc7Vrw6WVjqqzy1pRkuhSbQ3QAyS5ZgqVDp-olAAnOTYGVDmosZWTLal1WbWRW3A.jpg']
+            }
+        ]
     },
     onLoad() {
         _self = this
@@ -284,13 +293,23 @@ Page({
             }]
         })
     },
-    regionchange(e) {
-        console.log(e.type)
+    showPopup(e) {
+        this.setData({
+            marker: this.findDetail(e.markerId),
+            modalShow:true
+        })
     },
-    markertap(e) {
-        console.log(e.markerId)
+    hideModal(){
+        this.setData({
+            modalShow: false
+        })
     },
-    controltap(e) {
-        console.log(e.controlId)
+    findDetail: function (markerId){
+        for (let marker of this.data.detail) {
+            if (marker.id == markerId) {
+                return marker;
+            }
+        }
+        return false;
     }
 })

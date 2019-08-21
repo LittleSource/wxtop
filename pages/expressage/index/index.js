@@ -8,29 +8,20 @@ Page({
     data: {
         swiperList: [{
             id: 0,
-            type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport1.jpg'
+            url: 'http://tcdn.ym-top.com/expressage/swiper1.png'
         }, {
             id: 1,
-            type: 'image',
-            url: 'https://icloud.9ykm.cn/app/banner/mmexport2.jpg',
+                url: 'http://tcdn.ym-top.com/expressage/swiper2.png',
         }, {
             id: 2,
-            type: 'image',
             url: 'https://icloud.9ykm.cn/app/banner/mmexport3.jpg'
-        }],
-        notice: [
-            "①学校门口和菜鸟驿站都可以代取哦",
-            "②无论是小姐姐还是小哥哥都可以送到宿舍",
-            "③小件(2KG及以下)2元，大件(2KG以上)3元"
-        ],
+        }]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
     },
 
     /**

@@ -1,28 +1,22 @@
 <!--pages/expressage/index/index.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">返回</view>
-  <view slot="content">菜鸟快递代取</view>
+    <view slot="backText">返回</view>
+    <view slot="content">快递服务</view>
 </cu-custom>
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key>
-    <image src="{{item.url}}" mode="aspectFill"></image>
-  </swiper-item>
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{item.url}}" mode="aspectFill"></image>
+    </swiper-item>
 </swiper>
-<view class="cu-bar solid-bottom" wx:for="{{notice}}" wx:key>
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text>
-    <text>{{item}}</text>
-  </view>
-</view>
 <view class="nav-list margin-top-xl">
     <navigator open-type="navigate" hover-class='none' url="/pages/expressage/placeorder/placeorder" class="nav-li bg-blue">
-      <view class="nav-title">代取下单</view>
-      <view class="nav-name">placeorder</view>
-      <text class='icon-write'></text>
+        <view class="nav-title">代取下单</view>
+        <view class="nav-name">placeorder</view>
+        <text class='icon-write'></text>
     </navigator>
     <navigator open-type="navigate" hover-class='none' url="/pages/expressage/inquireorder/inquireorder" class="nav-li bg-cyan">
-      <view class="nav-title">订单查询</view>
-      <view class="nav-name">inquireorder</view>
-      <text class='icon-text'></text>
+        <view class="nav-title">订单查询</view>
+        <view class="nav-name">inquireorder</view>
+        <text class='icon-text'></text>
     </navigator>
 </view>

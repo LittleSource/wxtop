@@ -4,9 +4,13 @@
         <image src="{{item.url}}" mode="aspectFill"></image>
     </swiper-item>
 </swiper>
-<view class="margin-top-lg padding flex flex-direction">
-    <button bindtap='yuyue' disabled="{{isYuyue}}" class="cu-btn bg-green lg shadow">{{isYuyue?'您已预约':'预约办理'}}</button>
-</view>
-<view class="padding flex flex-direction">
-    <button open-type="contact" class="cu-btn bg-yellow lg shadow">宽带维修</button>
+<view class="padding-top-lg bg-white solid-bottom text-center">
+    <view class="cu-capsule round lg">
+        <view class="cu-tag bg-blue">当前学校</view>
+        <view class="cu-tag line-blue">{{schoolTitle}}</view>
+    </view>
+    <view class="padding margin-top flex flex-direction">
+        <button bindtap='yuyue' disabled="{{isYuyue}}" class="cu-btn bg-green lg shadow">{{isYuyue?'您已预约':'预约办理'}}</button>
+        <button open-type="contact" class="margin-top-xl cu-btn bg-yellow lg shadow">宽带维修</button>
+    </view>
 </view>

@@ -3,8 +3,14 @@
     <view slot="backText">返回</view>
     <view slot="content">快递代取下单</view>
 </cu-custom>
+<view class="cu-bar solid-bottom bg-white" wx:for="{{notice}}" wx:key>
+  <view class="action">
+    <text class="cuIcon-titles text-green"></text>
+    <text>{{item}}</text>
+  </view>
+</view>
 <form bindsubmit="formSubmit">
-    <view class="cu-bar bg-white">
+    <view class="cu-bar bg-white margin-top">
         <view class="action sub-title">
             <text class="text-xl text-bold text-green">基础信息</text>
             <text class="bg-green" style="width:4rem"></text>

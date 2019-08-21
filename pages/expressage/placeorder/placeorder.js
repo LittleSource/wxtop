@@ -9,6 +9,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+        notice: [
+            "①学校门口和菜鸟驿站都可以代取哦",
+            "②无论是小姐姐还是小哥哥都可以送到宿舍",
+            "③小件(2KG及以下)2元，大件(2KG以上)3元"
+        ],
         expressageSchool: [],
         schoolIndex:0,
         price: 2,

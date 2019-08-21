@@ -1,2 +1,16 @@
 <!--pages/guide/map/map.wxml-->
-<map id="map" subkey="HSKBZ-VFUH3-LSU3V-3GNMV-OF4V2-VHBFI" layer-style="2" scale="15" show-location show-compass enable-3D show-scale longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" markers="{{markers}}" circles="{{circle}}" bindregionchange="regionchange" style="width: 100%; height: {{windowHeight}}px;"></map>
+<map id="map" subkey="HSKBZ-VFUH3-LSU3V-3GNMV-OF4V2-VHBFI" layer-style="2" scale="15" show-location show-compass enable-3D show-scale longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" markers="{{markers}}" circles="{{circle}}" bindmarkertap="showPopup"
+    style="width: 100%; height: {{windowHeight}}px;"></map>
+<view class="cu-modal bottom-modal {{modalShow?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view class="action">{{marker.title}}</view>
+            <view class="action text-grey" bindtap="hideModal">关闭</view>
+        </view>
+        <scroll-view scroll-y style='height:{{windowHeight/2}}px'>
+            <view wx:for="{{marker.imgs}}" wx:key>
+                <image src='{{item}}' mode='widthFix'></image>
+            </view>
+        </scroll-view>
+    </view>
+</view>

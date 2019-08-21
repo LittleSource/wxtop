@@ -7,14 +7,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isYuyue:false,
+        isYuyue: false,
         swiperList: [{
             id: 0,
             url: 'http://tcdn.ym-top.com/common/kuadai.jpg'
         }, {
             id: 1,
-            url: 'http://suo.im/4E4Fo2',
+            url: 'http://tcdn.ym-top.com/common/kuadai2.jpg',
         }],
+        schoolTitle: ''
     },
 
     /**
@@ -22,8 +23,8 @@ Page({
      */
     onLoad: function (options) {
         _self = this
-        var schoolId = getApp().globalData.school.id;
-        if (!schoolId) {
+        var school = getApp().globalData.school;
+        if (!school.id) {
             wx.showModal({
                 title: '提示',
                 content: '请等待定位完成或选择您的学校！',
@@ -32,6 +33,9 @@ Page({
                 }
             })
         } else {
+            _self.setData({
+                schoolTitle: school.title
+            })
             app.topReq({
                 loadType: 1,
                 url: app.globalData.serviceSrc + 'campusnet/Appointment/select',
@@ -70,7 +74,7 @@ Page({
                 })
             }
         })
-        
+
     },
 
     /**

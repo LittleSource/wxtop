@@ -63,9 +63,9 @@ Page({
             method: 'GET',
             data: {},
             success: function (res) {
-                //_self.setData({
-                //    iconList: res.data.iconList
-                //})
+                _self.setData({
+                   iconList: res.data.iconList
+                })
             }
         })
     },
@@ -133,7 +133,7 @@ Page({
                 })
             } else {
                 wx.showToast({
-                    title: '暂未开放',
+                    title: '即将上线，敬请期待',
                     icon: 'none'
                 })
             }

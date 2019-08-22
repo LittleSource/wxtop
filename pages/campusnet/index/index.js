@@ -37,7 +37,7 @@ Page({
                 schoolTitle: school.title
             })
             app.topReq({
-                loadType: 1,
+                loadType: -1,
                 url: app.globalData.serviceSrc + 'campusnet/Appointment/select',
                 method: 'POST',
                 data: {

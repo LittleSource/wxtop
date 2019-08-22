@@ -15,7 +15,12 @@ Page({
         this.setData({
             url: globalData.serviceSrc +'common/threed/govr?id='+globalData.school.id
         })
-        console.log(this.data.url)
+        wx.showModal({
+            title: '提示',
+            content: '如果出现空白页面按一下返回键就能正常打开啦！',
+            showCancel: false,
+            confirmText:'我知道了'
+        })
     },
 
     findById: function (id) {

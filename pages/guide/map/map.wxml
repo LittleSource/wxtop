@@ -8,8 +8,8 @@
             <view class="action text-grey" bindtap="hideModal">关闭</view>
         </view>
         <scroll-view scroll-y style='height:{{windowHeight/2}}px'>
-            <view wx:for="{{marker.imgs}}" wx:key>
-                <image src='{{item}}' mode='widthFix'></image>
+            <view wx:for="{{marker.detail}}" wx:key>
+                <image src='{{item}}' mode='widthFix' bindtap='showimage' data-index='{{index}}'></image>
             </view>
         </scroll-view>
     </view>

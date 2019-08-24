@@ -320,10 +320,12 @@ Page({
         })
     },
     showPopup(e) {
-        this.setData({
-            marker: this.findDetail(e.markerId),
-            modalShow: true
-        })
+        if (e.markerId){
+            this.setData({
+                marker: this.findDetail(e.markerId),
+                modalShow: true
+            })
+        }
     },
     hideModal() {
         this.setData({

@@ -46,10 +46,14 @@ Page({
             data: {
                 openid:app.globalData.userInfo.openid,
                 type:_self.data.type,
+                invite: app.globalData.invite,
                 encryptedData: e.detail.encryptedData,
                 iv: e.detail.iv
             },
             success: function (res) {
+                _self.setData({
+                    isNext:true
+                })
                 getApp().globalData.userInfo.phone = res.data.phone
                 wx.showToast({
                     title: '注册成功'

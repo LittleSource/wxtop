@@ -42,8 +42,11 @@ Page({
             url: ''
         }]
     },
-    onLoad: function () {
+    onLoad: function (options) {
         _self = this
+        if (options.invite){
+            getApp().globalData.invite = options.invite
+        }
         _self.getSchoolInfo()
         var bi = this.data.footImg.height / this.data.footImg.width
         try {

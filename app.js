@@ -42,6 +42,7 @@ App({
     globalData: {
         serviceSrc: 'https://wxtapi.ym-top.com/',//https://wxtapi.ym-top.com/
         userInfo: null,
+        invite:'TOP校园',
         school: {
             id: 0,
             title: '定位中...'

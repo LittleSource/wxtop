@@ -13,3 +13,8 @@
   left: 180rpx;
   line-height: 1.9em;
 }
+
+.top-img{
+    height: 150rpx;
+    width: 100%;
+}

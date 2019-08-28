@@ -75,6 +75,7 @@ Page({
     onShow: function () {
         this.setData({
             userInfo: app.globalData.userInfo,
+            school: app.globalData.school
         })
     },
     showModel: function () {
@@ -128,7 +129,25 @@ Page({
         })
     },
     goSwitch: function (e) {
-        app.checkLogin('/pages/index/index', 1, function () {
+        if(app.globalData.userInfo == null){
+            wx.showToast({
+                title: '您还未登录哦',
+                icon: 'none'
+            })
+            setTimeout(function () {
+                wx.navigateTo({
+                    url: '/pages/common/login/login?url=/pages/index/index&istab=1'
+                })
+            }, 1000)
+        } else if (app.globalData.school.id == 0){
+            wx.showToast({
+                title: '请选择您的学校',
+                icon: 'none'
+            })
+            _self.setData({
+                modalShow: true
+            })
+        }else{
             var index = e.currentTarget.dataset.index
             if (_self.data.iconList[index].url) {
                 wx.navigateTo({
@@ -140,6 +159,6 @@ Page({
                     icon: 'none'
                 })
             }
-        })
+        }
     }
 })

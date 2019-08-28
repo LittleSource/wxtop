@@ -83,6 +83,7 @@ module.exports = {
     getLocationSchool: function (palyLoad) {
         var _self = this
         var error = new Object
+        error.id = 0
         error.title = '未搜索到学校,请点击选择'//准备错误信息
         qqmapsdk.reverseGeocoder({
             get_poi: 1,

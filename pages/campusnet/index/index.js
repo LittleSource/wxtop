@@ -55,26 +55,35 @@ Page({
     },
 
     yuyue: function () {
-        console.log(app.globalData.userInfo)
-        app.topReq({
-            loadType: 1,
-            url: app.globalData.serviceSrc + 'campusnet/Appointment/submit',
-            method: 'POST',
-            data: {
-                token: app.globalData.userInfo.token,
-                school: app.globalData.school.title,
-                phone: app.globalData.userInfo.phone
-            },
-            success: function (res) {
-                wx.showToast({
-                    title: '预约成功',
-                })
-                _self.setData({
-                    isYuyue: true
-                })
+        if(this.data.isYuyue){
+            return
+        }
+        wx.showModal({
+            title: '预约提示',
+            content: '您确定要预约您所在学校的校园宽带吗？',
+            success(res) {
+                if (res.confirm) {
+                    app.topReq({
+                        loadType: 1,
+                        url: app.globalData.serviceSrc + 'campusnet/Appointment/submit',
+                        method: 'POST',
+                        data: {
+                            token: app.globalData.userInfo.token,
+                            school: app.globalData.school.title,
+                            phone: app.globalData.userInfo.phone
+                        },
+                        success: function (res) {
+                            wx.showToast({
+                                title: '预约成功',
+                            })
+                            _self.setData({
+                                isYuyue: true
+                            })
+                        }
+                    })
+                }
             }
         })
-
     },
 
     /**

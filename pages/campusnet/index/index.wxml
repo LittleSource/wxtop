@@ -10,7 +10,8 @@
         <view class="cu-tag line-blue">{{schoolTitle}}</view>
     </view>
     <view class="padding margin-top flex flex-direction">
-        <button bindtap='yuyue' disabled="{{isYuyue}}" class="cu-btn bg-green lg shadow">{{isYuyue?'您已预约':'预约办理'}}</button>
-        <button open-type="contact" class="margin-top-xl cu-btn bg-yellow lg shadow">宽带维修</button>
+        <view wx:if="{{isYuyue}}" class='text-df text-grey'>您已预约办理校园宽带，开始办理时工作人员会联系您的手机号码，请保持电话畅通~</view>
+        <button wx:else bindtap='yuyue' class="cu-btn bg-green lg shadow">预约办理</button>
+        <button open-type="contact" send-message-title="宽带报修" send-message-img="http://tcdn.ym-top.com/common/kuandaikefu.jpg" show-message-card="true" class="margin-top-xl cu-btn bg-yellow lg shadow">宽带维修</button>
     </view>
 </view>

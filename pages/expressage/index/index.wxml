@@ -19,9 +19,7 @@
         <view class="nav-name">mailing</view>
         <text class='icon-text'></text>
     </view>
-    <navigator open-type="navigate" hover-class='none' url="/pages/expressage/inquireorder/inquireorder" class="nav-li bg-yellow">
-        <view class="nav-title">订单查询</view>
-        <view class="nav-name">inquireorder</view>
-        <text class='icon-text'></text>
-    </navigator>
+</view>
+<view class="padding-lr-xl flex flex-direction" bindtap='inquireorder'>
+    <button class='cu-btn bg-green lg shadow'>订单查询</button> 
 </view>

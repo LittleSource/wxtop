@@ -38,6 +38,11 @@ Page({
             icon: 'none'
         })
     },
+    inquireorder:function(){
+        wx.navigateTo({
+            url: '/pages/expressage/inquireorder/inquireorder',
+        })
+    },
 
     /**
      * 用户点击右上角分享

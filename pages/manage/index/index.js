@@ -35,7 +35,7 @@ Page({
                             key: 'isServe',
                             data: true
                         })
-                        this.getMoneyCount()
+                        _self.getMoneyCount()
                     }else{
                         wx.showToast({
                             title: '您还不是合作用户哦',

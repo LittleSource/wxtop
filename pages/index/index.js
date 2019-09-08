@@ -47,7 +47,6 @@ Page({
         if (options.invite){
             getApp().globalData.invite = options.invite
         }
-        _self.getSchoolInfo()
         var bi = this.data.footImg.height / this.data.footImg.width
         try {
             const res = wx.getSystemInfoSync()
@@ -73,6 +72,7 @@ Page({
         })
     },
     onShow: function () {
+        _self.getSchoolInfo()
         this.setData({
             userInfo: app.globalData.userInfo,
             school: app.globalData.school

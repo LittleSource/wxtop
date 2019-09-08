@@ -39,6 +39,10 @@ Component({
             var school = topSchool.findSchoolById(e.currentTarget.dataset.id)
             if(school){
                 getApp().globalData.school = school
+                wx.setStorage({ //缓存school列表
+                    key: 'school',
+                    data: school
+                })
                 this.setData({
                     isShow: false
                 })

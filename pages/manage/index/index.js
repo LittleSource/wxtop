@@ -45,7 +45,7 @@ Page({
                             wx.redirectTo({
                                 url: '/pages/common/consociation/consociation'
                             })
-                        },1500)
+                        },2500)
                     }
                 }
             })

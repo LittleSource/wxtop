@@ -1,0 +1,36 @@
+<!--pages/mine/order/order.wxml-->
+<scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{5}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+            {{title[index]}}
+        </view>
+    </view>
+</scroll-view>
+<block wx:if="{{orderList.length == 0}}">
+    <page-info info="您还没有订单记录哦"></page-info>
+</block>
+<block wx:else>
+    <view class="cu-list menu-avatar card-menu bg-white margin-top" wx:for="{{orderList}}" wx:for-item="order" wx:key>
+        <view class="cu-item top-solid">
+            <view class="cu-avatar radius lg" :style="'background-image:url('+order.goods_img+');'"></view>
+            <view class="content">
+                <view>
+                    <text class="text-cut">{{order.goods_name}}</text>
+
+                </view>
+                <view class="text-gray text-sm flex" style="margin-top: -10upx;">
+                    <text class="text-cut"> {{order.create_time}}</text>
+                </view>
+                <view class="text-gray text-sm flex" style="margin-top: -10upx;">
+                    <text class="text-cut">{{order.remark ? '备注: '+order.remark:''}}</text>
+                </view>
+            </view>
+            <view class="action">
+                <view class="cu-tag round sm {{order.status == 0?'bg-pink':order.status == 1?'bg-yellow':order.status == 2?'bg-orange':order.status == 3?'bg-blue':'bg-grey'}}">
+                    {{order.status == 0?'待付款':order.status == 1?'待处理':order.status == 2?'处理中':order.status == 3?'已完成':'已退款'}}
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<view wx:if="{{loadingShow}}" class="cu-load {{loadingStyle[loadingIndex]}}">{{loadingIndex == 0 ? '加载中...' : ''}}</view>

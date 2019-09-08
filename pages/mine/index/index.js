@@ -44,14 +44,41 @@ Page({
             icon: 'none'
         })
     },
+
+    goOrder: function () {
+        if (app.globalData.userInfo == null) {
+            wx.showToast({
+                title: '您还未登录哦',
+                icon: 'none'
+            })
+            setTimeout(function () {
+                _self.goLogin()
+            }, 1000)
+        } else {
+            // wx.showToast({
+            //     title: '即将上线，敬请期待',
+            //     icon: 'none'
+            // })
+            wx.navigateTo({
+                url: '/pages/mine/order/order'
+            })
+        }
+    },
+
     goMenu: function(e) {
-        let url = e.currentTarget.dataset.url;
-        if (this.data.userInfo) {
+        if (app.globalData.userInfo == null) {
+            wx.showToast({
+                title: '您还未登录哦',
+                icon: 'none'
+            })
+            setTimeout(function () {
+                _self.goLogin()
+            }, 1000)
+        } else {
+            let url = e.currentTarget.dataset.url;
             wx.navigateTo({
                 url: url
             })
-        } else {
-            this.goLogin()
         }
     },
     /**

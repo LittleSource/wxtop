@@ -7,14 +7,14 @@
     <view class="cu-item" wx:for="{{recordList}}" wx:key>
         <view class="content padding-tb-sm">
             <view>
-                <text class="{{item.type == 1 ? 'cuIcon-moneybagfill text-green':'cuIcon-sponsorfill text-red'}} margin-right-xs"></text> {{item.remark}}
+                <text class="{{item.types == 1 ? 'cuIcon-moneybagfill text-green':'cuIcon-sponsorfill text-red'}} margin-right-xs"></text> {{item.remark}}
             </view>
             <view class="text-gray text-sm">
                 <text class="cuIcon-time margin-right-xs"></text>{{item.add_date}}
             </view>
         </view>
         <view class="action">
-            <text class="text-grey text-lg">{{item.type == 1 ? '+':'-'}}{{item.amount}}</text>
+            <text class="text-grey text-lg">{{item.types == 1 ? '+':'-'}}{{item.amount}}</text>
         </view>
     </view>
 </view>

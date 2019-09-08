@@ -24,20 +24,27 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {},
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-        app.checkLogin('/pages/expressage/index/index', 0)
+    onLoad: function(options) {
+        if (app.globalData.userInfo == null) {
+            wx.showToast({
+                title: '您还未登录哦',
+                icon: 'none'
+            })
+            setTimeout(function () {
+                wx.navigateTo({
+                    url: '/pages/common/login/login?url=/pages/expressage/index/index'
+                })
+            }, 1500)
+        }
     },
+
     tempfun:function(){
         wx.showToast({
             title: '即将上线，敬请期待',
             icon: 'none'
         })
     },
+
     inquireorder:function(){
         wx.navigateTo({
             url: '/pages/expressage/inquireorder/inquireorder',

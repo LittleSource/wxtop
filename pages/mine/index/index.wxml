@@ -14,8 +14,8 @@
             </view>
         </view>
     </view>
-    <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx' bindtap='tempfun'>
-        <view class="cu-item">
+    <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx'>
+        <view class="cu-item" bindtap='goOrder'>
             <view class="cuIcon-pay text-grey">
                 <!-- <view class="cu-tag badge">99</view> -->
                 <text style='line-height:20rpx'>待付款</text>
@@ -24,7 +24,7 @@
         <view class="cu-item">
             <view class="cuIcon-tag text-grey">
                 <!-- <view class="cu-tag badge">99</view> -->
-                <text style='line-height:20rpx'>待处理</text>
+                <text style='line-height:20rpx'>待发货</text>
             </view>
         </view>
         <view class="cu-item">

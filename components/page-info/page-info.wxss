@@ -1,8 +1,9 @@
 /* components/page-info/page-info.wxss */
-.img-info{
+.img-info {
     margin-top: 100rpx;
     text-align: center;
 }
-.img-info image{
+
+.img {
     width: 450rpx;
 }

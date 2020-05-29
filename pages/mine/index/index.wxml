@@ -3,7 +3,7 @@
     <view class="UCenter-bg">
         <view class="cu-list menu-avatar" bindtap='goUserSetting'>
             <view class="cu-item" style='margin-top:{{StatusBar+30}}px'>
-                <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'http://tcdn.ym-top.com/common/notLoginAvatar.png'}});"></view>
+                <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://cdn.ymkj8.com/topschool/common/notLoginAvatar.png'}});"></view>
                 <view class="content">
                     <view class="text-white">{{userInfo ? userInfo.nickName : '点此登录'}}</view>
                     <view class="text-white flex">
@@ -15,7 +15,7 @@
         </view>
     </view>
     <view class="cu-list grid col-4 card-menu" style='margin-top:-70rpx'>
-        <view class="cu-item" bindtap='goOrder'>
+        <view class="cu-item" bindtap='tempfun'>
             <view class="cuIcon-pay text-grey">
                 <!-- <view class="cu-tag badge">99</view> -->
                 <text style='line-height:20rpx'>待付款</text>

@@ -40,7 +40,7 @@ App({
         }
     },
     globalData: {
-        serviceSrc: 'http://localhost/',//https://wxtapi.ym-top.com/
+        serviceSrc: 'https://wxtapi.ymkj8.com/',//https://wxtapi.ymkj8.com/
         userInfo: null,
         invite:'TOP校园',
         school: {

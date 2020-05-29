@@ -18,7 +18,7 @@ Page({
         swiperList: [{
             id: 0,
             type: 'image',
-            url: 'http://tcdn.ym-top.com/common/welcome.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/common/welcome.jpg'
         }],
         iconList: [{
             icon: 'creativefill',

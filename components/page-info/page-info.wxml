@@ -1,5 +1,5 @@
 <!--components/page-info/page-info.wxml-->
 <view class='img-info'>
-    <image src='http://tcdn.ym-top.com/common/img-info.png' mode='aspectFit'></image>
+    <image class="img" src='https://cdn.ymkj8.com/topschool/common/img-info.png' mode='aspectFit'></image>
     <view class='margin-top-xl text-grey text-lg'>{{info}}</view>
 </view>

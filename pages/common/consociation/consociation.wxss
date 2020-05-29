@@ -1,7 +1,7 @@
 /* pages/common/consociation/consociation.wxss */
 
 .top-image {
-    background-image: url(http://tcdn.ym-top.com/common/consociation.png);
+    background-image: url(https://cdn.ymkj8.com/topschool/common/consociation.png);
     background-size:100% 100%;
 }
 .top-bg-yellow{

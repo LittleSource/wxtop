@@ -5,7 +5,7 @@ page {
 }
 
 .UCenter-bg {
-    background-image: url(http://tcdn.ym-top.com/common/getphoneBg.png);
+    background-image: url(https://cdn.ymkj8.com/topschool/common/getphoneBg.png);
     background-size: cover;
     height: 400rpx;
     display: flex;

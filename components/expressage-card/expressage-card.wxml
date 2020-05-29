@@ -43,7 +43,10 @@
             <text class='cuIcon-phone'></text>
             <text class="top-margin-left-xs">联系客服</text>
         </view>
-        <view class='action'>
+        <view wx:if="{{manage}}" class='action'>
+            <button class='cu-btn line-brown' bindtap='_copyInfo'>一键复制</button>
+        </view>
+        <view wx:else class='action'>
             <button wx:if="{{order.status == 0}}" class='cu-btn line-red' bindtap='_continuePay'>立即付款</button>
             <view wx:else class='text-red text-lg text-price'>{{order.pay_price}}</view>
         </view>

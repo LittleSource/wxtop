@@ -10,10 +10,10 @@ Page({
         isYuyue: false,
         swiperList: [{
             id: 0,
-            url: 'http://tcdn.ym-top.com/common/kuadai.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/common/kuadai.jpg'
         }, {
             id: 1,
-            url: 'http://tcdn.ym-top.com/common/kuadai2.jpg',
+            url: 'https://cdn.ymkj8.com/topschool/common/kuadai2.jpg',
         }],
         schoolTitle: ''
     },

@@ -160,6 +160,14 @@ Component({
                 }
             })
         },
+        //复制部分订单信息
+        _copyInfo(){
+            let orderData = this.data.order.order_data
+            var info = '姓名:' + orderData.name + '|手机号:' + orderData.phone + '|宿舍号:' + orderData.dorNo + '|短信内容:' + orderData.shortmessage
+            wx.setClipboardData({
+                data: info
+            })
+        },
 
         //支付按钮发起支付
         _continuePay(){

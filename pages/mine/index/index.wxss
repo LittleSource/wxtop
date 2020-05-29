@@ -1,9 +1,10 @@
 /* pages/mine/index/index.wxss */
 .UCenter-bg {
-  background-image: url(http://icloud.9ykm.cn/app/user-bg.jpg);
+  background-image: url(https://cdn.ymkj8.com/topschool/common/user-bg.jpeg);
   background-size: cover;
   height: 380rpx;
   color: #fff;
+  border-radius: 0 0 50rpx 50rpx;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
 .cu-list.menu-avatar>.cu-item {

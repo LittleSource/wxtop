@@ -45,28 +45,28 @@ Page({
         }],
         mapImages: [{
             id: 15310156724975630292,
-            url: 'http://tcdn.ym-top.com/school_map/电子.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/电子.jpg'
         }, {
             id: 1132276838459656005,
-            url: 'http://tcdn.ym-top.com/school_map/中德.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/中德.jpg'
         }, {
             id: 9064819481832757240,
-            url: 'http://tcdn.ym-top.com/school_map/轻工.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/轻工.jpg'
         }, {
             id: 5121864895957150075,
-            url: 'http://tcdn.ym-top.com/school_map/现代.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/现代.jpg'
         }, {
             id: 12964050169472583622,
-            url: 'http://tcdn.ym-top.com/school_map/机电.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/机电.jpg'
         }, {
             id: 6636179715655175228,
-            url: ''
+            url: 'https://cdn.ymkj8.com/topschool/school/职大.jpg'
         }, {
             id: 17425798441035415081,
-            url: 'http://tcdn.ym-top.com/school_map/商务.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/商务.jpg'
         }, {
             id: 3859587972726810660,
-            url: 'http://tcdn.ym-top.com/school_map/海运.jpg'
+            url: 'https://cdn.ymkj8.com/topschool/school_map/海运.jpg'
         }]
 
     },

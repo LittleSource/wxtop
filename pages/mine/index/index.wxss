@@ -1,21 +1,22 @@
 /* pages/mine/index/index.wxss */
 .UCenter-bg {
-  background-image: url(https://cdn.ymkj8.com/topschool/common/user-bg.jpeg);
+  background-image: url(https://cdn.ymkj8.com/topschool/common/user-bg.jpg);
   background-size: cover;
   height: 380rpx;
   color: #fff;
-  border-radius: 0 0 50rpx 50rpx;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
+
 .cu-list.menu-avatar>.cu-item {
   background-color: transparent;
 }
-.cu-list.menu-avatar>.cu-item .content{
+
+.cu-list.menu-avatar>.cu-item .content {
   left: 180rpx;
   line-height: 1.9em;
 }
 
-.top-img{
-    height: 150rpx;
-    width: 100%;
+.top-img {
+  height: 150rpx;
+  width: 100%;
 }

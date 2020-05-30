@@ -40,9 +40,9 @@
             </view>
         </view>
     </view>
-    <!-- <view class="cu-list menu card-menu shadow-lg radius">
-        <image src='https://cdn.nlark.com/yuque/0/2019/png/280373/1564109592183-assets/web-upload/3f355341-0faa-401b-b812-aa109341257e.png' class='top-img'></image>
-    </view> -->
+    <view class="cu-list menu card-menu" bindtap="goConsociation">
+        <image src='https://cdn.ymkj8.com/topschool/common/mine-banana.png' class='top-img'></image>
+    </view>
     <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
         <view class="cu-item arrow" bindtap='tempfun'>
             <view class="content">

@@ -64,7 +64,11 @@ Page({
             })
         }
     },
-
+    goConsociation(){
+        wx.navigateTo({
+          url: '/pages/common/consociation/consociation',
+        })
+    },
     goMenu: function(e) {
         if (app.globalData.userInfo == null) {
             wx.showToast({

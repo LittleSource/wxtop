@@ -1,54 +1,70 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"autoAudits": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wx963bc1322570c1cf",
-	"projectname": "TOP%E6%A0%A1%E5%9B%AD",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "二维码",
-					"pathName": "pages/index/index",
-					"query": "invite=老田",
-					"scene": null
-				}
-			]
-		}
-	}
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "useCompilerModule": false,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.6.6",
+    "appid": "wx963bc1322570c1cf",
+    "projectname": "TOP%E6%A0%A1%E5%9B%AD",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "list": []
+        },
+        "conversation": {
+            "list": []
+        },
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "currentL": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": 0,
+                    "name": "二维码",
+                    "pathName": "pages/index/index",
+                    "query": "invite=老田",
+                    "scene": null
+                }
+            ]
+        }
+    }
 }

@@ -26,7 +26,8 @@
         "pages/guide/busline/busline",
         "pages/guide/threed/threed",
         "pages/campusnet/index/index",
-        "pages/mine/order/order"
+        "pages/mine/order/order",
+        "pages/leave/info/info"
     ],
     "usingComponents": {
         "show-model": "/components/show-model/show-model",

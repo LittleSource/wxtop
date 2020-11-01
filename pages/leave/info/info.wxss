@@ -1,0 +1,129 @@
+.body{
+    padding: 0rpx 30rpx;
+    background-color: #ffffff;
+    border: 1px solid #dfdfdf;
+}
+.top-title{
+    padding: 30rpx 0rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.top-title > .avatar{
+    width: 54rpx;
+    height: 54rpx;
+    border-radius: 4rpx;
+    overflow: hidden;
+}
+
+.top-title > text{
+    margin-left: 20rpx;
+    font-size: 34rpx;
+}
+
+.top-title > .tag{
+    margin-left: 15rpx;
+    height: 38rpx;
+    border: 1rpx solid #23d30c;
+}
+
+.top-title > .tag > text{
+    padding: 15rpx 10rpx;
+    margin: 0 auto;
+    color: #23ac12;
+    font-size: 22rpx;
+}
+.left-title{
+    padding: 30rpx 0rpx 20rpx 0rpx;
+    font-size: 34rpx;
+}
+.row{
+    margin-left: 34rpx;
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30rpx;
+}
+.row > .title{
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(155, 155, 155);
+    width: 120rpx;
+}
+.row > .desc{
+    margin-left: 30rpx;
+}
+
+.row-zfb{
+    height: 180rpx;
+}
+
+.zfbqr{
+    background-image: url('https://cdn.ymkj8.com/topschool/IMG_20201101_210819.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 550rpx;
+    height: 130rpx;
+    border: 1rpx solid #f3f3f3;
+}
+
+.left-icon{
+    width: 48rpx;
+    height: 230rpx;
+    background-image: url('https://cdn.ymkj8.com/left-icon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.space-between{
+  justify-content: space-between;  
+}
+
+.flex-center{
+    align-items: center;
+}
+
+.sp-row{
+    height: 120rpx;
+}
+
+.sp-row .avatar{
+    margin-top: 10rpx;
+    width: 45rpx;
+    height: 45rpx;
+    border-radius: 4rpx;
+    overflow: hidden;
+}
+
+.button{
+    padding: 30rpx;
+    width: 100%;
+    color: #090f13;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.bottom{
+    width: 100%;
+    height: 90rpx;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    line-height: 90rpx;
+    color: #090f13;
+    text-align: center;
+    font-size: 30rpx;
+    border-top: 1px solid #dfdfdf;
+}

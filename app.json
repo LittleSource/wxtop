@@ -27,6 +27,7 @@
         "pages/guide/threed/threed",
         "pages/campusnet/index/index",
         "pages/mine/order/order",
+        "pages/leave/form/form",
         "pages/leave/info/info"
     ],
     "usingComponents": {

@@ -44,7 +44,7 @@
         <image src='https://cdn.ymkj8.com/topschool/common/mine-banana.png' class='top-img'></image>
     </view>
     <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-        <view class="cu-item arrow" bindtap='goMenu' data-url="/pages/leave/info/info">
+        <view class="cu-item arrow" bindtap='goMenu' data-url="/pages/leave/form/form">
             <view class="content">
                 <text class="cuIcon-github text-orange"></text>
                 <text class="text-grey">更多功能</text>

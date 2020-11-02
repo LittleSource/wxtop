@@ -1,10 +1,8 @@
 <!--pages/leave/info/info.wxml-->
 <view class="body">
     <view class="top-title">
-        <image class="avatar"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604242109868&di=5642a18dbf9f67a05c4e48eda87977ac&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713001412_pslrp.thumb.400_0.jpeg">
-        </image>
-        <text>俞旭源的学生离校请假</text>
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <text>{{data.name}}的学生离校请假</text>
         <view class="tag">
             <text>已通过</text>
         </view>
@@ -12,43 +10,43 @@
     <view class="left-title">申请详情</view>
     <view class="row">
         <view class="title">审批编号</view>
-        <view class="desc">202011313213</view>
+        <view class="desc">{{number}}</view>
     </view>
     <view class="row">
         <view class="title">提交时间</view>
-        <view class="desc">2020/11/1 09:13</view>
+        <view class="desc">{{data.startDate+' 07:12'}}</view>
     </view>
     <view class="row">
         <view class="title">所在部门</view>
-        <view class="desc">20计算机升本2班</view>
+        <view class="desc">{{data.class}}</view>
     </view>
     <view class="row">
         <view class="title">请假类型</view>
-        <view class="desc">病假</view>
+        <view class="desc">{{data.type}}</view>
     </view>
     <view class="row">
         <view class="title">开始时间</view>
-        <view class="desc">2020/11/1 09:13</view>
+        <view class="desc">{{data.startDate+' '+data.startTime}}</view>
     </view>
     <view class="row">
         <view class="title">结束时间</view>
-        <view class="desc">2020/11/1 09:13</view>
+        <view class="desc">{{data.endDate+' '+data.endTime}}</view>
     </view>
     <view class="row">
         <view class="title">请假时长</view>
-        <view class="desc">10小时</view>
+        <view class="desc">{{data.duration}}小时</view>
     </view>
     <view class="row">
         <view class="title">请假事由</view>
-        <view class="desc">202011313213</view>
+        <view class="desc">{{data.cause}}</view>
     </view>
     <view class="row">
         <view class="title">交通工具</view>
-        <view class="desc">公交</view>
+        <view class="desc">{{data.vehicle}}</view>
     </view>
     <view class="row">
         <view class="title">出行线路</view>
-        <view class="desc">6号线</view>
+        <view class="desc">{{data.line}}</view>
     </view>
     <view class="row row-zfb">
         <view class="title">说明附件(支付宝健康码截图)</view>
@@ -68,10 +66,8 @@
                         <view>审批人 · 已同意</view>
                     </view>
                     <view class="flex flex-center">
-                        <image class="avatar"
-                            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604242109868&di=5642a18dbf9f67a05c4e48eda87977ac&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713001412_pslrp.thumb.400_0.jpeg">
-                        </image>
-                        <text style="margin-left:10rpx">韩群文</text>
+                        <image class="avatar" src="{{data.examineAvatar}}"></image>
+                        <text style="margin-left:10rpx">{{data.examineName}}</text>
                     </view>
                 </view>
                 <view style="height:30rpx"></view>
@@ -80,17 +76,15 @@
                         <view>抄送人 · 已抄送</view>
                     </view>
                     <view class="flex flex-center">
-                        <image class="avatar"
-                            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604242109868&di=5642a18dbf9f67a05c4e48eda87977ac&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713001412_pslrp.thumb.400_0.jpeg">
-                        </image>
-                        <text style="margin-left:10rpx">韩群文</text>
+                        <image class="avatar" src="{{data.copyAvatar}}"></image>
+                        <text style="margin-left:10rpx">{{data.copyName}}</text>
                     </view>
                 </view>
             </view>
         </view>
         <view>
-            <view style="margin-top: 50rpx;">已同意 · 11/01 10:49</view>
-            <view style="margin-top: 110rpx;">已抄送 · 11/01 10:49</view>
+            <view style="margin-top: 50rpx;">已同意 · 11/01 {{data.endTime}}</view>
+            <view style="margin-top: 110rpx;">已抄送 · 11/01 {{data.startTime}}</view>
         </view>
     </view>
 </view>

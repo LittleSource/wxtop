@@ -17,6 +17,8 @@
         "checkInvalidKey": true,
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -27,12 +29,10 @@
         "userConfirmedUseCompilerModuleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
-        "minifyWXSS": true,
-        "useMultiFrameRuntime": false,
-        "useApiHook": true
+        "minifyWXSS": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.6.6",
+    "libVersion": "2.13.2",
     "appid": "wx963bc1322570c1cf",
     "projectname": "TOP%E6%A0%A1%E5%9B%AD",
     "debugOptions": {

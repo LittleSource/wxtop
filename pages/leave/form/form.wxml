@@ -1,0 +1,111 @@
+<form bindsubmit="formSubmit">
+    <view class="cu-bar bg-white">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-green">基础信息</text>
+            <text class="bg-green" style="width:4rem"></text>
+        </view>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">姓名:</view>
+        <input value='{{name}}' name="name" placeholder="请输入姓名"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">所在部门:</view>
+        <input value='{{class}}' name="class" placeholder="请输入班级信息"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">请假类型:</view>
+        <picker bindchange="typeChange" name="type" value="{{type[index]}}" range="{{type}}">
+            <view class="picker">
+                {{type[index]}}
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">开始日期:</view>
+        <picker mode="date" bindchange="startDateChange">
+            <view class="picker">
+                {{startDate}}
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">开始时间:</view>
+        <picker mode="time" value="{{startTime}}" bindchange="startTimeChange">
+            <view class="picker">
+                {{startTime}}
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">结束日期:</view>
+        <picker mode="date" bindchange="endDateChange">
+            <view class="picker">
+                {{endDate}}
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">结束时间:</view>
+        <picker mode="time" value="{{endTime}}" bindchange="endTimeChange">
+            <view class="picker">
+                {{endTime}}
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">时长(小时):</view>
+        <input value='{{duration}}' name="duration" placeholder="请输入请假时长" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">请假事由:</view>
+        <input value='{{cause}}' name="cause" placeholder="请输入请假事由"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">交通工具:</view>
+        <input value='{{vehicle}}' name="vehicle" placeholder="请输入交通工具"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">出行线路:</view>
+        <input value="{{line}}" name="line" placeholder="请输入出行线路"></input>
+    </view>
+    <view class="cu-bar bg-white margin-top">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-green">教师信息</text>
+            <text class="bg-green" style="width:4rem"></text>
+        </view>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">审批人头像:</view>
+        <view class="grid col-4 grid-square flex-sub">
+            <view  wx:if="{{!examineAvatar}}" class="solids" bindtap="chooseExamineAvatar">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+			<view wx:else class="bg-img" bindtap="ViewImage">
+				<image src="{{examineAvatar}}" mode='aspectFill'></image>
+			</view>
+		</view>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">审批人姓名:</view>
+        <input value='{{examineName}}' name="examineName" placeholder="请输入审批人姓名"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">抄送人头像:</view>
+        <view class="grid col-4 grid-square flex-sub">
+            <view  wx:if="{{!copyAvatar}}" class="solids" bindtap="chooseCopyAvatar">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+			<view wx:else class="bg-img" bindtap="ViewImage">
+				<image src="{{copyAvatar}}" mode='aspectFill'></image>
+			</view>
+		</view>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">抄送人姓名:</view>
+        <input value='{{copyName}}' name="copyName" placeholder="请输入抄送人姓名"></input>
+    </view>
+    <view class="padding flex flex-direction bg-white margin-top">
+        <button form-type="submit" class="cu-btn bg-green lg shadow">获取请假条</button>
+    </view>
+</form>

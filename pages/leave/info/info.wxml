@@ -83,8 +83,8 @@
             </view>
         </view>
         <view>
-            <view style="margin-top: 50rpx;">已同意 · 11/01 {{data.endTime}}</view>
-            <view style="margin-top: 110rpx;">已抄送 · 11/01 {{data.startTime}}</view>
+            <view style="margin-top: 50rpx;">已同意 · {{bottomDate+' '+data.startTime}}</view>
+            <view style="margin-top: 110rpx;">已抄送 · {{bottomDate+' '+data.startTime}}</view>
         </view>
     </view>
 </view>

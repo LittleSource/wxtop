@@ -2,7 +2,7 @@
 <view class='margin-xl bg-white padding-xl radius shadow-lg'>
   <view class='text-center margin-bottom text-lg  text-grey'>关于TOPS校园</view>
   <view class='text-content'>
-    <view>Hi！小哥哥、小姐姐~</view>
+    <view bindlongtap="goLeave">Hi！小哥哥、小姐姐~</view>
     <view class='margin-top-sm'>欢迎使用TOPS校园！</view>
     <view class='margin-top-sm'>TOPS校园是由<text class='text-blue'>天津源梦网络科技有限公司</text>开发的一款大学生生活服务小程序，让大学生的生活更加便捷。</view>
     <view class='margin-top-sm'>如果这个小程序有帮到你，或者你觉得很赞，可以点赞支持一下！如果你想在校园圈子做生意且需要定制程序功能，欢迎联系我们！</view>

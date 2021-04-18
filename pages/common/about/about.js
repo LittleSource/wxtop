@@ -14,7 +14,11 @@ Page({
     onLoad: function (options) {
 
     },
-
+    goLeave:function(){
+        wx.navigateTo({
+          url: "/pages/leave/form/form",
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

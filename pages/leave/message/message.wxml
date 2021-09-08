@@ -1,0 +1,26 @@
+
+	<view class="approval">
+		<view class="approvalContext">
+			<view class="approvaledTime">
+				{{ todayDate }}
+			</view>
+			<view class="context">
+				<view class="con-title">
+					你的学生离校请假申请已通过
+				</view>
+				<view class="con-detail">
+					请假类型: 事假
+				</view>
+				<view class="con-detail">
+					开始时间: {{ startTime }}
+				</view>
+				<view class="con-detail">
+					结束时间: {{ endTime }}
+				</view>
+			</view>
+		</view>
+		<view class="allAgreed" bindtap="agreed">
+			全部同意(0)
+		</view>
+	</view>
+

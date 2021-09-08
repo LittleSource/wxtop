@@ -1,65 +1,68 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/manage/index/index",
-        "pages/expressage/index/index",
-        "pages/expressage/placeorder/placeorder",
-        "pages/expressage/inquireorder/inquireorder",
-        "pages/confession/index/index",
-        "pages/confession/detail/detail",
-        "pages/mine/index/index",
-        "pages/common/login/login",
-        "pages/market/index/index",
-        "pages/common/about/about",
-        "pages/market/detail/detail",
-        "pages/market/checkstand/checkstand",
-        "pages/manage/expressage/expressage",
-        "pages/common/payresult/payresult",
-        "pages/common/consociation/consociation",
-        "pages/manage/moneyrecord/moneyrecord",
-        "pages/guide/index/index",
-        "pages/guide/map/map",
-        "pages/guide/introduced/introduced",
-        "pages/guide/entrance/entrance",
-        "pages/guide/environmental/environmental",
-        "pages/common/getphone/getphone",
-        "pages/guide/busline/busline",
-        "pages/guide/threed/threed",
-        "pages/mine/order/order",
-        "pages/leave/form/form",
-        "pages/leave/info/info"
-    ],
-    "usingComponents": {
-        "show-model": "/components/show-model/show-model",
-        "show-dialog": "/components/show-dialog/show-dialog",
-        "page-info": "/components/page-info/page-info"
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "你的位置信息将用于定位您所在的学校"
-        }
-    },
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "TOPS校园",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "images/tabbar/basics.png",
-                "selectedIconPath": "images/tabbar/basics_cur.png"
-            },
-            {
-                "pagePath": "pages/mine/index/index",
-                "text": "我的",
-                "iconPath": "images/tabbar/plugin.png",
-                "selectedIconPath": "images/tabbar/plugin_cur.png"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    
+    "pages/index/index",
+    "pages/manage/index/index",
+    "pages/expressage/index/index",
+    "pages/expressage/placeorder/placeorder",
+    "pages/expressage/inquireorder/inquireorder",
+    "pages/confession/index/index",
+    "pages/confession/detail/detail",
+    "pages/mine/index/index",
+    "pages/common/login/login",
+    "pages/market/index/index",
+    "pages/common/about/about",
+    "pages/market/detail/detail",
+    "pages/market/checkstand/checkstand",
+    "pages/manage/expressage/expressage",
+    "pages/common/payresult/payresult",
+    "pages/common/consociation/consociation",
+    "pages/manage/moneyrecord/moneyrecord",
+    "pages/guide/index/index",
+    "pages/guide/map/map",
+    "pages/guide/introduced/introduced",
+    "pages/guide/entrance/entrance",
+    "pages/guide/environmental/environmental",
+    "pages/common/getphone/getphone",
+    "pages/guide/busline/busline",
+    "pages/guide/threed/threed",
+    "pages/mine/order/order",
+    "pages/leave/form/form",
+    "pages/leave/info/info",
+    "pages/leave/message/message"
+    
+  ],
+  "usingComponents": {
+    "show-model": "/components/show-model/show-model",
+    "show-dialog": "/components/show-dialog/show-dialog",
+    "page-info": "/components/page-info/page-info"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位您所在的学校"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "TOPS校园",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/basics.png",
+        "selectedIconPath": "images/tabbar/basics_cur.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "images/tabbar/plugin.png",
+        "selectedIconPath": "images/tabbar/plugin_cur.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

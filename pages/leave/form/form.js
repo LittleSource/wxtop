@@ -115,7 +115,7 @@ Page({
         })
         if(pass){
             wx.navigateTo({
-                url: '/pages/leave/info/info',
+                url: '/pages/leave/message/message',
                 success: function (res) {
                     console.log(res)
                     res.eventChannel.emit('info', data)

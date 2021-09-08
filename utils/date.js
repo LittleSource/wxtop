@@ -23,8 +23,12 @@ module.exports = {
         second = second < 10 ? ('0' + second) : second;
         if (returnType == 'str') {
             return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+        } else if(returnType == 'formstr') {
+            return y + '/' + m + '/' + d + ' ' + h + ':' + minute + ':' + second;
+        } else {
+            return [y, m, d, h, minute, second];
         }
-        return [y, m, d, h, minute, second];
+        
     },
 
     // 日期转时间戳

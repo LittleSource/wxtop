@@ -93,6 +93,6 @@
     <view class="cuIcon-square button"> 添加备注</view>
 </view>
 <view style="height:90rpx;"></view>
-<view class="bottom">
-    <text class="cuIcon-loading"> 再次提交</text>
+<view class="bottom" >
+    <text class="cuIcon-loading" > 再次提交</text>
 </view>

@@ -61,7 +61,7 @@
 }
 
 .zfbqr{
-    background-image: url('https://cdn.ymkj8.com/topschool/IMG_20201101_210819.jpg');
+    background-image: url('https://cdn.52ym.vip/topschool/IMG_20201101_210819.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 550rpx;
@@ -72,7 +72,7 @@
 .left-icon{
     width: 50rpx;
     height: 220rpx;
-    background-image: url('https://cdn.ymkj8.com/left-icon.png');
+    background-image: url('https://cdn.52ym.vip/left-icon.png');
     background-repeat: no-repeat;
     background-size: cover;
 }

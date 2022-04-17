@@ -3,7 +3,7 @@
     <view class="UCenter-bg">
         <view class="cu-list menu-avatar" bindtap='goUserSetting'>
             <view class="cu-item" style='margin-top:{{StatusBar+30}}px'>
-                <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://cdn.ymkj8.com/topschool/common/notLoginAvatar.png'}});"></view>
+                <view class="cu-avatar round xl" style="background-image:url({{userInfo ? userInfo.avatarUrl:'https://cdn.52ym.vip/topschool/common/notLoginAvatar.png'}});"></view>
                 <view class="content">
                     <view class="text-white">{{userInfo ? userInfo.nickName : '点此登录'}}</view>
                     <view class="text-white flex">
@@ -41,7 +41,7 @@
         </view>
     </view>
     <view class="cu-list menu card-menu" bindtap="goConsociation">
-        <image src='https://cdn.ymkj8.com/topschool/common/mine-banana.png' class='top-img'></image>
+        <image src='https://cdn.52ym.vip/topschool/common/mine-banana.png' class='top-img'></image>
     </view>
     <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
         <view class="cu-item arrow" bindtap="tempfun">

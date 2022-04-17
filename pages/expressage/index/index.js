@@ -8,16 +8,16 @@ Page({
     data: {
         swiperList: [{
             id: 0,
-            url: 'https://cdn.ymkj8.com/topschool/expressage/swiper1.png'
+            url: 'https://cdn.52ym.vip/topschool/expressage/swiper1.png'
         }, {
             id: 1,
-            url: 'https://cdn.ymkj8.com/topschool/expressage/swiper4.png',
+            url: 'https://cdn.52ym.vip/topschool/expressage/swiper4.png',
         }, {
             id: 2,
-            url: 'https://cdn.ymkj8.com/topschool/expressage/swiper2.png'
+            url: 'https://cdn.52ym.vip/topschool/expressage/swiper2.png'
         }, {
             id: 3,
-            url: 'https://cdn.ymkj8.com/topschool/expressage/swiper3.png'
+            url: 'https://cdn.52ym.vip/topschool/expressage/swiper3.png'
         }]
     },
 

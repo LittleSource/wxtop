@@ -1,6 +1,6 @@
 /* pages/mine/index/index.wxss */
 .UCenter-bg {
-  background-image: url(https://cdn.ymkj8.com/topschool/common/user-bg.jpg);
+  background-image: url(https://cdn.52ym.vip/topschool/common/user-bg.jpg);
   background-size: cover;
   height: 380rpx;
   color: #fff;

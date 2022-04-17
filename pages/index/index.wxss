@@ -11,6 +11,6 @@ page{
 .footer{
     width:100%;
     margin-top:-1rpx;
-    background-image: url(https://cdn.ymkj8.com/topschool/common/footer.jpg);
+    background-image: url(https://cdn.52ym.vip/topschool/common/footer.jpg);
     background-size:100% 100%;
 }
